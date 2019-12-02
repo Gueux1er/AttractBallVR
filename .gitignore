@@ -93,3 +93,5 @@ Projet FMOD/FMOD .restore
 ProjectSettings/ProjectVersion.txt
 .idea/
 Assembly-CSharp.csproj.DotSettings
+Assets/Plugins.meta
+Assets/Plugins/Editor.meta
