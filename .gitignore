@@ -70,3 +70,26 @@ crashlytics-build.properties
 /Assets/FMODStudioCache.asset.meta
 fmod.log
 fmod_editor.log
+
+#FMOD AND SOUNDS
+*.wav
+*.wav.meta
+*.psd
+*.db
+*.cache
+*.psd.meta
+
+log-filter.txt
+logcat-filter.txt
+
+# FMOD studio (In folder FMOD)
+Projet FMOD/FMOD .user
+Projet FMOD/FMOD .unsaved
+Projet FMOD/FMOD .cache
+Projet FMOD/FMOD .restore
+*.reapeaks
+
+#Other
+ProjectSettings/ProjectVersion.txt
+.idea/
+Assembly-CSharp.csproj.DotSettings
