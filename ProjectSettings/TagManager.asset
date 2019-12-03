@@ -9,6 +9,7 @@ TagManager:
   - Water
   - XPCE14_Hand
   - Despawner
+  - Movable
   layers:
   - Default
   - TransparentFX
