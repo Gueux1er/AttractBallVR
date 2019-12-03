@@ -1,12 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Valve.VR;
 
 public class SpawnerManager : MonoBehaviour
 {
-    public SteamVR_Input_Sources hand;
-    public SteamVR_Action_Boolean spawnButton;
+
 
     [Header("Spawner")]
     public GameObject prefabToSpawn;
@@ -26,9 +24,6 @@ public class SpawnerManager : MonoBehaviour
 
     void Start()
     {
-        spawnButton.AddOnStateDownListener(Spawn, hand);
-        spawnButton.AddOnStateUpListener(Unspawn, hand);
-
         for (int i = 0; i < prefabContainer.transform.childCount; i++)
         {
             poolList.Add(prefabContainer.transform.GetChild(i).gameObject);
@@ -37,7 +32,6 @@ public class SpawnerManager : MonoBehaviour
         int ch = prefabContainer.transform.childCount;
         for (int i = 0; i < poolMax - ch; i++)
         {
-            Debug.Log(i);
             GameObject go = Instantiate(prefabToSpawn, transform.position, Quaternion.identity, poolContainer);
             go.SetActive(false);
             poolList.Add(go);
@@ -46,6 +40,17 @@ public class SpawnerManager : MonoBehaviour
 
     void Update()
     {
+        if (OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) == 1 && spawn != false)
+        {
+            spawn = true;
+        }
+        if (OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) == 0 && spawn == true)
+        {
+            spawn = false;
+            tmpDelay = 0;
+        }
+
+
         if (spawn || Input.GetKey(KeyCode.P))
         {
             tmpDelay += Time.deltaTime;
@@ -54,18 +59,7 @@ public class SpawnerManager : MonoBehaviour
                 tmpDelay = 0f;
                 SpawnPrefab();
             }
-        }
-    }
-
-    private void Spawn(SteamVR_Action_Boolean fromInput, SteamVR_Input_Sources fromSource)
-    {
-        spawn = true;
-    }
-
-    private void Unspawn(SteamVR_Action_Boolean fromInput, SteamVR_Input_Sources fromSource)
-    {
-        spawn = false;
-        tmpDelay = 0;
+        }   
     }
 
     private void SpawnPrefab()
