@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 8129656346049694280}
   - component: {fileID: 8129656346049694284}
   - component: {fileID: 5941813190772946670}
+  - component: {fileID: 7732708519399075695}
   m_Layer: 9
-  m_Name: movable
-  m_TagString: Untagged
+  m_Name: 0 _movable_original
+  m_TagString: Movable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,3 +126,15 @@ MonoBehaviour:
   endColor: {r: 0, g: 0.8666667, b: 1, a: 0}
   maxSpeed: 5
   colorIndex: _EmissionColor
+--- !u!114 &7732708519399075695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8129656346049694281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55e60c87d052a2b4ca98957ce1f5f8d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
