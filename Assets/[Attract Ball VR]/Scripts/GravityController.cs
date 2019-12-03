@@ -65,6 +65,7 @@ public class GravityController : MonoBehaviour
         if (typeRangeReverseGravity == eTypeRangeReverseGravity.everything)
         {
             baseGravity = -baseGravity;
+            Physics.gravity = baseGravity;
         }
         // By range
         else if (typeRangeReverseGravity == eTypeRangeReverseGravity.range)
