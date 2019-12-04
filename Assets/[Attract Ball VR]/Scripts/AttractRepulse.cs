@@ -1,7 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Valve.VR;
 
 public class AttractRepulse : MonoBehaviour
 {
@@ -10,8 +10,13 @@ public class AttractRepulse : MonoBehaviour
         Translation, Force
     }
 
+    public enum ToolType
+    {
+        Attract, Repulse
+    }
+
     [Header("Gameplay parameters")]
-    public ActionType actionType = ActionType.Translation;
+    public ActionType forceType = ActionType.Translation;
     public float attractRadius = 5.0f;
     public float attractionForce = 5.0f;
     public float attractionSpeed = 1.0f;
@@ -21,83 +26,106 @@ public class AttractRepulse : MonoBehaviour
 
     [Header("Input parameters")]
 
-    public Transform[] attractPoints;
-    public Transform[] repulsePoints;
+    public Transform leftHand;
+    public ToolType leftTool = ToolType.Attract;
+    public Transform rightHand;
+    public ToolType rightTool = ToolType.Repulse;
 
-    public SteamVR_Action_Single attractInput;
-    public SteamVR_Action_Single repulseInput;
-    public SteamVR_Action_Boolean reverseAttractInput;
-    public SteamVR_Action_Boolean reverseRepulseInput;
-    public SteamVR_Input_Sources attractHand;
-    public SteamVR_Input_Sources repulseHand;
-    public SteamVR_Input_Sources globalHand;
 
     private void Start()
     {
-        attractInput.AddOnAxisListener(ActiveAttract, attractHand);
-        repulseInput.AddOnAxisListener(ActiveRepulse, repulseHand);
-        reverseAttractInput.AddOnStateDownListener(ReverseAttract, repulseHand);
-        reverseRepulseInput.AddOnStateDownListener(ReverseRepulse, attractHand); 
+
     }
 
-    private void ReverseAttract(SteamVR_Action_Boolean fromInput, SteamVR_Input_Sources fromSource)
+    private void Update()
+    {
+        
+        //if (OVRInput.GetDown(OVRInput.Button.One)) //A
+        //{
+        //    ReverseAttract();
+        //    ReverseRepulse();
+        //}
+        //if (OVRInput.GetDown(OVRInput.Button.Three)) //X
+        //{
+        //    ReverseAttract();
+        //    ReverseRepulse();
+        //}
+        
+
+        if (OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) != 0) //left
+        {
+            CheckType(leftTool, leftHand, OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger));
+        }
+        if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) != 0) //right
+        {
+            CheckType(rightTool, rightHand, OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger));
+        }
+    }
+
+    private void CheckType(ToolType tool, Transform hand, float axis)
+    {
+        switch (tool)
+        {
+            case ToolType.Attract:
+
+                break;
+
+            case ToolType.Repulse:
+                break;
+        }
+    }
+
+    private void ReverseAttract()
     {
         attractionForce = -attractionForce;
     }
 
-    private void ReverseRepulse(SteamVR_Action_Boolean fromInput, SteamVR_Input_Sources fromSource)
+    private void ReverseRepulse()
     {
         repulsionForce = -repulsionForce;
     }
 
-    private void ActiveAttract (SteamVR_Action_Single fromInput, SteamVR_Input_Sources fromSource, float newAxis, float newDelta)
+    private void ActiveAttract (Transform tr, float axis)
     {
-        Debug.Log("Input Attract : " + newAxis);
-
         Rigidbody[] rbs;
-        for (int i = 0; i < repulsePoints.Length; ++i)
+
+        if (GetRigidbodiesInArea(tr.position, attractRadius, out rbs))
         {
-            if (GetRbsInArea(repulsePoints[i].position, attractRadius, out rbs))
+            switch (forceType)
             {
-                switch (actionType)
-                {
-                    case ActionType.Translation:
-                        AddTranslation(rbs, repulsionSpeed, repulsionRadius, repulsePoints[i].position);
-                        break;
+                case ActionType.Translation:
+                    AddTranslation(rbs, attractionSpeed, attractRadius, tr.position);
+                    break;
 
 
-                    case ActionType.Force:
-                        AddExplosionForce(rbs, repulsionForce * newAxis, repulsionRadius, repulsePoints[i].position); 
-                        break;
-                }
+                case ActionType.Force:
+                    AddExplosionForce(rbs, attractionForce * axis, attractRadius, tr.position); 
+                    break;
             }
-
         }
     }
 
-    private void ActiveRepulse (SteamVR_Action_Single fromInput, SteamVR_Input_Sources fromSource, float newAxis, float newDelta)
+    private void ActiveRepulse (Transform tr, float axis)
     {
-        Debug.Log("Input repulse : " + newAxis);
 
         Rigidbody[] rbs;
-        for (int i = 0; i < attractPoints.Length; ++i)
+
+        if (GetRigidbodiesInArea(tr.position, attractRadius, out rbs))
         {
-            if (GetRbsInArea(attractPoints[i].position, attractRadius, out rbs))
+            switch (forceType)
             {
-                switch (actionType)
-                {
-                    case ActionType.Translation:
-                        AddTranslation(rbs, attractionSpeed, attractRadius, attractPoints[i].position);
-                        break;
+                case ActionType.Translation:
+                    AddTranslation(rbs, repulsionSpeed, repulsionRadius, tr.position);
+                    break;
 
 
-                    case ActionType.Force:
-                        AddExplosionForce(rbs, attractionForce * newAxis, attractRadius, attractPoints[i].position);
-                        break;
-                }
+                case ActionType.Force:
+                    AddExplosionForce(rbs, repulsionForce * axis, repulsionRadius, tr.position);
+                    break;
             }
-
         }
+
+        
     }
 
     private void AddExplosionForce(Rigidbody[] input, float value, float radius, Vector3 center)
@@ -121,12 +149,11 @@ public class AttractRepulse : MonoBehaviour
         }
     }
 
-    private bool GetRbsInArea(Vector3 position, float radius, out Rigidbody[] result)
+    private bool GetRigidbodiesInArea(Vector3 position, float radius, out Rigidbody[] result)
     {
         int layerId = LayerMask.NameToLayer("Movable");
         int layerMask = 1 << layerId;
         Collider[] cols = Physics.OverlapSphere(position, radius, layerMask);
-        Debug.Log(cols.Length);
         result = new Rigidbody[0];
         if (cols.Length == 0.0f)
             return false;
@@ -135,7 +162,6 @@ public class AttractRepulse : MonoBehaviour
         {
             result[i] = cols[i].attachedRigidbody;
         }
-        Debug.Log(result.Length);
         return true;
     }
 }
