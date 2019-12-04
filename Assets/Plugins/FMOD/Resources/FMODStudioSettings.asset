@@ -15,7 +15,7 @@ MonoBehaviour:
   SwitchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: Projet FMOD\FMOD\FMOD_AttractBallVR.fspro
+  sourceProjectPath: Projet FMOD/FMOD/FMOD_AttractBallVR.fspro
   sourceBankPath: Projet FMOD\FMOD\Build
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
@@ -75,7 +75,8 @@ MonoBehaviour:
     Value: 32
   - Platform: 20
     Value: 32
-  Plugins: []
+  Plugins:
+  - resonanceaudio
   MasterBanks:
   - Master
   Banks: []

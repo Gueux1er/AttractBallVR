@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{63c289bd-23cc-48c1-adc2-d670510147d6}">
+		<property name="assetPath">
+			<value>Production Element Title Transition Bell Hit 08.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.961125</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a52f48bf-a2ec-457d-b586-cd28d1c8172b}</destination>
+		</relationship>
+	</object>
+</objects>
