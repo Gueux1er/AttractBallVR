@@ -2,27 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AttractRepulse : MonoBehaviour
 {
-    public enum ActionType
-    {
-        Translation, Force
-    }
+
 
     public enum ToolType
     {
         Attract, Repulse
     }
-
-    [Header("Gameplay parameters")]
-    public ActionType forceType = ActionType.Translation;
-    public float attractRadius = 5.0f;
-    public float attractionForce = 5.0f;
-    public float attractionSpeed = 1.0f;
-    public float repulsionRadius = 5.0f;
-    public float repulsionForce = 5.0f;
-    public float repulsionSpeed = 1.0f;
 
     [Header("Input parameters")]
 
@@ -32,31 +21,55 @@ public class AttractRepulse : MonoBehaviour
     public ToolType rightTool = ToolType.Repulse;
 
 
+    private ParameterManager.ActionType forceType;
+    private float handRadius = 8f;
+
+    private float attractionForce = -10f;
+    private float attractionSpeed = 1.0f;
+
+    private float repulsionForce = 8f;
+    private float repulsionSpeed = 1.0f;
+
+
     private void Start()
     {
+        forceType = ParameterManager.Instance.forceType;
+        handRadius = ParameterManager.Instance.handRadius;
 
+        attractionForce = ParameterManager.Instance.attractionForce;
+        attractionSpeed = ParameterManager.Instance.attractionSpeed;
+
+        repulsionForce = ParameterManager.Instance.repulsionForce;
+        repulsionSpeed = ParameterManager.Instance.repulsionSpeed;
     }
 
     private void Update()
     {
         
-        //if (OVRInput.GetDown(OVRInput.Button.One)) //A
-        //{
-        //    ReverseAttract();
-        //    ReverseRepulse();
-        //}
-        //if (OVRInput.GetDown(OVRInput.Button.Three)) //X
-        //{
-        //    ReverseAttract();
-        //    ReverseRepulse();
-        //}
+
+
+        if (OVRInput.GetDown(OVRInput.Button.One)) //A
+        {
+            if (rightTool == ToolType.Attract)
+                rightTool = ToolType.Repulse;
+            else if (rightTool == ToolType.Repulse)
+                rightTool = ToolType.Attract;
+        }
+
+        if (OVRInput.GetDown(OVRInput.Button.Three)) //X
+        {
+            if(leftTool == ToolType.Attract)
+                leftTool = ToolType.Repulse;
+            else if (leftTool == ToolType.Repulse)
+                leftTool = ToolType.Attract;
+        }
         
 
-        if (OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) != 0) //left
+        if (OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) > 0.1f) //left
         {
             CheckType(leftTool, leftHand, OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger));
         }
-        if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) != 0) //right
+        if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) > 0.1f) //right
         {
             CheckType(rightTool, rightHand, OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger));
         }
@@ -67,10 +80,11 @@ public class AttractRepulse : MonoBehaviour
         switch (tool)
         {
             case ToolType.Attract:
-
+                ActiveAttract(hand, axis);
                 break;
 
             case ToolType.Repulse:
+                ActiveRepulse(hand, axis);
                 break;
         }
     }
@@ -89,17 +103,17 @@ public class AttractRepulse : MonoBehaviour
     {
         Rigidbody[] rbs;
 
-        if (GetRigidbodiesInArea(tr.position, attractRadius, out rbs))
+        if (GetRigidbodiesInArea(tr.position, handRadius, out rbs))
         {
             switch (forceType)
             {
-                case ActionType.Translation:
-                    AddTranslation(rbs, attractionSpeed, attractRadius, tr.position);
+                case ParameterManager.ActionType.Translation:
+                    AddTranslation(rbs, attractionSpeed, handRadius, tr.position);
                     break;
 
 
-                case ActionType.Force:
-                    AddExplosionForce(rbs, attractionForce * axis, attractRadius, tr.position); 
+                case ParameterManager.ActionType.Force:
+                    AddExplosionForce(rbs, attractionForce * axis, handRadius, tr.position); 
                     break;
             }
         }
@@ -110,17 +124,17 @@ public class AttractRepulse : MonoBehaviour
 
         Rigidbody[] rbs;
 
-        if (GetRigidbodiesInArea(tr.position, attractRadius, out rbs))
+        if (GetRigidbodiesInArea(tr.position, handRadius, out rbs))
         {
             switch (forceType)
             {
-                case ActionType.Translation:
-                    AddTranslation(rbs, repulsionSpeed, repulsionRadius, tr.position);
+                case ParameterManager.ActionType.Translation:
+                    AddTranslation(rbs, repulsionSpeed, handRadius, tr.position);
                     break;
 
 
-                case ActionType.Force:
-                    AddExplosionForce(rbs, repulsionForce * axis, repulsionRadius, tr.position);
+                case ParameterManager.ActionType.Force:
+                    AddExplosionForce(rbs, repulsionForce * axis, handRadius, tr.position);
                     break;
             }
         }

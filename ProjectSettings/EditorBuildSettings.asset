@@ -4,5 +4,46 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/[Attract Ball VR]/Scenes/Tests VR/SetParameters.unity
+    guid: 090a516b7fa500149b555eabf3a09434
+  - enabled: 1
+    path: "Assets/[Attract Ball VR]/Scenes/Tests VR/1 - Formes/Var 1 - Formes - Sph\xE8res.unity"
+    guid: dea6f54b380057d4db31ffb3dced788c
+  - enabled: 1
+    path: Assets/[Attract Ball VR]/Scenes/Tests VR/1 - Formes/Var 2 - Formes - Cubes.unity
+    guid: 293d12d20bb98ae4fb1b9285ae0005b5
+  - enabled: 1
+    path: Assets/[Attract Ball VR]/Scenes/Tests VR/1 - Formes/Var 3 - Formes - Cylinders.unity
+    guid: 19eabaf2532b7a045a1c10cd14992d67
+  - enabled: 1
+    path: Assets/[Attract Ball VR]/Scenes/Tests VR/1 - Formes/Var 4 - Formes - Torus.unity
+    guid: f73410690ed239944b3ec26fcecfc140
+  - enabled: 1
+    path: Assets/[Attract Ball VR]/Scenes/Tests VR/1 - Formes/Var 5 - Formes - Melange.unity
+    guid: 623b16b5f21e9f3428abd300ba0fe7ad
+  - enabled: 1
+    path: Assets/[Attract Ball VR]/Scenes/Tests VR/2 - Masse/Var 4 - Masse - Melange.unity
+    guid: 9bea05d8c9230504cb90ec0eef076a03
+  - enabled: 1
+    path: Assets/[Attract Ball VR]/Scenes/Tests VR/3 - Taille/Var 1 - Taille - (trop)
+      Grand.unity
+    guid: 68bd5499a185d28449a08753f32eaf77
+  - enabled: 1
+    path: Assets/[Attract Ball VR]/Scenes/Tests VR/3 - Taille/Var 2 - Taille - Grand.unity
+    guid: 31e6b73f9e0b5a84e9332cf6c07ea349
+  - enabled: 1
+    path: Assets/[Attract Ball VR]/Scenes/Tests VR/3 - Taille/Var 3 - Taille - Moyen.unity
+    guid: 1087c2f9ffdfca64b81568b0ebd6fdd9
+  - enabled: 1
+    path: Assets/[Attract Ball VR]/Scenes/Tests VR/3 - Taille/Var 4 - Taille - Petit.unity
+    guid: 48f1454e731d52a4985741046e9b540a
+  - enabled: 1
+    path: Assets/[Attract Ball VR]/Scenes/Tests VR/3 - Taille/Var 5 - Taille - (trop)
+      Petit.unity
+    guid: 780f87aafc57de74eb6d9966fe159678
+  - enabled: 1
+    path: Assets/[Attract Ball VR]/Scenes/Tests VR/3 - Taille/Var 6 - Taille - melange.unity
+    guid: 7dd2738fa6ba47c459351a55a5bf1bf5
   m_configObjects: {}
