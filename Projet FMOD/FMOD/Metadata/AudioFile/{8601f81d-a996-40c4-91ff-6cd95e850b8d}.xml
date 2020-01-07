@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{8601f81d-a996-40c4-91ff-6cd95e850b8d}">
+		<property name="assetPath">
+			<value>Festival03-94bpm.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>2.5531972789115644</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a52f48bf-a2ec-457d-b586-cd28d1c8172b}</destination>
+		</relationship>
+	</object>
+</objects>

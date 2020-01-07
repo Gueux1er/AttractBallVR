@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{64f8805d-824c-47ba-9819-306ba2fb51a2}">
+		<property name="assetPath">
+			<value>FstDrmBl01-97bpm.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>4.9276870748299322</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a52f48bf-a2ec-457d-b586-cd28d1c8172b}</destination>
+		</relationship>
+	</object>
+</objects>

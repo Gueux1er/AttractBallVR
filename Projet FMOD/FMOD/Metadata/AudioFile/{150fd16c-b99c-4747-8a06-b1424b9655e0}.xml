@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{150fd16c-b99c-4747-8a06-b1424b9655e0}">
+		<property name="assetPath">
+			<value>BREAK_Bright_stereo.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.32562358276643993</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a52f48bf-a2ec-457d-b586-cd28d1c8172b}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{0542554e-2e13-41a2-9a5a-69c07c390d4a}">
+		<property name="name">
+			<value>OnGravity</value>
+		</property>
+		<relationship name="folder">
+			<destination>{16f6969e-2649-4a2d-91b6-de4a3a9464a1}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{3215a308-bf5b-459e-acea-ab88cac1242d}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{3215a308-bf5b-459e-acea-ab88cac1242d}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
