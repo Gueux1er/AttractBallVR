@@ -7,19 +7,10 @@ public class ParameterManager : MonoBehaviour
 {
     public static ParameterManager Instance;
 
-    public enum ActionType
-    {
-        Translation, Force
-    }
-    [Header("Gameplay parameters")]
-    public ActionType forceType = ActionType.Translation;
-    public float handRadius = 8f;
+    public float handRadius = 0.8f;
 
-    public float attractionForce = -10f;
-    public float attractionSpeed = 1.0f;
-
-    public float repulsionForce = 8f;
-    public float repulsionSpeed = 1.0f;
+    public float attractionForce = -15f;
+    public float repulsionForce = 40f;
 
     void Awake()
     {
@@ -37,8 +28,8 @@ public class ParameterManager : MonoBehaviour
 
     void Update()
     {
-        if (OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick) || Input.GetKeyDown(KeyCode.S)) // suivant B
-        {
+        if (OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick) || Input.GetKeyDown(KeyCode.S)) //joystick droit
+        {            
             int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
             Debug.Log(SceneManager.sceneCount);
             if (SceneManager.sceneCountInBuildSettings > nextSceneIndex)
@@ -46,7 +37,7 @@ public class ParameterManager : MonoBehaviour
                 SceneManager.LoadScene(nextSceneIndex);
             }
         }
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick)) // precedent Y
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick)) //joystick gauche
         {
             int nextSceneIndex = SceneManager.GetActiveScene().buildIndex - 1;
             if (nextSceneIndex >= 0)

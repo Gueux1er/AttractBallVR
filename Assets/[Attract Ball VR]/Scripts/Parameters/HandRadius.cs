@@ -8,8 +8,8 @@ public class HandRadius : MonoBehaviour
 
     void Update()
     {
-        transform.position = follow.position;
         float f = ParameterManager.Instance.handRadius * 2;
+        transform.position = follow.position + (follow.forward * ParameterManager.Instance.handRadius);
         transform.localScale = new Vector3(f,f,f);
     }
 }

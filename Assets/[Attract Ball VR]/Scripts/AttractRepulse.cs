@@ -20,34 +20,22 @@ public class AttractRepulse : MonoBehaviour
     public Transform rightHand;
     public ToolType rightTool = ToolType.Repulse;
 
-
-    private ParameterManager.ActionType forceType;
-    private float handRadius = 8f;
-
-    private float attractionForce = -10f;
-    private float attractionSpeed = 1.0f;
-
-    private float repulsionForce = 8f;
-    private float repulsionSpeed = 1.0f;
+    [HideInInspector] public float handRadius = 0.8f;
+    [HideInInspector] public float attractionForce = -14f;
+    [HideInInspector] public float repulsionForce = 40f;
 
 
-    private void Start()
+
+    private void Awake()
     {
-        forceType = ParameterManager.Instance.forceType;
         handRadius = ParameterManager.Instance.handRadius;
 
         attractionForce = ParameterManager.Instance.attractionForce;
-        attractionSpeed = ParameterManager.Instance.attractionSpeed;
-
-        repulsionForce = ParameterManager.Instance.repulsionForce;
-        repulsionSpeed = ParameterManager.Instance.repulsionSpeed;
+        repulsionForce = ParameterManager.Instance.repulsionForce;    
     }
 
     private void Update()
     {
-        
-
-
         if (OVRInput.GetDown(OVRInput.Button.One)) //A
         {
             if (rightTool == ToolType.Attract)
@@ -58,64 +46,71 @@ public class AttractRepulse : MonoBehaviour
 
         if (OVRInput.GetDown(OVRInput.Button.Three)) //X
         {
-            if(leftTool == ToolType.Attract)
+            if (leftTool == ToolType.Attract)
                 leftTool = ToolType.Repulse;
             else if (leftTool == ToolType.Repulse)
                 leftTool = ToolType.Attract;
         }
-        
+
 
         if (OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) > 0.1f) //left
         {
-            CheckType(leftTool, leftHand, OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger));
+            if (leftTool == ToolType.Attract)
+            {
+                HandPoseManager.Instance.LeftAttract(true);
+                ActiveAttract(leftHand, OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger));
+            }
+            if (leftTool == ToolType.Repulse)
+            {
+                HandPoseManager.Instance.LeftRepulse(true);
+                ActiveRepulse(leftHand, OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger));
+            }
         }
+        else
+        {
+            HandPoseManager.Instance.LeftAttract(false);
+            HandPoseManager.Instance.LeftRepulse(false);
+        }
+
         if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) > 0.1f) //right
         {
-            CheckType(rightTool, rightHand, OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger));
+            if (rightTool == ToolType.Attract)
+            {
+                HandPoseManager.Instance.RightAttract(true);
+                ActiveAttract(rightHand, OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger));
+            }
+            if (rightTool == ToolType.Repulse)
+            {
+                HandPoseManager.Instance.RightRepulse(true);
+                ActiveRepulse(rightHand, OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger));
+            }
         }
-    }
-
-    private void CheckType(ToolType tool, Transform hand, float axis)
-    {
-        switch (tool)
+        else
         {
-            case ToolType.Attract:
-                ActiveAttract(hand, axis);
-                break;
-
-            case ToolType.Repulse:
-                ActiveRepulse(hand, axis);
-                break;
+            HandPoseManager.Instance.RightAttract(false);
+            HandPoseManager.Instance.RightRepulse(false);
         }
-    }
 
-    private void ReverseAttract()
-    {
-        attractionForce = -attractionForce;
-    }
 
-    private void ReverseRepulse()
-    {
-        repulsionForce = -repulsionForce;
+        if (rightTool == ToolType.Attract)
+        {
+            rightHand.gameObject.GetComponentInChildren<CenterTrailParticle>().speed = OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) * 2000;
+        }
+        if (leftTool == ToolType.Attract)
+        {
+            leftHand.gameObject.GetComponentInChildren<CenterTrailParticle>().speed = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) * 2000;
+        }
+
     }
 
     private void ActiveAttract (Transform tr, float axis)
     {
         Rigidbody[] rbs;
-
-        if (GetRigidbodiesInArea(tr.position, handRadius, out rbs))
+       
+        Vector3 center = tr.position + (tr.forward * handRadius);
+        if (GetRigidbodiesInArea(center, handRadius, out rbs))
         {
-            switch (forceType)
-            {
-                case ParameterManager.ActionType.Translation:
-                    AddTranslation(rbs, attractionSpeed, handRadius, tr.position);
-                    break;
-
-
-                case ParameterManager.ActionType.Force:
-                    AddExplosionForce(rbs, attractionForce * axis, handRadius, tr.position); 
-                    break;
-            }
+            AddExplosionForce(rbs, attractionForce * axis, handRadius, center); 
         }
     }
 
@@ -124,22 +119,11 @@ public class AttractRepulse : MonoBehaviour
 
         Rigidbody[] rbs;
 
-        if (GetRigidbodiesInArea(tr.position, handRadius, out rbs))
+        Vector3 center = tr.position + (tr.forward * handRadius);
+        if (GetRigidbodiesInArea(center, handRadius, out rbs))
         {
-            switch (forceType)
-            {
-                case ParameterManager.ActionType.Translation:
-                    AddTranslation(rbs, repulsionSpeed, handRadius, tr.position);
-                    break;
-
-
-                case ParameterManager.ActionType.Force:
-                    AddExplosionForce(rbs, repulsionForce * axis, handRadius, tr.position);
-                    break;
-            }
-        }
-
-        
+            AddExplosionForce(rbs, repulsionForce * axis, handRadius, center);
+        }      
     }
 
     private void AddExplosionForce(Rigidbody[] input, float value, float radius, Vector3 center)
@@ -149,17 +133,6 @@ public class AttractRepulse : MonoBehaviour
         foreach (Rigidbody rb in input)
         {
             rb.AddExplosionForce(value, center, radius);
-        }
-    }
-
-    private void AddTranslation(Rigidbody[] input, float value, float radius, Vector3 center)
-    {
-        if (input.Length == 0.0f)
-            return;
-        foreach(Rigidbody rb in input)
-        {
-            Vector3 dir = rb.transform.position - center;
-            rb.transform.Translate(dir.normalized * value * Time.deltaTime); 
         }
     }
 
