@@ -175,8 +175,8 @@
 	<object class="MixerBusEffectChain" id="{b70908ef-416f-4725-b159-a242436f4d9b}">
 		<relationship name="effects">
 			<destination>{70c052ee-86bf-40c0-a240-c59a809536c6}</destination>
-			<destination>{49c3698d-ad5c-43e9-91ab-081629dd07b9}</destination>
 			<destination>{f231ab36-3c9d-43df-ad5f-a75e8a78b3ab}</destination>
+			<destination>{49c3698d-ad5c-43e9-91ab-081629dd07b9}</destination>
 			<destination>{35cf47cf-d2a3-4735-972e-eb2f0d56af34}</destination>
 		</relationship>
 	</object>
@@ -195,18 +195,21 @@
 	</object>
 	<object class="MixerBusPanner" id="{edb815af-0e1a-450e-9bd7-3426cf1cb713}" />
 	<object class="MixerBusFader" id="{70c052ee-86bf-40c0-a240-c59a809536c6}" />
-	<object class="PluginEffect" id="{49c3698d-ad5c-43e9-91ab-081629dd07b9}">
-		<relationship name="plugin">
-			<destination>{59e444eb-318e-4c3c-ad4e-995c33aa3e0d}</destination>
-		</relationship>
-	</object>
 	<object class="ThreeEQEffect" id="{f231ab36-3c9d-43df-ad5f-a75e8a78b3ab}">
+		<property name="lowGain">
+			<value>-15</value>
+		</property>
 		<property name="midGain">
-			<value>-40</value>
+			<value>-80</value>
 		</property>
 		<property name="highGain">
 			<value>-80</value>
 		</property>
+	</object>
+	<object class="PluginEffect" id="{49c3698d-ad5c-43e9-91ab-081629dd07b9}">
+		<relationship name="plugin">
+			<destination>{59e444eb-318e-4c3c-ad4e-995c33aa3e0d}</destination>
+		</relationship>
 	</object>
 	<object class="MultibandEqEffect" id="{35cf47cf-d2a3-4735-972e-eb2f0d56af34}">
 		<property name="frequencyA">

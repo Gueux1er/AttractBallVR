@@ -333,8 +333,14 @@
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{3f6f8394-b8b0-43e4-a208-e512f11d6bb2}">
+		<property name="isAsync">
+			<value>true</value>
+		</property>
 		<property name="length">
 			<value>90.111999999999995</value>
+		</property>
+		<property name="volume">
+			<value>10</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{83fd8f27-d0a6-424f-bc8a-22badfadbb12}</destination>
@@ -468,6 +474,7 @@
 	<object class="MixerBusEffectChain" id="{ecc7acf6-bd0d-4528-ac24-38eaad0e9ad9}">
 		<relationship name="effects">
 			<destination>{0c1d4e7d-d40f-4b2d-bb5b-dd6ac1edd501}</destination>
+			<destination>{a46f8281-78c2-4ae6-99f7-c2b3b4c5e9b1}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{2e8d09da-9d2b-4bac-9fbb-8108193b3203}" />
@@ -529,6 +536,11 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{0c1d4e7d-d40f-4b2d-bb5b-dd6ac1edd501}" />
+	<object class="GainEffect" id="{a46f8281-78c2-4ae6-99f7-c2b3b4c5e9b1}">
+		<property name="gain">
+			<value>5.5</value>
+		</property>
+	</object>
 	<object class="AutomationPoint" id="{d2fb5f4f-bbd6-4ef0-b5d4-225696b5a6fd}">
 		<property name="position">
 			<value>0</value>
