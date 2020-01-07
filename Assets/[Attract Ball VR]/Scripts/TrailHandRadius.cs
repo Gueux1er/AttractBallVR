@@ -8,15 +8,15 @@ public class TrailHandRadius : MonoBehaviour
     public GameObject centerParticleTrail;
     void Start()
     {
-        float handRadius = GetComponent<AttractRepulse>().handRadius;
+        float distanceCenterAttraction = GetComponent<AttractRepulse>().distanceCenterAttraction;
         Transform leftHand = GetComponent<AttractRepulse>().leftHand;
         Transform rightHand = GetComponent<AttractRepulse>().rightHand;
 
-        Instantiate(particleTrail, leftHand.position + (leftHand.forward * handRadius), Quaternion.identity, leftHand);
-        Instantiate(particleTrail, rightHand.position + (rightHand.forward * handRadius), Quaternion.identity, rightHand);
+        Instantiate(particleTrail, leftHand.position + (leftHand.forward * distanceCenterAttraction), Quaternion.identity, leftHand);
+        Instantiate(particleTrail, rightHand.position + (rightHand.forward * distanceCenterAttraction), Quaternion.identity, rightHand);
 
-        Instantiate(centerParticleTrail, leftHand.position + (leftHand.forward * handRadius), Quaternion.identity, leftHand);
-        Instantiate(centerParticleTrail, rightHand.position + (rightHand.forward * handRadius), Quaternion.identity, rightHand);
+        Instantiate(centerParticleTrail, leftHand.position + (leftHand.forward * distanceCenterAttraction), Quaternion.identity, leftHand);
+        Instantiate(centerParticleTrail, rightHand.position + (rightHand.forward * distanceCenterAttraction), Quaternion.identity, rightHand);
     }
 
     void Update()
