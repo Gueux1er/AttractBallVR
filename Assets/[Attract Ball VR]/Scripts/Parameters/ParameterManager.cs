@@ -8,7 +8,7 @@ public class ParameterManager : MonoBehaviour
     public static ParameterManager Instance;
 
     public float handRadius = 0.8f;
-
+    public float distanceCenterAttraction = 0.8f;
     public float attractionForce = -15f;
     public float repulsionForce = 40f;
 

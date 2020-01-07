@@ -21,15 +21,14 @@ public class AttractRepulse : MonoBehaviour
     public ToolType rightTool = ToolType.Repulse;
 
     [HideInInspector] public float handRadius = 0.8f;
+    [HideInInspector] public float distanceCenterAttraction = 0.8f;
     [HideInInspector] public float attractionForce = -14f;
     [HideInInspector] public float repulsionForce = 40f;
-
-
 
     private void Awake()
     {
         handRadius = ParameterManager.Instance.handRadius;
-
+        distanceCenterAttraction = ParameterManager.Instance.distanceCenterAttraction;
         attractionForce = ParameterManager.Instance.attractionForce;
         repulsionForce = ParameterManager.Instance.repulsionForce;    
     }
@@ -107,7 +106,7 @@ public class AttractRepulse : MonoBehaviour
     {
         Rigidbody[] rbs;
        
-        Vector3 center = tr.position + (tr.forward * handRadius);
+        Vector3 center = tr.position + (tr.forward * distanceCenterAttraction);
         if (GetRigidbodiesInArea(center, handRadius, out rbs))
         {
             AddExplosionForce(rbs, attractionForce * axis, handRadius, center); 
@@ -119,7 +118,7 @@ public class AttractRepulse : MonoBehaviour
 
         Rigidbody[] rbs;
 
-        Vector3 center = tr.position + (tr.forward * handRadius);
+        Vector3 center = tr.position + (tr.forward * distanceCenterAttraction);
         if (GetRigidbodiesInArea(center, handRadius, out rbs))
         {
             AddExplosionForce(rbs, repulsionForce * axis, handRadius, center);
