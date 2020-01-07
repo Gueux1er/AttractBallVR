@@ -90,7 +90,6 @@ Projet FMOD/FMOD .restore
 *.reapeaks
 
 #Other
-ProjectSettings/ProjectVersion.txt
 .idea/
 Assembly-CSharp.csproj.DotSettings
 Assets/Plugins.meta
