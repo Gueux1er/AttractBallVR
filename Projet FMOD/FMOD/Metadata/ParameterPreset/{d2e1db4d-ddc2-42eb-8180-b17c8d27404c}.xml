@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="ParameterPreset" id="{d2e1db4d-ddc2-42eb-8180-b17c8d27404c}">
 		<property name="name">
-			<value>Attract</value>
+			<value>AttractForce</value>
 		</property>
 		<relationship name="folder">
 			<destination>{16f6969e-2649-4a2d-91b6-de4a3a9464a1}</destination>

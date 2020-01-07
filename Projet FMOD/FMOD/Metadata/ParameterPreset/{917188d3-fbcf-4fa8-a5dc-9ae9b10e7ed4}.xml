@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{917188d3-fbcf-4fa8-a5dc-9ae9b10e7ed4}">
+		<property name="name">
+			<value>Rain</value>
+		</property>
+		<relationship name="folder">
+			<destination>{16f6969e-2649-4a2d-91b6-de4a3a9464a1}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{66d1c046-ad32-4372-9fec-7819c5d27db0}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{66d1c046-ad32-4372-9fec-7819c5d27db0}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

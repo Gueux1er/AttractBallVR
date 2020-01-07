@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="Event" id="{01e138e3-cc05-4b1f-88e2-39b821a3c027}">
 		<property name="name">
-			<value>HamsterAction</value>
+			<value>Hamster_Interaction</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
