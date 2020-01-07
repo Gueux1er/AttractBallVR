@@ -10,6 +10,7 @@ TagManager:
   - XPCE14_Hand
   - Despawner
   - Movable
+  - Step0
   layers:
   - Default
   - TransparentFX
