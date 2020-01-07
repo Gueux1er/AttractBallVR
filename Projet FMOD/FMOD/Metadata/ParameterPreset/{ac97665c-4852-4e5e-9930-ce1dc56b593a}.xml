@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{ac97665c-4852-4e5e-9930-ce1dc56b593a}">
+		<property name="name">
+			<value>Cave Cricket</value>
+		</property>
+		<relationship name="folder">
+			<destination>{16f6969e-2649-4a2d-91b6-de4a3a9464a1}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{f308a5f3-44d5-4481-bd93-72d038728ef7}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{f308a5f3-44d5-4481-bd93-72d038728ef7}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
