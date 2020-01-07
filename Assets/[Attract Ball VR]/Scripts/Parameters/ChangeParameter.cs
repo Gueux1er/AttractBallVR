@@ -22,7 +22,6 @@ public class ChangeParameter : MonoBehaviour
             ParameterManager.Instance.attractionForce -= 0.5f;
         }
 
-
         if (OVRInput.GetDown(OVRInput.Button.Two)) //increase replusion force B
         {
             ParameterManager.Instance.repulsionForce += 0.5f;
