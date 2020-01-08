@@ -2,10 +2,10 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="Event" id="{ff34b7b4-2927-478b-89fe-08508229f976}">
 		<property name="name">
-			<value>Ambient Cricket</value>
+			<value>AmbientCricket</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{dc09f3c1-5e19-45fa-a46f-ab44688a8828}</destination>
@@ -58,7 +58,11 @@
 			<destination>{3101b5d3-ebb6-4f7c-a7c4-da5543b8b105}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{ede7c0d5-f7d2-403b-a98d-ce4a674b3ab9}" />
+	<object class="EventAutomatableProperties" id="{ede7c0d5-f7d2-403b-a98d-ce4a674b3ab9}">
+		<property name="maxVoices">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{b8aca9bb-69fd-4877-8b2f-76624ee254df}" />
 	<object class="GroupTrack" id="{480812a3-f637-4c00-afb6-a2468c3492d8}">
 		<relationship name="modules">
@@ -213,7 +217,6 @@
 	<object class="MixerBusEffectChain" id="{0f711519-89f5-4a50-ae3b-8033a16fdcb3}">
 		<relationship name="effects">
 			<destination>{2a39a6db-ca67-468f-8e3e-37f9b9482b72}</destination>
-			<destination>{7c5b04d8-1a37-42d2-a549-0b89a65e1675}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{e7cf68df-dc74-4e90-9b75-d1b11324a603}" />
@@ -274,7 +277,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{0030d63e-e221-4ca0-a2b2-f878eb40b142}" />
 	<object class="MixerBusFader" id="{2a39a6db-ca67-468f-8e3e-37f9b9482b72}" />
-	<object class="SpatialiserEffect" id="{7c5b04d8-1a37-42d2-a549-0b89a65e1675}" />
 	<object class="AutomationPoint" id="{b2add115-cb50-4eca-a311-907fddff0edf}">
 		<property name="position">
 			<value>0</value>

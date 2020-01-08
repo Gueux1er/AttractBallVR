@@ -56,7 +56,11 @@
 			<destination>{3101b5d3-ebb6-4f7c-a7c4-da5543b8b105}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{76b9f053-9385-4d5a-a286-83d05ccfc651}" />
+	<object class="EventAutomatableProperties" id="{76b9f053-9385-4d5a-a286-83d05ccfc651}">
+		<property name="maxVoices">
+			<value>5</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{4235686e-f95b-40ee-aac7-fa24acc4b68d}" />
 	<object class="GroupTrack" id="{57f575cd-cf55-4f4d-85e8-6b8bc21708d0}">
 		<relationship name="modules">
@@ -275,7 +279,6 @@
 		<property name="name">
 			<value>3D Attributes</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-2</value>
 		</property>
@@ -311,7 +314,6 @@
 		<property name="name">
 			<value>Overall Gain</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-1</value>
 		</property>

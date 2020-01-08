@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="Event" id="{955be282-1a8e-4196-a267-9b97936f32b9}">
 		<property name="name">
-			<value>MovableCollision_Fluid</value>
+			<value>MovableCollisionFluid</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>

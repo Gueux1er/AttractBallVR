@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="Event" id="{ec458d7b-f33f-4a88-8bbc-0ddf26ffdffa}">
 		<property name="name">
-			<value>MovableCollision_Bell</value>
+			<value>MovableCollisionBell</value>
 		</property>
 		<property name="outputFormat">
 			<value>0</value>

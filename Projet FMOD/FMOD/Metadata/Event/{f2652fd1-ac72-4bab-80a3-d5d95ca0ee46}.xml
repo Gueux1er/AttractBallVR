@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="Event" id="{f2652fd1-ac72-4bab-80a3-d5d95ca0ee46}">
 		<property name="name">
-			<value>Ambient Water</value>
+			<value>AmbientWater</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -57,7 +57,11 @@
 			<destination>{3101b5d3-ebb6-4f7c-a7c4-da5543b8b105}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{7710bc00-0872-43ba-9804-3606d0a556ae}" />
+	<object class="EventAutomatableProperties" id="{7710bc00-0872-43ba-9804-3606d0a556ae}">
+		<property name="maxVoices">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{f17a2539-95b4-4a9c-ae10-877fd57b1e74}" />
 	<object class="GroupTrack" id="{6e27633d-f37e-4835-b16b-ceadadfb7db3}">
 		<relationship name="modules">
