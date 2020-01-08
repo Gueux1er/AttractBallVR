@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="Event" id="{955be282-1a8e-4196-a267-9b97936f32b9}">
 		<property name="name">
-			<value>MovableCollisionFluid</value>
+			<value>Fluid</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{3eb3fa28-3abc-4859-bae6-6d55d212d5a9}</destination>
+			<destination>{dc09f3c1-5e19-45fa-a46f-ab44688a8828}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{4eb12df0-faa4-4992-9863-f3d5d9d9b011}</destination>

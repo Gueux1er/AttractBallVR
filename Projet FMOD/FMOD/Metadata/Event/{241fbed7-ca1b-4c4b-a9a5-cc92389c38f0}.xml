@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="Event" id="{241fbed7-ca1b-4c4b-a9a5-cc92389c38f0}">
 		<property name="name">
-			<value>SqueekyToyInteraction</value>
+			<value>SqueekyToy</value>
 		</property>
 		<property name="outputFormat">
 			<value>0</value>
 		</property>
 		<relationship name="folder">
-			<destination>{3eb3fa28-3abc-4859-bae6-6d55d212d5a9}</destination>
+			<destination>{dc09f3c1-5e19-45fa-a46f-ab44688a8828}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{d48c6e77-ae5e-4cf7-87ea-086e614f8b1c}</destination>
