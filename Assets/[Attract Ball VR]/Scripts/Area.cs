@@ -143,6 +143,11 @@ public class Area : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        gameObject.SetActive(false);
+    }
+
     void Start()
     {
         canvasArea = GetComponent<CanvasArea>();
@@ -154,7 +159,6 @@ public class Area : MonoBehaviour
         layerIdMovable = LayerMask.NameToLayer("Movable");
         activeState = ActiveState.ACTIVABLE_UNDER;
 
-        StartMoving();
         foreach (Area aChildren in sequenceChildAreas)
         {           
             if (aChildren != null)
@@ -170,7 +174,8 @@ public class Area : MonoBehaviour
 
     IEnumerator SustainUnableActive(ActiveState state)
     {
-        yield return new WaitForSeconds(timeSustainInSeconds);
+        if (isSustain)
+            yield return new WaitForSeconds(timeSustainInSeconds);
         activeState = state;
         yield break;
     }
@@ -243,8 +248,8 @@ public class Area : MonoBehaviour
 
     private void StartMoving()
     {
-        path.Add(transform.position);
         loopTween.Pause();
+        path.Add(transform.position);
         loopTween = transform.DOPath(path.ToArray(), timeLoopInSeconds).SetEase(Ease.Linear);
         if (loopType == LoopType.YOYO)
         {
@@ -256,6 +261,19 @@ public class Area : MonoBehaviour
         }
         isMoving = startIsMoving;
     }
+
+    public void Appear()
+    {
+        gameObject.SetActive(true);
+        transform.DOMoveY(transform.position.y + 5, 1f).SetEase(Ease.InOutSine).From().OnComplete(StartMoving);
+        Debug.Log(gameObject.name + " appear");
+    }
+    public void Disappear()
+    {
+        transform.DOMoveY(transform.position.y - 5, 1f).SetEase(Ease.InOutSine).OnComplete(() => { gameObject.SetActive(false); });
+        Debug.Log(gameObject.name + " disappear");
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
