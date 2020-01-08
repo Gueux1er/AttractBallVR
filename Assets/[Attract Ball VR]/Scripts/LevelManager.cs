@@ -7,13 +7,13 @@ using UnityEngine.Events;
 public class LevelManager : MonoBehaviour
 {
     public GameObject accessor;
-    public LevelStep step0;
-    public LevelStep step1;
+    public List<LevelStep> levelStepList = new List<LevelStep>();
     public static LevelManager Instance;
 
     [Serializable]
     public struct LevelStep
     {
+        public List<Area> areas;
         [Header("Enter")]
         public UnityEvent enterEvent;
 
@@ -35,39 +35,83 @@ public class LevelManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        currentStepValue = 0;
+        currentStep = levelStepList[currentStepValue];
+
+        StartCoroutine(StartStep(currentStepValue));
     }
+
 
     void Start()
-    {
-        currentStep = step0;
-        currentStepValue = 0;
-        StartStep(currentStepValue);
-    }
-
-    void Update()
     {
         
     }
 
-    public void StartStep(int step)
+    void Update()
     {
+        int i = currentStep.areas.Count;
+        int iTmp = 0;
+        foreach (Area a in currentStep.areas)
+        {
+            if (a.activeState == Area.ActiveState.ACTIVE)
+                iTmp++;
+        }
+        if (iTmp == i)
+        {
+            StartCoroutine(EndStep(currentStepValue));
+        }
+    }
+
+    public IEnumerator StartStep(int step)
+    {
+        yield return new WaitForSeconds(2f);
+
+        currentStep.enterEvent.Invoke();
         GameObject[] objects = GameObject.FindGameObjectsWithTag("Step" + step);
         foreach(GameObject g in objects)
         {
             Animator a = g.GetComponent<Animator>();
             if (a != null) a.SetTrigger("Appear");
         }
+
+        Area[] areasInLevel = GameObject.FindObjectsOfType<Area>();
+        foreach(Area a in currentStep.areas)
+        {
+            a.Appear();            
+        }
     }
 
-    private void EndStep(int step)
+    private IEnumerator EndStep(int step)
     {
+
+        currentStep.exitEvent.Invoke();
         GameObject[] objects = GameObject.FindGameObjectsWithTag("Step" + step);
         foreach (GameObject g in objects)
         {
             Animator a = g.GetComponent<Animator>();
             if (a != null) a.SetTrigger("Disappear");
         }
+
+        Area[] areasInLevel = GameObject.FindObjectsOfType<Area>();
+        foreach (Area a in currentStep.areas)
+        {            
+            a.Disappear();            
+        }
+        currentStepValue++;
+        currentStep = levelStepList[currentStepValue];
+
+        yield return new WaitForSeconds(2f);
+
+        StartCoroutine(StartStep(currentStepValue));
     }
+
+    public void Step0Enter()
+    {
+        Debug.Log("step0start");
+    }
+
+
 }
 
 

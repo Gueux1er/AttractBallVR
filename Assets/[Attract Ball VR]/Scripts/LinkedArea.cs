@@ -10,28 +10,19 @@ public class LinkedArea : MonoBehaviour
     public GameObject linkedAreaLink;
 
     private int countArea = 0;
-    void Start()
-    {
-        foreach (Area lArea in linkedArea)
-        {
-            lArea.isLinked = true;
-            lArea.linkedArea = this;
-            countArea++;
-
-            foreach (Area lAreaBis in linkedArea)
-            {
-                if (lArea != lAreaBis)
-                {
-                    GameObject line = Instantiate(linkedAreaLink);
-                    line.GetComponent<LineLink>().a = lArea.gameObject;
-                    line.GetComponent<LineLink>().b = lAreaBis.gameObject;
-                }
-            }
-        }
-    }
+    private bool instantiateLink = false;
 
     void Update()
     {
+        if (!linkedArea[0].isActiveAndEnabled)
+            return;
+
+        if (!instantiateLink)
+        {
+            instantiateLink = true;
+            StartLate();
+        }
+
         if (!IsLocked())
         {
             foreach (Area lArea in linkedArea)
@@ -59,5 +50,25 @@ public class LinkedArea : MonoBehaviour
                 i++;
         }
         return (i==countArea) ? false : true;
+    }
+
+    void StartLate()
+    {
+        foreach (Area lArea in linkedArea)
+        {
+            lArea.isLinked = true;
+            lArea.linkedArea = this;
+            countArea++;
+
+            foreach (Area lAreaBis in linkedArea)
+            {
+                if (lArea != lAreaBis)
+                {
+                    GameObject line = Instantiate(linkedAreaLink);
+                    line.GetComponent<LineLink>().a = lArea.gameObject;
+                    line.GetComponent<LineLink>().b = lAreaBis.gameObject;
+                }
+            }
+        }
     }
 }
