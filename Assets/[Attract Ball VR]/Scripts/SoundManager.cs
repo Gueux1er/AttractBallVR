@@ -76,6 +76,8 @@ public class SoundManager : MonoBehaviour
 
     public static SoundManager instance;
 
+    private Transform playerTransform;
+
     private void Awake()
     {
         if (instance == null)
@@ -111,9 +113,16 @@ public class SoundManager : MonoBehaviour
         noiseInstance = RuntimeManager.CreateInstance(noise);
     }
 
-    /// <summary>
-    /// Play this function when the game starts
-    /// </summary>
+    private void Update()
+    {
+        if(playerTransform != null)
+        {
+            ambientNatureInstance.setParameterByName("Height", Mathf.Clamp(playerTransform.position.y, 0, 2) / 2);
+            ambientWaterInstance.setParameterByName("Height", Mathf.Clamp(playerTransform.position.y, 0, 2) / 2);
+            ambientWindInstance.setParameterByName("Height", Mathf.Clamp(playerTransform.position.y, 0, 2) / 2);
+        }
+    }
+
     public void StartMainMenuMusic()
     {
         lofiMusicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
@@ -130,10 +139,38 @@ public class SoundManager : MonoBehaviour
         lofiMusicInstance.start();
     }
 
-    public void ChangeParameterLofiMusic(int area, bool rainning)
+    public void SetParameterLofiMusic(int area, bool rainning)
     {
         lofiMusicInstance.setParameterByName("Area", area);
         lofiMusicInstance.setParameterByName("Rain", rainning ? 1 : 0);
+    }
+
+    public void StartAmbientNature()
+    {
+        playerTransform = FindObjectOfType<OvrAvatar>().transform;
+
+        ambientNatureInstance.start();
+    }
+
+    public void StopAmbientNature()
+    {
+        // Utile pour quand la pluie
+
+        ambientNatureInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+    }
+
+    public void StartAmbientWater()
+    {
+        playerTransform = FindObjectOfType<OvrAvatar>().transform;
+
+        ambientWaterInstance.start();
+    }
+
+    public void StartAmbientWind()
+    {
+        playerTransform = FindObjectOfType<OvrAvatar>().transform;
+
+        ambientWindInstance.start();
     }
 
     public void StartAttractionSound()

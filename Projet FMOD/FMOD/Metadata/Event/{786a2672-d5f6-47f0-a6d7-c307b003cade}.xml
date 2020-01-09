@@ -488,6 +488,9 @@
 	<object class="MixerBusFader" id="{b043de52-ad64-47e1-a9ff-fe6473167bfe}" />
 	<object class="MixerBusFader" id="{edf041f8-3a40-4f13-ab66-e1079e667126}" />
 	<object class="ThreeEQEffect" id="{9d5c13e6-8fe2-4835-bf45-8b9300cc7aa6}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
 		<property name="midGain">
 			<value>-20</value>
 		</property>
@@ -542,6 +545,9 @@
 	</object>
 	<object class="MixerBusFader" id="{c0551bb1-9612-42ff-bcde-800a877b4058}" />
 	<object class="ThreeEQEffect" id="{1eec94a8-c141-40db-a1e0-08b30c8e7590}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
 		<property name="lowGain">
 			<value>-80</value>
 		</property>
@@ -560,11 +566,17 @@
 	</object>
 	<object class="MixerBusFader" id="{0c1d4e7d-d40f-4b2d-bb5b-dd6ac1edd501}" />
 	<object class="GainEffect" id="{a46f8281-78c2-4ae6-99f7-c2b3b4c5e9b1}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
 		<property name="gain">
 			<value>5.5</value>
 		</property>
 	</object>
 	<object class="ThreeEQEffect" id="{eca03e56-40af-48b3-b6b2-88887e9124ee}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
 		<property name="lowGain">
 			<value>-80</value>
 		</property>
