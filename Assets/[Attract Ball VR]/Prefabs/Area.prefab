@@ -357,7 +357,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3167190534203302865}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -3355020712178914988, guid: 9b189dae761c35f4189fd524d8ddd2c7, type: 3}
 --- !u!23 &3167190534203302870
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -366,7 +366,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3167190534203302865}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -441,7 +441,6 @@ MonoBehaviour:
   minMovable: 1
   maxMovable: 7
   objectToTakeInAccount: {fileID: 0}
-  activeSustain: 0
   nonActivableMaterial: {fileID: 2100000, guid: 859ac951499df9747aca9f848aff4f3f,
     type: 2}
   activableUnderMaterial: {fileID: 2100000, guid: 1c35a91c418539c4a88e8c4aa57e58bd,
@@ -452,18 +451,19 @@ MonoBehaviour:
     type: 2}
   activeMaterial: {fileID: 2100000, guid: 7f6194c93d9b3ae4da8e9390da933117, type: 2}
   startIsMoving: 0
-  loopType: 0
-  timeLoopInSeconds: 4
+  loopType: 1
+  timeLoopInSeconds: 8
   path:
-  - {x: 4.1, y: 2, z: 1}
-  - {x: 0, y: 2, z: 5}
-  sequenceChildAreas: []
+  - {x: -3, y: 2, z: 1.2}
+  - {x: -1.7, y: 2, z: 3}
+  sequenceChildAreas:
+  - {fileID: 0}
   sequenceLink: {fileID: 2520796777705826068, guid: 74221743b83a0c84cb117470bda92f18,
     type: 3}
   sequenceParentAreas: []
   isHolder: 1
-  isSustain: 0
-  timeSustainInSeconds: 3
+  isSustain: 1
+  timeSustainInSeconds: 10
   isLinked: 0
   linkedArea: {fileID: 0}
 --- !u!54 &3167190534203302891
@@ -520,7 +520,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.8}
+  m_AnchoredPosition: {x: 0, y: 1}
   m_SizeDelta: {x: 1.14, y: 0.413}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3167190534474901637
