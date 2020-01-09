@@ -76,7 +76,7 @@ public class LevelManager : MonoBehaviour
     public IEnumerator StartFinalActiveStep(int step)
     {
         finalActiveState = true;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
         StartCoroutine(EndStep(currentStepValue));
     }
 

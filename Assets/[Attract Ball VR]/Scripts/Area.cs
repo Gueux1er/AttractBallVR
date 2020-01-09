@@ -22,7 +22,6 @@ public class Area : MonoBehaviour
     public int minMovable;
     public int maxMovable;
     public GameObject objectToTakeInAccount = null;
-    public float activeSustain;
 
     [Header("Materials")]
     public Material nonActivableMaterial;

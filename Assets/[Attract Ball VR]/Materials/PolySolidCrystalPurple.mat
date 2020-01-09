@@ -29,9 +29,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _InvFade: 3
-    - _RimGlow: 3.5
+    - _RimGlow: 1.4
     - _RimPower: 3.14
-    - _RimWidth: 2.34
+    - _RimWidth: 3.3
     - _Shininess: 1
     m_Colors:
     - _InnerColor: {r: 0.62745106, g: 0.76862746, b: 0.9490196, a: 1}
