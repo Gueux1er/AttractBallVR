@@ -24,6 +24,14 @@ MonoBehaviour:
   - SunLightIntensityKey
   - CloudDensityKey
   - CloudColor1Key
+  - CloudColor2Key
+  - CloudHeightKey
+  - FogDensityKey
+  - RainSplashMaxConcurrentKey
+  - RainSoundVolume
+  - RainNearIntensityKey
+  - RainFarIntensityKey
+  - RainSplashScaleKey
   keyframeGroups:
     m_ColorGroup:
       m_Keys:
@@ -53,30 +61,25 @@ MonoBehaviour:
       m_Values:
       - keyframes:
         - m_Id: 5650cba4-9a52-45bb-9fda-08e57d4e70b0
-          m_Time: 0.1072261
+          m_Time: 0.10647482
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           color: {r: 0.0055147037, g: 0.04094827, b: 0.125, a: 1}
+        - m_Id: 84756d7c-6229-4cb3-a210-d92764fdc136
+          m_Time: 0.25
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          color: {r: 0, g: 0, b: 0, a: 1}
         - m_Id: 045cb928-ff3a-4fdb-847a-a57e3b5adcd2
-          m_Time: 0.14918415
+          m_Time: 0.44748202
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           color: {r: 0.11764706, g: 0.17254902, b: 0.30980393, a: 1}
         - m_Id: fba489df-b604-4b87-add5-ad657511a865
-          m_Time: 0.18731117
+          m_Time: 0.5
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           color: {r: 0.40657437, g: 0.5356162, b: 0.58823526, a: 1}
-        - m_Id: 4f0409d5-7e71-44b1-a5e3-6dcbfd7d1377
-          m_Time: 0.24370594
-          m_InterpolationCurve: 0
-          m_InterpolationDirection: 0
-          color: {r: 0.625, g: 0.8137932, b: 1, a: 1}
-        - m_Id: 1f143738-008b-4b2d-8d98-c333a035784a
-          m_Time: 0.33385336
-          m_InterpolationCurve: 0
-          m_InterpolationDirection: 0
-          color: {r: 0.32352942, g: 0.5241379, b: 1, a: 1}
         - m_Id: 23e155cb-4182-460d-b9e9-5f90248da904
           m_Time: 0.6294852
           m_InterpolationCurve: 0
@@ -105,41 +108,31 @@ MonoBehaviour:
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           color: {r: 0, g: 0.072037496, b: 0.19117647, a: 1}
+        - m_Id: fefd49cb-08df-44be-9b24-45ddbe48ec5d
+          m_Time: 0.25
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          color: {r: 0, g: 0.024258757, b: 0.066037714, a: 1}
         - m_Id: 746d4daa-e7ed-4093-872c-498c7497378c
-          m_Time: 0.14607614
+          m_Time: 0.4388489
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           color: {r: 0.040873703, g: 0.14250985, b: 0.30882353, a: 1}
         - m_Id: 3ff64726-4c8e-4108-bfe8-c9ae75c2f6ce
-          m_Time: 0.21752267
+          m_Time: 0.5
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           color: {r: 1, g: 0.7647059, b: 0.7647059, a: 1}
         - m_Id: 3d651e3e-448b-4469-b663-99737925ae2e
-          m_Time: 0.26787513
+          m_Time: 0.56258994
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           color: {r: 1, g: 0.7647059, b: 0.7647059, a: 1}
-        - m_Id: e547a1b4-25ea-4039-aca5-d2ddf25c6cb6
-          m_Time: 0.33307332
-          m_InterpolationCurve: 0
-          m_InterpolationDirection: 0
-          color: {r: 0.21085638, g: 0.7092533, b: 0.9558824, a: 1}
         - m_Id: 3529a33e-9901-4896-9829-7d2aa5207479
           m_Time: 0.6287594
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           color: {r: 0.21085638, g: 0.7092533, b: 0.9558824, a: 1}
-        - m_Id: 13253a53-981c-41f5-9ab7-db45dcf18f72
-          m_Time: 0.67628706
-          m_InterpolationCurve: 0
-          m_InterpolationDirection: 0
-          color: {r: 1, g: 0.7647059, b: 0.7647059, a: 1}
-        - m_Id: 22bdcd5b-f094-4ca1-9b09-f4f0ec50a34e
-          m_Time: 0.71372855
-          m_InterpolationCurve: 0
-          m_InterpolationDirection: 0
-          color: {r: 1, g: 0.7647059, b: 0.7647059, a: 1}
         - m_Id: 8abb93cf-d9e8-4b44-bab8-c00fef0b692e
           m_Time: 0.77067083
           m_InterpolationCurve: 0
@@ -154,22 +147,27 @@ MonoBehaviour:
         m_Id: 349ccc22-83d2-4793-9157-93ba1c32ad33
       - keyframes:
         - m_Id: dda76658-fde3-4cef-a9f5-4990fd259b6f
-          m_Time: 0.10113207
+          m_Time: 0.11079137
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           color: {r: 0.22123703, g: 0.3220588, b: 0.4852941, a: 1}
+        - m_Id: c69ff5e3-9015-440b-a61f-cc526522457c
+          m_Time: 0.25179857
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          color: {r: 0.15085441, g: 0.2013879, b: 0.2830189, a: 1}
         - m_Id: 0f7fec28-6d97-4cf0-af05-f49b730a244c
-          m_Time: 0.16472417
+          m_Time: 0.4
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           color: {r: 0.8901961, g: 0.78431374, b: 0.50980395, a: 1}
         - m_Id: e1331203-e4d7-476b-8af9-1db096866fa5
-          m_Time: 0.23464249
+          m_Time: 0.5
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          color: {r: 0.88235295, g: 0.5553633, b: 0.0648789, a: 1}
+          color: {r: 1, g: 0.8470589, b: 0.9725491, a: 1}
         - m_Id: db9c8727-705e-4e70-8f43-4df6b36229bb
-          m_Time: 0.33463338
+          m_Time: 0.5582734
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           color: {r: 0.9705882, g: 0.9705882, b: 0.9705882, a: 1}
@@ -201,23 +199,33 @@ MonoBehaviour:
         m_Name: Sky Lower Color
         m_Id: fa805a58-9a7f-42a3-b622-15d445df986c
       - keyframes:
+        - m_Id: dab83b05-661c-402c-8fcf-a2100d70a1ec
+          m_Time: 0.11510792
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
+        - m_Id: d6e36f78-1e18-468e-82ac-d43f0401fc42
+          m_Time: 0.25179857
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          color: {r: 0.55789423, g: 0.5943396, b: 0.5943396, a: 1}
         - m_Id: 595eafe3-0375-4083-a890-bb9907479094
-          m_Time: 0.08740602
+          m_Time: 0.33956835
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           color: {r: 1, g: 1, b: 1, a: 1}
         - m_Id: 595f9951-23dd-4ea5-ac78-86359fa78369
-          m_Time: 0.16165413
+          m_Time: 0.37841725
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           color: {r: 1, g: 0.84705883, b: 0.5735294, a: 1}
         - m_Id: b91666ce-924d-4b16-8347-22fd35819955
-          m_Time: 0.20018797
+          m_Time: 0.42589927
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           color: {r: 1, g: 0.84705883, b: 0.5735294, a: 1}
         - m_Id: 282b7119-d16d-4144-ba98-070339fb4cab
-          m_Time: 0.2744361
+          m_Time: 0.5007194
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           color: {r: 1, g: 1, b: 1, a: 1}
@@ -249,6 +257,16 @@ MonoBehaviour:
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           color: {r: 0.25, g: 0.6386855, b: 1, a: 1}
+        - m_Id: 32e7e13e-7d58-46d1-8d6f-0e248ed4aa2a
+          m_Time: 0.25
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          color: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
+        - m_Id: 3ef11548-be0c-4cb2-b545-bf97241353c3
+          m_Time: 0.5021583
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          color: {r: 0.25, g: 0.6386855, b: 1, a: 1}
         m_Name: Cloud Color 2
         m_Id: b2e96056-40b2-439f-84a6-f95f7c101d1c
       - keyframes:
@@ -256,7 +274,7 @@ MonoBehaviour:
           m_Time: 0
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          color: {r: 1, g: 1, b: 1, a: 1}
+          color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
         m_Name: Fog Color
         m_Id: 4d2977f2-b2eb-465b-8ad6-2e4116e1b594
       - keyframes:
@@ -272,14 +290,19 @@ MonoBehaviour:
           m_Time: 0
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          color: {r: 0.7352941, g: 0.42268226, b: 0.027032854, a: 1}
+          color: {r: 0.18823531, g: 0.20392159, b: 0.28235295, a: 1}
+        - m_Id: 46195e49-6228-4210-8c6a-d0e1258d3cb0
+          m_Time: 0.25
+          m_InterpolationCurve: 1
+          m_InterpolationDirection: 0
+          color: {r: 0.2509804, g: 0.26666668, b: 0.28235295, a: 1}
         - m_Id: 1ca2bd26-0422-4f97-96ca-9ff98d18811e
-          m_Time: 0.23140496
+          m_Time: 0.42733812
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          color: {r: 0.7352941, g: 0.42268226, b: 0.027032854, a: 1}
+          color: {r: 0.6603774, g: 0.57914674, b: 0.4765931, a: 1}
         - m_Id: e4774b64-76ca-4d3a-9f8d-fb0eb997aa66
-          m_Time: 0.49942988
+          m_Time: 0.5
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
@@ -593,16 +616,26 @@ MonoBehaviour:
         minValue: 0.01
         maxValue: 1
       - keyframes:
-        - m_Id: b987f3c8-386f-4c06-af60-6c3acb514c9e
-          m_Time: 0.082706764
+        - m_Id: 27fa7eae-217a-4352-a7b2-c4462b74d3c3
+          m_Time: 0.11798561
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           value: 0.33133274
-        - m_Id: a7d73697-4590-40b5-b1ba-9441d35bfb65
-          m_Time: 0.17763157
+        - m_Id: ef7ad89a-f8f4-449a-899b-ee3df2818392
+          m_Time: 0.24892086
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          value: 0.598
+          value: 1
+        - m_Id: b987f3c8-386f-4c06-af60-6c3acb514c9e
+          m_Time: 0.34169957
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 0.08688831
+        - m_Id: a7d73697-4590-40b5-b1ba-9441d35bfb65
+          m_Time: 0.49561724
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 0.59800005
         - m_Id: 3f4b7b11-f635-4f64-99b2-6ab4e4815203
           m_Time: 0.72274435
           m_InterpolationCurve: 0
@@ -638,8 +671,23 @@ MonoBehaviour:
         minValue: 0
         maxValue: 6.2831855
       - keyframes:
-        - m_Id: 1f1d235f-e384-471f-ad30-03f42dddf0c3
-          m_Time: 0
+        - m_Id: 68020e62-ed4d-4aa0-9646-d3286203c7da
+          m_Time: 0.13093525
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 0.9
+        - m_Id: ddab67d2-5dd0-4a38-90a7-ac3af6f82d54
+          m_Time: 0.25179857
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 0.5222222
+        - m_Id: 678a3623-002c-49e5-88a6-553c4efc53b1
+          m_Time: 0.36115107
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 0.9
+        - m_Id: 0d55a2c1-e65c-465a-8cdc-049d4de40c02
+          m_Time: 0.5007194
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           value: 0.9
@@ -669,10 +717,20 @@ MonoBehaviour:
         maxValue: 1
       - keyframes:
         - m_Id: c58655a6-4c6c-45cc-b66c-d27fbd3fafa1
-          m_Time: 0
+          m_Time: 0.12086331
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          value: 0.181
+          value: 0
+        - m_Id: 737bc409-94ee-4e63-8322-00c1d607f0f2
+          m_Time: 0.2532374
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 0.3333333
+        - m_Id: 320d98f3-2478-42c0-9402-d569eb7241c3
+          m_Time: 0.38705036
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 0
         m_Name: Fog Density
         m_Id: bf9cc737-8fa3-42d8-a168-8add53cea841
         minValue: 0
@@ -718,18 +776,18 @@ MonoBehaviour:
         minValue: 1
         maxValue: 25
       - keyframes:
+        - m_Id: f305c278-2a76-4997-a1ca-216c37bdeb9a
+          m_Time: 0
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 0.44444442
         - m_Id: 65df8d01-ecc6-41b1-a7e2-abba2ab1ba51
-          m_Time: 0.06567534
+          m_Time: 0.4038048
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          value: 0
-        - m_Id: cc715b80-79ed-48a4-af55-1fa4aff4f25e
-          m_Time: 0.18431373
-          m_InterpolationCurve: 0
-          m_InterpolationDirection: 0
-          value: 0.83
+          value: 0.6666666
         - m_Id: ba784b54-a479-4a30-829a-33ab6c5d06de
-          m_Time: 0.49414298
+          m_Time: 0.49845955
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           value: 0.94110787
@@ -878,13 +936,23 @@ MonoBehaviour:
         minValue: -10
         maxValue: 10
       - keyframes:
-        - m_Id: beeb90ea-3100-4270-90a1-efe9baf27cf0
-          m_Time: 0.18954758
+        - m_Id: f33078ab-5ea0-404e-b323-64fb615f83d2
+          m_Time: 0.12517986
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           value: 0.015
+        - m_Id: 09673b2b-be02-4fa2-b55f-b132156e4731
+          m_Time: 0.2503597
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 0
+        - m_Id: beeb90ea-3100-4270-90a1-efe9baf27cf0
+          m_Time: 0.41688576
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 0.006111109
         - m_Id: b1c4db42-d753-459a-8ce1-acc739c7ec9a
-          m_Time: 0.23793742
+          m_Time: 0.47534752
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           value: 0
@@ -963,13 +1031,23 @@ MonoBehaviour:
         minValue: -10
         maxValue: 10
       - keyframes:
-        - m_Id: 9e1f88bb-a3b6-4a41-b6f7-1a0f3b30b253
-          m_Time: 0.11994972
+        - m_Id: f4a32b90-001a-4dcf-9a4d-18f6fa9c9413
+          m_Time: 0.12517986
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           value: 0.020000005
+        - m_Id: 203cd6d0-70db-44af-8881-60b8aea61eb1
+          m_Time: 0.2532374
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 0.002222228
+        - m_Id: 9e1f88bb-a3b6-4a41-b6f7-1a0f3b30b253
+          m_Time: 0.4134749
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 0.0066666724
         - m_Id: e69fbeec-e529-4ed9-8e2c-0708055d88dc
-          m_Time: 0.1919598
+          m_Time: 0.47541302
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           value: 0
@@ -1339,20 +1417,40 @@ MonoBehaviour:
         maxValue: 20
       - keyframes:
         - m_Id: 511c70a6-bb2a-4303-a8c9-05c54db0e4fd
-          m_Time: 0
+          m_Time: 0.12805755
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          value: 0.506
+          value: 0
+        - m_Id: eca831c0-9619-40cd-bf15-193e38476911
+          m_Time: 0.25
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 0.5
+        - m_Id: 277f4e82-9d96-4b28-96d1-672bd6f84743
+          m_Time: 0.35539567
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 0
         m_Name: Rain Near Visibility
         m_Id: 2e82edc3-d1e0-4e18-a132-30388a3bf05c
         minValue: 0
         maxValue: 1
       - keyframes:
         - m_Id: 9f06531a-9c15-4f5a-84b3-18284e2a800d
-          m_Time: 0
+          m_Time: 0.1266187
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 0
+        - m_Id: 640db564-be2d-4c5a-8bc4-c5b166acf821
+          m_Time: 0.25
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           value: 1
+        - m_Id: 47bd262d-807b-4680-a8a7-34a2c45473a4
+          m_Time: 0.35395685
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 0
         m_Name: Rain Far Visibility
         m_Id: b8a69630-ce99-49ed-80ac-4623ab0fb7b7
         minValue: 0
@@ -1378,11 +1476,26 @@ MonoBehaviour:
         minValue: 0
         maxValue: 5
       - keyframes:
-        - m_Id: 36fe573a-4c20-4928-bd1c-f1e5447301d4
-          m_Time: 0
+        - m_Id: 9a2ff656-3bb6-4bf9-bac3-0e9fdcbb8194
+          m_Time: 0.1266187
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          value: 0.749
+          value: 0
+        - m_Id: 10cd327a-44d8-47c5-a92f-03f6a32ac957
+          m_Time: 0.25
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 0.7
+        - m_Id: 025e118c-06a8-42aa-8e65-7196f5ad13a7
+          m_Time: 0.28489208
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 0.3490004
+        - m_Id: 624369ee-db09-490d-8364-d268925db5f4
+          m_Time: 0.35395685
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 0
         m_Name: Rain Sound Volume
         m_Id: 6e24bcfb-1f94-4a23-a65e-1d57d3730ca3
         minValue: 0
@@ -1428,11 +1541,26 @@ MonoBehaviour:
         minValue: 0
         maxValue: 100
       - keyframes:
-        - m_Id: 35c00bfc-d109-4cc2-94af-bdbc5f32de54
-          m_Time: 0
+        - m_Id: d2766f0b-e17d-436d-a444-e2ca60d0856c
+          m_Time: 0.11798561
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          value: 776
+          value: 0
+        - m_Id: c15abae8-16ae-4901-9f26-5841b91ef4fc
+          m_Time: 0.25
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 700
+        - m_Id: 25151dda-aade-43d9-b2fa-440adb5e73c2
+          m_Time: 0.28057554
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 375.99963
+        - m_Id: 676002de-72d9-47c0-8481-b828615015e4
+          m_Time: 0.35539567
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 0
         m_Name: Splash Count
         m_Id: 79e785c4-77f5-491c-8edf-e1631be33557
         minValue: 0
@@ -1459,10 +1587,20 @@ MonoBehaviour:
         maxValue: 50
       - keyframes:
         - m_Id: 483edc34-b6ff-4c01-8bb4-293f23e9de74
-          m_Time: 0
+          m_Time: 0.1266187
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          value: 5.19
+          value: 0.001
+        - m_Id: ef235a52-80fe-4cd1-8026-ed16345fe6cb
+          m_Time: 0.25
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 4
+        - m_Id: 441a294b-b938-4143-b5ab-1bf526a9b419
+          m_Time: 0.35683453
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 0.001
         m_Name: Splash Scale
         m_Id: c52786cd-8082-4d29-8504-47db2d88e419
         minValue: 0.001
@@ -2036,7 +2174,7 @@ MonoBehaviour:
     - CubemapCloudDoubleLayerCubemap
     - MobileQualityFeature
     - StarBasicFeature
-    m_Values: 0101010100010100000000000000010000000100010001000101000101000000000000
+    m_Values: 0101010101010100010100000000010000000100010001000101000101000000000000
   lightningArtSet: {fileID: 11400000, guid: fcd26c6d0379bd1498f9fbfeaf211979, type: 2}
   rainSplashArtSet: {fileID: 11400000, guid: bc520d172250ae746bd6c81b2ca80510, type: 2}
   starLayer1DataTexture: {fileID: 2800000, guid: cf21cf1ea9aa5cb4bb7261be932ce8ce,

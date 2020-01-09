@@ -17,6 +17,8 @@ TagManager:
   - Step5
   - Step6
   - Step2
+  - Tool
+  - Globe
   layers:
   - Default
   - TransparentFX
