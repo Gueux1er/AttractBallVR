@@ -32,8 +32,9 @@
        {
            o.Albedo = _InnerColor.rgb;
            half rim = 1.0 - saturate(dot (normalize(IN.viewDir), o.Normal));
-           o.Alpha = lerp(_InnerColor.a, _RimColor.a, pow (rim, _RimWidth));
            o.Emission = _RimColor.rgb * _RimGlow * pow (rim, _RimWidth);
+           o.Alpha = lerp(_InnerColor.a, _RimColor.a, pow (rim, _RimWidth));
+
        }
        ENDCG
      } 
