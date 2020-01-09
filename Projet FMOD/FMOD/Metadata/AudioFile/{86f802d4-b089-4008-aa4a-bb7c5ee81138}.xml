@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{86f802d4-b089-4008-aa4a-bb7c5ee81138}">
+		<property name="assetPath">
+			<value>UI_Beep_Double_Quick_Smooth_stereo.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.15684807256235828</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a52f48bf-a2ec-457d-b586-cd28d1c8172b}</destination>
+		</relationship>
+	</object>
+</objects>

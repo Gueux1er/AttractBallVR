@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="Event" id="{786a2672-d5f6-47f0-a6d7-c307b003cade}">
 		<property name="name">
-			<value>Music</value>
+			<value>LofiMusic</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -67,7 +67,11 @@
 			<destination>{3101b5d3-ebb6-4f7c-a7c4-da5543b8b105}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{5947b7f2-9840-44c9-b613-e289c7f4cb08}" />
+	<object class="EventAutomatableProperties" id="{5947b7f2-9840-44c9-b613-e289c7f4cb08}">
+		<property name="maxVoices">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{3647f970-1d12-4479-80b0-ddf9504f1c56}" />
 	<object class="MarkerTrack" id="{3e63d893-62b5-4ad5-bbbd-4fff08b15488}" />
 	<object class="GroupTrack" id="{0c02b09c-0843-40f4-9acd-deb69de107e5}">
@@ -404,6 +408,7 @@
 	<object class="MixerBusEffectChain" id="{f1c2400a-0cd8-4e8a-86a3-079a43ed19cb}">
 		<relationship name="effects">
 			<destination>{edf041f8-3a40-4f13-ab66-e1079e667126}</destination>
+			<destination>{9d5c13e6-8fe2-4835-bf45-8b9300cc7aa6}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{5b805a95-f997-49f7-940b-492306ab1289}" />
@@ -460,6 +465,7 @@
 	<object class="MixerBusEffectChain" id="{9a005361-fd1f-4d48-a08f-0a7c0e59ba1f}">
 		<relationship name="effects">
 			<destination>{c0551bb1-9612-42ff-bcde-800a877b4058}</destination>
+			<destination>{1eec94a8-c141-40db-a1e0-08b30c8e7590}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{1c1958ba-3833-4a93-b7b1-642a392eeaef}" />
@@ -475,11 +481,23 @@
 		<relationship name="effects">
 			<destination>{0c1d4e7d-d40f-4b2d-bb5b-dd6ac1edd501}</destination>
 			<destination>{a46f8281-78c2-4ae6-99f7-c2b3b4c5e9b1}</destination>
+			<destination>{eca03e56-40af-48b3-b6b2-88887e9124ee}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{2e8d09da-9d2b-4bac-9fbb-8108193b3203}" />
 	<object class="MixerBusFader" id="{b043de52-ad64-47e1-a9ff-fe6473167bfe}" />
 	<object class="MixerBusFader" id="{edf041f8-3a40-4f13-ab66-e1079e667126}" />
+	<object class="ThreeEQEffect" id="{9d5c13e6-8fe2-4835-bf45-8b9300cc7aa6}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
+		<property name="midGain">
+			<value>-20</value>
+		</property>
+		<property name="highGain">
+			<value>-15</value>
+		</property>
+	</object>
 	<object class="AutomationCurve" id="{c7423a9b-3b3a-4e79-b9b3-a8dbea6d11a4}">
 		<relationship name="parameter">
 			<destination>{3c3ad156-e58b-453e-b1ce-b762170b2e0c}</destination>
@@ -526,6 +544,17 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{c0551bb1-9612-42ff-bcde-800a877b4058}" />
+	<object class="ThreeEQEffect" id="{1eec94a8-c141-40db-a1e0-08b30c8e7590}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
+		<property name="lowGain">
+			<value>-80</value>
+		</property>
+		<property name="midGain">
+			<value>-10</value>
+		</property>
+	</object>
 	<object class="AutomationCurve" id="{ecfb07a8-c054-4507-b8ce-81823266606e}">
 		<relationship name="parameter">
 			<destination>{f308a5f3-44d5-4481-bd93-72d038728ef7}</destination>
@@ -537,8 +566,22 @@
 	</object>
 	<object class="MixerBusFader" id="{0c1d4e7d-d40f-4b2d-bb5b-dd6ac1edd501}" />
 	<object class="GainEffect" id="{a46f8281-78c2-4ae6-99f7-c2b3b4c5e9b1}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
 		<property name="gain">
 			<value>5.5</value>
+		</property>
+	</object>
+	<object class="ThreeEQEffect" id="{eca03e56-40af-48b3-b6b2-88887e9124ee}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
+		<property name="lowGain">
+			<value>-80</value>
+		</property>
+		<property name="midGain">
+			<value>-10</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{d2fb5f4f-bbd6-4ef0-b5d4-225696b5a6fd}">
@@ -666,7 +709,7 @@
 			<value>0</value>
 		</property>
 		<property name="value">
-			<value>-80</value>
+			<value>-48.0434799</value>
 		</property>
 	</object>
 </objects>
