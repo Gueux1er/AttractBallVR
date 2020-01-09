@@ -20,8 +20,10 @@ public class AttractRepulse : MonoBehaviour
     public Transform rightHand;
     public ToolType rightTool = ToolType.Repulse;
 
+    public AnimationCurve attractCurve;
+
     [HideInInspector] public float handRadius = 0.8f;
-    [HideInInspector] public float distanceCenterAttraction = 0.8f;
+    [HideInInspector] public float distanceCenterAttraction = 0.4f;
     [HideInInspector] public float attractionForce = -14f;
     [HideInInspector] public float repulsionForce = 40f;
 
@@ -131,7 +133,9 @@ public class AttractRepulse : MonoBehaviour
             return;
         foreach (Rigidbody rb in input)
         {
-            rb.AddExplosionForce(value, center, radius);
+            float dist = Vector3.Distance(rb.transform.position, center);
+            //Debug.Log(dist);
+            rb.AddExplosionForce(value * attractCurve.Evaluate(dist/handRadius), center, radius);
         }
     }
 

@@ -22,7 +22,6 @@ public class Area : MonoBehaviour
     public int minMovable;
     public int maxMovable;
     public GameObject objectToTakeInAccount = null;
-    public float activeSustain;
 
     [Header("Materials")]
     public Material nonActivableMaterial;
@@ -114,7 +113,7 @@ public class Area : MonoBehaviour
             {
                 return;
             }
-            if (value >= minMovable && value < maxMovable)
+            if (value >= minMovable && value <= maxMovable)
             { 
                 activeState = ActiveState.ACTIVE;               
             }
