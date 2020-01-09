@@ -282,6 +282,8 @@ public class Area : MonoBehaviour
         if (other.gameObject.layer == layerIdMovable)
         {
             movableCount++;
+
+            other.GetComponent<MovableSound>().PlaySoundEnterArea();
         }
     }
 
@@ -290,6 +292,8 @@ public class Area : MonoBehaviour
         if (other.gameObject.layer == layerIdMovable)
         {
             movableCount--;
+
+            other.GetComponent<MovableSound>().PlaySoundExitArea();
         }
     }
 }
