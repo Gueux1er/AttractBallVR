@@ -9,9 +9,9 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: SkyboxMaterial
   m_Shader: {fileID: 4800000, guid: a449307a7b4cccf45b5b0e8cc47be915, type: 3}
-  m_ShaderKeywords: CLOUDS CUBEMAP_CLOUD_FORMAT_RGBA GRADIENT_BACKGROUND MOON MOON_CUSTOM_TEXTURE
+  m_ShaderKeywords: ' CLOUDS CUBEMAP_CLOUD_FORMAT_RGBA GRADIENT_BACKGROUND MOON MOON_CUSTOM_TEXTURE
     NOISE_CLOUDS STAR_LAYER_1 STAR_LAYER_1_CUSTOM_TEXTURE STAR_LAYER_2 STAR_LAYER_2_CUSTOM_TEXTURE
-    STAR_LAYER_3_CUSTOM_TEXTURE SUN SUN_CUSTOM_TEXTURE
+    STAR_LAYER_3_CUSTOM_TEXTURE SUN'
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -100,8 +100,8 @@ Material:
     - _CloudTextureTiling: 0.4
     - _DebugPointRadius: 0.03
     - _DebugPointsCount: 0
-    - _GradientFadeBegin: -0.123
-    - _GradientFadeEnd: 0.38999978
+    - _GradientFadeBegin: -0.423
+    - _GradientFadeEnd: 0.45299998
     - _GradientFadeMiddlePosition: 0.561
     - _HorizonFogDensity: 0.181
     - _HorizonFogLength: 0.141
@@ -159,7 +159,7 @@ Material:
     - _CloudCubemapNormalShadowColor: {r: 0, g: 0, b: 0, a: 1}
     - _CloudCubemapNormalToLight: {r: 0, g: 1, b: 0, a: 0}
     - _CloudCubemapTintColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GradientSkyLowerColor: {r: 0.95265716, g: 0.95265716, b: 0.95265716, a: 1}
+    - _GradientSkyLowerColor: {r: 0.9202919, g: 0.9202919, b: 0.9202919, a: 1}
     - _GradientSkyMiddleColor: {r: 0.21085638, g: 0.7092533, b: 0.9558824, a: 1}
     - _GradientSkyUpperColor: {r: 0.32352942, g: 0.5241379, b: 1, a: 1}
     - _HorizonFogColor: {r: 1, g: 1, b: 1, a: 1}
