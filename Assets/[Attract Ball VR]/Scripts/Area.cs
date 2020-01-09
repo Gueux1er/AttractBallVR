@@ -61,6 +61,12 @@ public class Area : MonoBehaviour
     [Header("Sustain")]
     public bool isSustain = false;
     public float timeSustainInSeconds = 3f;
+    private Coroutine sustainUnableActive;
+
+    [Header("Delay before active")]
+    public float delayBeforeActiveInSeconds;
+    private Coroutine launchDelayActive;
+    private bool delayLaunch = false;
 
     [HideInInspector] public bool isLinked = false;
     [HideInInspector] public LinkedArea linkedArea;
@@ -72,6 +78,7 @@ public class Area : MonoBehaviour
     private Renderer rend;
     private int layerIdMovable;
     private CanvasArea canvasArea;
+    
 
     private ActiveState _activeState;
     [HideInInspector] public ActiveState activeState
@@ -114,26 +121,28 @@ public class Area : MonoBehaviour
             {
                 return;
             }
-            if (value >= minMovable && value <= maxMovable)
-            { 
-                activeState = ActiveState.ACTIVE;               
-            }
-            else if (value < minMovable)
+            if (value >= minMovable && value <= maxMovable && delayLaunch != true)
             {
-                if (activeState == ActiveState.ACTIVE)
+                if (sustainUnableActive != null)
+                    StopCoroutine(sustainUnableActive);
+                launchDelayActive = StartCoroutine(LaunchDelayActive());                              
+            }
+            if (value < minMovable)
+            {
+                if (activeState == ActiveState.ACTIVE || delayLaunch == true)
                 {
-                    StartCoroutine(SustainUnableActive(ActiveState.ACTIVABLE_UNDER));
+                    sustainUnableActive = StartCoroutine(SustainUnableActive(ActiveState.ACTIVABLE_UNDER));
                 }
                 else
                 {
                     activeState = ActiveState.ACTIVABLE_UNDER;
                 }
             }
-            else if(value > maxMovable)
+            if(value > maxMovable)
             {
-                if (activeState == ActiveState.ACTIVE)
+                if (activeState == ActiveState.ACTIVE || delayLaunch == true)
                 {
-                    StartCoroutine(SustainUnableActive(ActiveState.ACTIVABLE_OVER));
+                    sustainUnableActive = StartCoroutine(SustainUnableActive(ActiveState.ACTIVABLE_OVER));
                 }
                 else
                 {
@@ -172,10 +181,30 @@ public class Area : MonoBehaviour
         }
     }
 
+    IEnumerator LaunchDelayActive()
+    {
+        if(delayBeforeActiveInSeconds > 0f)
+        {
+            delayLaunch = true;
+            yield return new WaitForSeconds(delayBeforeActiveInSeconds);
+        }
+        Debug.Log("before set active");
+        activeState = ActiveState.ACTIVE;
+        Debug.Log("after set active");
+        delayLaunch = false;
+        yield break;
+    }
+
     IEnumerator SustainUnableActive(ActiveState state)
     {
+        Debug.Log("before stop coroutine");
+        StopCoroutine(launchDelayActive);
+        Debug.Log("after stop coroutine");
+        delayLaunch = false;
+
         if (isSustain)
             yield return new WaitForSeconds(timeSustainInSeconds);
+
         activeState = state;
         yield break;
     }
