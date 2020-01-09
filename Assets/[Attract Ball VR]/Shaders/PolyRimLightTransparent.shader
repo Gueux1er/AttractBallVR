@@ -13,7 +13,7 @@
        
        Cull Back
        Lighting Off
-       Blend SrcAlpha OneMinusSrcAlpha
+       Blend One One
        
        CGPROGRAM
        #pragma surface surf Lambert alpha
@@ -31,8 +31,8 @@
        void surf (Input IN, inout SurfaceOutput o) 
        {
            o.Albedo = _InnerColor.rgb;
-           o.Alpha = _InnerColor.a;
            half rim = 1.0 - saturate(dot (normalize(IN.viewDir), o.Normal));
+           o.Alpha = lerp(_InnerColor.a, _RimColor.a, pow (rim, _RimWidth));
            o.Emission = _RimColor.rgb * _RimGlow * pow (rim, _RimWidth);
        }
        ENDCG
