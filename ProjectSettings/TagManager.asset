@@ -12,6 +12,11 @@ TagManager:
   - Movable
   - Step0
   - Step1
+  - Step3
+  - Step4
+  - Step5
+  - Step6
+  - Step2
   layers:
   - Default
   - TransparentFX
