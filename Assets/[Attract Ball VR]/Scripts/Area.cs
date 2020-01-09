@@ -114,7 +114,7 @@ public class Area : MonoBehaviour
             {
                 return;
             }
-            if (value >= minMovable && value < maxMovable)
+            if (value >= minMovable && value <= maxMovable)
             { 
                 activeState = ActiveState.ACTIVE;               
             }

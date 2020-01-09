@@ -24,6 +24,9 @@ public class LevelManager : MonoBehaviour
     private LevelStep currentStep;
     private int currentStepValue;
 
+    private bool finalActiveState = false;
+    private Coroutine finalActiveStepCoroutine;
+
     void Awake()
     {
         if (Instance == null)
@@ -56,11 +59,25 @@ public class LevelManager : MonoBehaviour
         {
             if (a.activeState == Area.ActiveState.ACTIVE)
                 iTmp++;
+            else
+            {
+                finalActiveState = false;
+                if (finalActiveStepCoroutine != null)
+                    StopCoroutine(finalActiveStepCoroutine);
+            }
         }
-        if (iTmp == i)
+
+        if (iTmp == i && !finalActiveState)
         {
-            StartCoroutine(EndStep(currentStepValue));
+            finalActiveStepCoroutine = StartCoroutine(StartFinalActiveStep(currentStepValue));            
         }
+    }
+
+    public IEnumerator StartFinalActiveStep(int step)
+    {
+        finalActiveState = true;
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(EndStep(currentStepValue));
     }
 
     public IEnumerator StartStep(int step)
