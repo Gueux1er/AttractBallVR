@@ -53,6 +53,7 @@ public class Area : MonoBehaviour
     public List<Area> sequenceChildAreas = new List<Area>();
     public GameObject sequenceLink;
     [HideInInspector] public List<Area> sequenceParentAreas = new List<Area>();
+    private bool alreadyParentActive = false;
 
     [Header("Holder")]
     public bool isHolder = true;
@@ -196,10 +197,12 @@ public class Area : MonoBehaviour
                 if (aParent.activeState != ActiveState.ACTIVE)
                 {
                     activeState = ActiveState.NON_ACTIVABLE;
+                    alreadyParentActive = false;
                     break;
                 }
-                else if (aParent.activeState == ActiveState.ACTIVE)
+                else if (aParent.activeState == ActiveState.ACTIVE && !alreadyParentActive)
                 {
+                    alreadyParentActive = true;
                     activeState = ActiveState.ACTIVABLE_UNDER;
                     movableCount = movableCount;
                     break;

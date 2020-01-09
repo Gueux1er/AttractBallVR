@@ -134,8 +134,8 @@ public class AttractRepulse : MonoBehaviour
         foreach (Rigidbody rb in input)
         {
             float dist = Vector3.Distance(rb.transform.position, center);
-            //Debug.Log(dist);
-            rb.AddExplosionForce(value * attractCurve.Evaluate(dist/handRadius), center, radius);
+            Debug.Log(value * attractCurve.Evaluate(dist / handRadius) * Time.deltaTime);
+            rb.AddExplosionForce(value * attractCurve.Evaluate(dist/handRadius) * Time.deltaTime, center, radius);
         }
     }
 
