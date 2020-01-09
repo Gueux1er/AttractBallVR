@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="Event" id="{01e138e3-cc05-4b1f-88e2-39b821a3c027}">
 		<property name="name">
-			<value>Hamster_Interaction</value>
+			<value>Hamster</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{3eb3fa28-3abc-4859-bae6-6d55d212d5a9}</destination>
+			<destination>{dc09f3c1-5e19-45fa-a46f-ab44688a8828}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{d8f07834-c101-48eb-b22e-906a33acc2f3}</destination>

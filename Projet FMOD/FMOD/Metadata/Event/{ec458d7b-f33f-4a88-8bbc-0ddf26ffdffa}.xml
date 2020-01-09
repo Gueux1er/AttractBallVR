@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="Event" id="{ec458d7b-f33f-4a88-8bbc-0ddf26ffdffa}">
 		<property name="name">
-			<value>MovableCollision_Bell</value>
+			<value>Bell</value>
 		</property>
 		<property name="outputFormat">
 			<value>0</value>
 		</property>
 		<relationship name="folder">
-			<destination>{3eb3fa28-3abc-4859-bae6-6d55d212d5a9}</destination>
+			<destination>{dc09f3c1-5e19-45fa-a46f-ab44688a8828}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{60792aaa-f3bc-45c0-9bb9-7826625c68f7}</destination>

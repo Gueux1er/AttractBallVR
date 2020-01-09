@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="Event" id="{20af675e-56af-4768-8315-6f29c38e5fac}">
 		<property name="name">
-			<value>SuccessTrigger</value>
+			<value>SuccessArea</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -58,7 +58,11 @@
 			<destination>{3101b5d3-ebb6-4f7c-a7c4-da5543b8b105}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{13fcb1cf-c26d-4c2e-a171-a4569b4e6789}" />
+	<object class="EventAutomatableProperties" id="{13fcb1cf-c26d-4c2e-a171-a4569b4e6789}">
+		<property name="maxVoices">
+			<value>3</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{fb739d4c-1655-4fc0-b2a4-0e752adf5f43}" />
 	<object class="GroupTrack" id="{d80663f9-5964-4957-b4a5-482506921e83}">
 		<relationship name="modules">
@@ -148,6 +152,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{f893e582-ec99-4c30-b58d-3669ad5b2830}">
+		<property name="volume">
+			<value>-80</value>
+		</property>
 		<property name="name">
 			<value>Audio 2</value>
 		</property>
@@ -170,9 +177,6 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{073af318-3cf0-4574-bdbc-73d1b076f618}">
-		<property name="volume">
-			<value>10</value>
-		</property>
 		<property name="name">
 			<value>Audio 3</value>
 		</property>
@@ -236,6 +240,7 @@
 	<object class="MixerBusEffectChain" id="{0df83879-4923-4191-9fbb-77151e070fe2}">
 		<relationship name="effects">
 			<destination>{1b9dea07-b816-42cf-9bbe-9e615ba766b3}</destination>
+			<destination>{9bea52b2-e839-4fce-befe-e2ccdf83bde0}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{224e54ab-0c8d-4205-a304-6dad0750878d}" />
@@ -338,6 +343,7 @@
 	</object>
 	<object class="MixerBusFader" id="{b0fd0f39-41f8-4558-b009-ad469d098b17}" />
 	<object class="MixerBusFader" id="{1b9dea07-b816-42cf-9bbe-9e615ba766b3}" />
+	<object class="ThreeEQEffect" id="{9bea52b2-e839-4fce-befe-e2ccdf83bde0}" />
 	<object class="Automator" id="{026f8815-c7ff-4cf4-b858-1c0dd027802a}">
 		<property name="nameOfPropertyBeingAutomated">
 			<value>pitch</value>

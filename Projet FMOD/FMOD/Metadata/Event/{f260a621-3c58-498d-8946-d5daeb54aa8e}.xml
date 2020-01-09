@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="Event" id="{f260a621-3c58-498d-8946-d5daeb54aa8e}">
 		<property name="name">
-			<value>NoGravity</value>
+			<value>MainMenu</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{0c4d758f-0d36-4b60-9826-f94ea2c02a1b}</destination>
+			<destination>{58ec3005-2fee-4bfc-bdac-f599f887e263}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{624d3c96-dc57-47c6-aa96-69089b5f5ca7}</destination>
