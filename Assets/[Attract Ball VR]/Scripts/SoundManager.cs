@@ -76,21 +76,10 @@ public class SoundManager : MonoBehaviour
 
     public static SoundManager instance;
 
-    private Transform playerTransform;
+    public Transform playerTransform;
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else if (instance != this)
-        {
-            Destroy(this);
-            return;
-        }
-
         mainMenuMusicInstance = RuntimeManager.CreateInstance(mainMenuMusic);
         lofiMusicInstance = RuntimeManager.CreateInstance(lofiMusic);
         attractionInstance = RuntimeManager.CreateInstance(attraction);
@@ -111,6 +100,11 @@ public class SoundManager : MonoBehaviour
         fluidInstance = RuntimeManager.CreateInstance(fluid);
         squeekyToyInstance = RuntimeManager.CreateInstance(squeekyToy);
         noiseInstance = RuntimeManager.CreateInstance(noise);
+
+        StartAmbientNature();
+        StartAmbientWater();
+        StartAmbientWind();
+        //StartLofiMusic();
     }
 
     private void Update()
@@ -147,8 +141,6 @@ public class SoundManager : MonoBehaviour
 
     public void StartAmbientNature()
     {
-        playerTransform = FindObjectOfType<OvrAvatar>().transform;
-
         ambientNatureInstance.start();
     }
 
@@ -161,15 +153,11 @@ public class SoundManager : MonoBehaviour
 
     public void StartAmbientWater()
     {
-        playerTransform = FindObjectOfType<OvrAvatar>().transform;
-
         ambientWaterInstance.start();
     }
 
     public void StartAmbientWind()
     {
-        playerTransform = FindObjectOfType<OvrAvatar>().transform;
-
         ambientWindInstance.start();
     }
 

@@ -845,7 +845,7 @@ MonoBehaviour:
           m_Time: 0
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          value: 0.18
+          value: 0.08
         m_Name: Moon Size
         m_Id: 790f5e17-562d-4e94-aa45-7fa6cdcf5592
         minValue: 0
