@@ -60910,7 +60910,7 @@ PrefabInstance:
     - target: {fileID: 2029636152699516867, guid: c3601331c96f04242a3a204d213e5cd5,
         type: 3}
       propertyPath: m_Name
-      value: Line 2
+      value: Sequence
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3601331c96f04242a3a204d213e5cd5, type: 3}

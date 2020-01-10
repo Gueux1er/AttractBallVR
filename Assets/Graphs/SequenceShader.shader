@@ -78,8 +78,8 @@ Shader "SequenceShader"
 }
 /*ASEBEGIN
 Version=17000
--1351;119.4;1342;689;874.1801;-882.2736;1.452924;True;False
-Node;AmplifyShaderEditor.RangedFloatNode;325;-2896.411,1123.51;Float;False;Property;_Tilling;Tilling;5;0;Create;True;0;0;False;0;10;0.68;0;0;0;1;FLOAT;0
+-1351;119.4;1342;689;447.0206;-857.5739;1.452924;True;False
+Node;AmplifyShaderEditor.RangedFloatNode;325;-2896.411,1123.51;Float;False;Property;_Tilling;Tilling;5;0;Create;True;0;0;False;0;10;2.31;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.DynamicAppendNode;328;-2662.669,1120.589;Float;False;FLOAT4;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.TextureCoordinatesNode;319;-2447.372,1133.22;Float;False;0;-1;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,1;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.RelayNode;306;-2024.389,1218.93;Float;False;1;0;FLOAT;0;False;1;FLOAT;0
@@ -104,7 +104,7 @@ Node;AmplifyShaderEditor.SaturateNode;342;427.8447,1189.083;Float;True;1;0;FLOAT
 Node;AmplifyShaderEditor.ColorNode;206;-338.0384,1384.917;Float;False;InstancedProperty;_PulseColor;Pulse Color;2;1;[HDR];Create;True;0;0;False;0;2.680933,2.79544,0,1;83.32378,88.59545,134.8446,0.7490196;False;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;58;166.0509,888.7458;Float;True;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
 Node;AmplifyShaderEditor.SimpleAddOpNode;331;638.2662,1239.958;Float;True;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;330;864.1119,1006.294;Float;False;Property;_EmissiveValue;EmissiveValue;6;0;Create;True;0;0;False;0;1;15;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;330;864.1119,1006.294;Float;False;Property;_EmissiveValue;EmissiveValue;6;0;Create;True;0;0;False;0;1;0.02;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;334;672.5659,1656.546;Float;False;Property;_OpacityExp;OpacityExp;7;0;Create;True;0;0;False;0;1;6.91;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleAddOpNode;209;504.6184,816.1826;Float;True;2;2;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;329;1255.506,844.3374;Float;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
@@ -146,4 +146,4 @@ WireConnection;343;1;334;0
 WireConnection;0;2;329;0
 WireConnection;0;9;343;0
 ASEEND*/
-//CHKSM=4729487BF5E14C63B658062F5E899DA6C8C79F1B
+//CHKSM=3521525917248317D1AC61C8E1788EC3529625E2
