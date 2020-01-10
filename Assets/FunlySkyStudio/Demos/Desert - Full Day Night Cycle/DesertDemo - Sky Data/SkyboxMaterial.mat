@@ -108,7 +108,7 @@ Material:
     - _HorizonScaleFactor: 0.7
     - _MoonEdgeFade: 0.229
     - _MoonHDRBoost: 1
-    - _MoonRadius: 0.18
+    - _MoonRadius: 0.08
     - _MoonSpriteAnimationSpeed: 15
     - _MoonSpriteItemCount: 1
     - _StarBasicExponent: 1.2
