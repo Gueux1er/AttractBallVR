@@ -37,6 +37,8 @@ public class AttractRepulse : MonoBehaviour
 
     private void Update()
     {
+        //Debug.Log(OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger));
+        //Debug.Log("ALEDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
         if (OVRInput.GetDown(OVRInput.Button.One)) //A
         {
             if (rightTool == ToolType.Attract)
@@ -53,11 +55,11 @@ public class AttractRepulse : MonoBehaviour
                 leftTool = ToolType.Attract;
         }
 
-
+        
         if (OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) > 0.1f) //left
         {
             if (leftTool == ToolType.Attract)
-            {
+            {               
                 HandPoseManager.Instance.LeftAttract(true);
                 ActiveAttract(leftHand, OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger));
             }
@@ -134,7 +136,7 @@ public class AttractRepulse : MonoBehaviour
         foreach (Rigidbody rb in input)
         {
             float dist = Vector3.Distance(rb.transform.position, center);
-            Debug.Log(value * attractCurve.Evaluate(dist / handRadius) * Time.deltaTime);
+            //Debug.Log(value * attractCurve.Evaluate(dist / handRadius) * Time.deltaTime);
             rb.AddExplosionForce(value * attractCurve.Evaluate(dist/handRadius) * Time.deltaTime, center, radius);
         }
     }

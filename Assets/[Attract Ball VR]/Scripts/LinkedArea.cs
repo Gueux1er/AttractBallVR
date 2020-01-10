@@ -12,6 +12,8 @@ public class LinkedArea : MonoBehaviour
     private int countArea = 0;
     private bool instantiateLink = false;
 
+    private bool isActivable = false;
+
     void Update()
     {
         if (!linkedArea[0].isActiveAndEnabled)
@@ -23,33 +25,34 @@ public class LinkedArea : MonoBehaviour
             StartLate();
         }
 
-        if (!IsLocked())
+        if (isActivable == true && !IsActivable())
         {
             foreach (Area lArea in linkedArea)
             {
-                lArea.isLinked = false;
-                lArea.movableCount = lArea.movableCount;
+                StartCoroutine(lArea.SustainUnableActive(Area.ActiveState.ACTIVABLE_UNDER));
             }
         }
-        else
-        {
-            foreach (Area lArea in linkedArea)
-            {
-                lArea.isLinked = true;
-                lArea.movableCount = lArea.movableCount;
-            }
-        }
+
+        isActivable = IsActivable();
     }
 
-    public bool IsLocked()
+    public bool IsActivable()
     {
         int i = 0;
         foreach (Area lArea in linkedArea)
         {
-            if (lArea.activeState == Area.ActiveState.ACTIVE)
+            if (lArea.isActivable)
                 i++;
         }
-        return (i==countArea) ? false : true;
+        return (i==countArea) ? true : false;
+    }
+
+    public void PingAreas()
+    {
+        foreach (Area lArea in linkedArea)
+        {
+            lArea.movableCount = lArea.movableCount;
+        }
     }
 
     void StartLate()

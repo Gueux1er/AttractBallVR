@@ -10,7 +10,6 @@ public class Area : MonoBehaviour
         NON_ACTIVABLE,
         ACTIVABLE_UNDER,
         ACTIVABLE_OVER,
-        ACTIVABLE_LINKED,
         ACTIVE
     }
     public enum LoopType
@@ -23,12 +22,7 @@ public class Area : MonoBehaviour
     public int maxMovable;
     public GameObject objectToTakeInAccount = null;
 
-    [Header("Materials")]
-    public Material nonActivableMaterial;
-    public Material activableUnderMaterial;
-    public Material activableOverMaterial;
-    public Material activableLinkedMaterial;
-    public Material activeMaterial;
+
    
     [HideInInspector] public bool isMoving
     {
@@ -68,16 +62,17 @@ public class Area : MonoBehaviour
     private Coroutine launchDelayActive;
     private bool delayLaunch = false;
 
+
     [HideInInspector] public bool isLinked = false;
     [HideInInspector] public LinkedArea linkedArea;
-    
-    
+    [HideInInspector] public bool isActivable = false;
+
 
     //BASIC BEHAVIOUR
     private Collider col;
     private Renderer rend;
     private int layerIdMovable;
-    private CanvasArea canvasArea;
+    private Vector3 startLocalScale;
     
 
     private ActiveState _activeState;
@@ -90,19 +85,19 @@ public class Area : MonoBehaviour
             switch (value)
             {
                 case ActiveState.NON_ACTIVABLE:
-                    rend.material = nonActivableMaterial;
+                    rend.material = MaterialManager.Instance.nonActivableMaterial;
                     break;
                 case ActiveState.ACTIVABLE_UNDER:
-                    rend.material = activableUnderMaterial;
+                    if (movableCount == 0)
+                        rend.material = MaterialManager.Instance.activableUnderMaterialNoMovables;
+                    else
+                        rend.material = MaterialManager.Instance.activableUnderMaterial;
                     break;
                 case ActiveState.ACTIVABLE_OVER:
-                    rend.material = activableOverMaterial;
+                    rend.material = MaterialManager.Instance.activableOverMaterial;
                     break;
                 case ActiveState.ACTIVE:
-                    if (isLinked)
-                        rend.material = activableLinkedMaterial;
-                    else
-                        rend.material = activeMaterial;
+                    rend.material = MaterialManager.Instance.activeMaterial;
                     break;
                 default: break;
             }          
@@ -116,15 +111,17 @@ public class Area : MonoBehaviour
         set
         {
             _movableCount = value;           
-            canvasArea.currentValueText.text = _movableCount.ToString();
             if (activeState == ActiveState.NON_ACTIVABLE)
             {
                 return;
             }
-            if (value >= minMovable && value <= maxMovable && delayLaunch != true)
+            if (value >= minMovable && value <= maxMovable && delayLaunch != true && activeState != ActiveState.ACTIVE)
             {
+                //isActivable = true;
                 if (sustainUnableActive != null)
                     StopCoroutine(sustainUnableActive);
+                activeState = ActiveState.ACTIVABLE_UNDER;
+                //if (linkedArea == null || (linkedArea != null && linkedArea.IsActivable()))
                 launchDelayActive = StartCoroutine(LaunchDelayActive());                              
             }
             if (value < minMovable)
@@ -135,8 +132,11 @@ public class Area : MonoBehaviour
                 }
                 else
                 {
+                    //isActivable = false;
                     activeState = ActiveState.ACTIVABLE_UNDER;
                 }
+                //if (linkedArea != null)
+                //    linkedArea.PingAreas();
             }
             if(value > maxMovable)
             {
@@ -146,8 +146,11 @@ public class Area : MonoBehaviour
                 }
                 else
                 {
+                    //isActivable = false;
                     activeState = ActiveState.ACTIVABLE_OVER;
                 }
+                //if (linkedArea != null)
+                //    linkedArea.PingAreas();
             }
         }
     }
@@ -159,9 +162,7 @@ public class Area : MonoBehaviour
 
     void Start()
     {
-        canvasArea = GetComponent<CanvasArea>();
-        canvasArea.minValueText.text = minMovable.ToString();
-        canvasArea.maxValueText.text = maxMovable.ToString();
+        startLocalScale = transform.localScale;
 
         col = gameObject.GetComponent<Collider>();
         rend = gameObject.GetComponent<Renderer>();
@@ -186,25 +187,31 @@ public class Area : MonoBehaviour
         if(delayBeforeActiveInSeconds > 0f)
         {
             delayLaunch = true;
-            yield return new WaitForSeconds(delayBeforeActiveInSeconds);
+            if (linkedArea != null)
+                linkedArea.PingAreas();
+            for (int i = 0; i < 10; i++)
+            {
+                transform.DOShakePosition(delayBeforeActiveInSeconds / 10, 0.02f + (i*10/100), 100 + (i * 10));
+                yield return new WaitForSeconds(delayBeforeActiveInSeconds / 10);
+            }          
         }
-        Debug.Log("before set active");
+        transform.DOScale(startLocalScale * 1.1f, 0.1f).OnComplete(() => { transform.DOScale(startLocalScale * 0.8f, 0.1f).OnComplete(() => { transform.DOScale(startLocalScale, 0.1f); }); });
         activeState = ActiveState.ACTIVE;
-        Debug.Log("after set active");
         delayLaunch = false;
         yield break;
     }
 
-    IEnumerator SustainUnableActive(ActiveState state)
+    public IEnumerator SustainUnableActive(ActiveState state)
     {
-        Debug.Log("before stop coroutine");
-        StopCoroutine(launchDelayActive);
-        Debug.Log("after stop coroutine");
+        if (launchDelayActive != null)
+            StopCoroutine(launchDelayActive);
         delayLaunch = false;
+        isActivable = false;
 
         if (isSustain)
             yield return new WaitForSeconds(timeSustainInSeconds);
 
+        
         activeState = state;
         yield break;
     }
@@ -297,12 +304,10 @@ public class Area : MonoBehaviour
     {
         gameObject.SetActive(true);
         transform.DOMoveY(transform.position.y + 5, 1f).SetEase(Ease.InOutSine).From().OnComplete(StartMoving);
-        Debug.Log(gameObject.name + " appear");
     }
     public void Disappear()
     {
         transform.DOMoveY(transform.position.y - 5, 1f).SetEase(Ease.InOutSine).OnComplete(() => { gameObject.SetActive(false); });
-        Debug.Log(gameObject.name + " disappear");
     }
 
 
