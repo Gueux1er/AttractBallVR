@@ -74,6 +74,9 @@ public class SoundManager : MonoBehaviour
     private EventInstance squeekyToyInstance;
     private EventInstance noiseInstance;
 
+    private List<StudioEventEmitter> birdSoundList;
+    private List<StudioEventEmitter> frogSoundList;
+
     public static SoundManager instance;
 
     public Transform playerTransform;
@@ -101,10 +104,17 @@ public class SoundManager : MonoBehaviour
         squeekyToyInstance = RuntimeManager.CreateInstance(squeekyToy);
         noiseInstance = RuntimeManager.CreateInstance(noise);
 
-        StartAmbientNature();
-        StartAmbientWater();
-        StartAmbientWind();
-        //StartLofiMusic();
+        birdSoundList = new List<StudioEventEmitter>();
+        for (int i = 0; i < GameObject.FindGameObjectsWithTag("BirdSound").Length; ++i)
+        {
+            birdSoundList.Add(GameObject.FindGameObjectsWithTag("BirdSound")[i].GetComponent<StudioEventEmitter>());
+        }
+
+        frogSoundList = new List<StudioEventEmitter>();
+        for (int i = 0; i < GameObject.FindGameObjectsWithTag("FrogSound").Length; ++i)
+        {
+            frogSoundList.Add(GameObject.FindGameObjectsWithTag("FrogSound")[i].GetComponent<StudioEventEmitter>());
+        }
     }
 
     private void Update()
@@ -139,26 +149,50 @@ public class SoundManager : MonoBehaviour
         lofiMusicInstance.setParameterByName("Rain", rainning ? 1 : 0);
     }
 
-    public void StartAmbientNature()
+    public void SetCompleteStepOne()
     {
-        ambientNatureInstance.start();
+        ambientWindInstance.start();
     }
 
-    public void StopAmbientNature()
-    {
-        // Utile pour quand la pluie
-
-        ambientNatureInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-    }
-
-    public void StartAmbientWater()
+    public void SetCompleteStepTwo()
     {
         ambientWaterInstance.start();
     }
 
-    public void StartAmbientWind()
+    public void SetCompleteStepThree()
     {
-        ambientWindInstance.start();
+        ambientNatureInstance.start();
+
+        for (int i = 0; i < birdSoundList.Count; ++i)
+        {
+            birdSoundList[i].Play();
+        }
+    }
+
+    public void SetCompleteStepFour()
+    {
+
+        ambientNatureInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+
+        for (int i = 0; i < birdSoundList.Count; ++i)
+        {
+            birdSoundList[i].Stop();
+        }
+
+        for (int i = 0; i < frogSoundList.Count; ++i)
+        {
+            frogSoundList[i].Play();
+        }
+    }
+
+    public void SetCompleteStepFive()
+    {
+        ambientNatureInstance.start();
+
+        for (int i = 0; i < birdSoundList.Count; ++i)
+        {
+            birdSoundList[i].Play();
+        }
     }
 
     public void StartAttractionSound()

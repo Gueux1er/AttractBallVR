@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6651195365416886362}
   m_Layer: 0
   m_Name: BirdSound
-  m_TagString: Untagged
+  m_TagString: BirdSound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollisionTag: 
   Event: event:/Environment/Bird
-  PlayEvent: 1
+  PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0

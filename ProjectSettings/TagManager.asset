@@ -19,6 +19,8 @@ TagManager:
   - Step2
   - Tool
   - Globe
+  - BirdSound
+  - FrogSound
   layers:
   - Default
   - TransparentFX
