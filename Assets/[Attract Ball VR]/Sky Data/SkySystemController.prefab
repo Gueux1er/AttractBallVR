@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SkyProfile: {fileID: 11400000, guid: 91e13d99b8156dc488c9d5fbd4578c4a, type: 2}
-  m_SkyTime: 0
+  m_SkyTime: 0.2
   automaticTimeIncrement: 0
   copySkyProfile: 0
   automaticIncrementSpeed: 0.01
@@ -721,8 +721,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.94110787
+  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

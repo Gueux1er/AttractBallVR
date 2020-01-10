@@ -9,9 +9,9 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: SkyboxMaterial
   m_Shader: {fileID: 4800000, guid: a449307a7b4cccf45b5b0e8cc47be915, type: 3}
-  m_ShaderKeywords: CLOUDS CUBEMAP_CLOUD_FORMAT_RGBA GRADIENT_BACKGROUND HORIZON_FOG
+  m_ShaderKeywords: ' CLOUDS CUBEMAP_CLOUD_FORMAT_RGBA GRADIENT_BACKGROUND HORIZON_FOG
     MOON MOON_CUSTOM_TEXTURE NOISE_CLOUDS STAR_LAYER_1 STAR_LAYER_1_CUSTOM_TEXTURE
-    STAR_LAYER_2 STAR_LAYER_2_CUSTOM_TEXTURE STAR_LAYER_3_CUSTOM_TEXTURE SUN
+    STAR_LAYER_2 STAR_LAYER_2_CUSTOM_TEXTURE STAR_LAYER_3_CUSTOM_TEXTURE SUN'
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -91,7 +91,7 @@ Material:
     - _CloudCubemapNormalHeight: 0
     - _CloudCubemapNormalRotationSpeed: 0.01
     - _CloudCubemapRotationSpeed: 0.01
-    - _CloudDensity: 0
+    - _CloudDensity: 0.7
     - _CloudDirection: 0
     - _CloudFadeAmount: 1
     - _CloudFadePosition: 0.85
@@ -100,8 +100,8 @@ Material:
     - _CloudTextureTiling: 0.4
     - _DebugPointRadius: 0.03
     - _DebugPointsCount: 0
-    - _GradientFadeBegin: -0.423
-    - _GradientFadeEnd: 0.45299998
+    - _GradientFadeBegin: -0.7
+    - _GradientFadeEnd: 0.3
     - _GradientFadeMiddlePosition: 0.561
     - _HorizonFogDensity: 0
     - _HorizonFogLength: 0.141
@@ -159,9 +159,9 @@ Material:
     - _CloudCubemapNormalShadowColor: {r: 0, g: 0, b: 0, a: 1}
     - _CloudCubemapNormalToLight: {r: 0, g: 1, b: 0, a: 0}
     - _CloudCubemapTintColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GradientSkyLowerColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GradientSkyMiddleColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GradientSkyUpperColor: {r: 1, g: 1, b: 1, a: 1}
+    - _GradientSkyLowerColor: {r: 0.84705883, g: 1, b: 0.88131714, a: 1}
+    - _GradientSkyMiddleColor: {r: 0.7647059, g: 0.8859342, b: 1, a: 1}
+    - _GradientSkyUpperColor: {r: 0.22828408, g: 0.673621, b: 0.8490566, a: 1}
     - _HorizonFogColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
     - _MoonColor: {r: 1, g: 1, b: 1, a: 1}
     - _MoonPosition: {r: -0.9045408, g: 0.42593947, b: 0.019534575, a: 0}
