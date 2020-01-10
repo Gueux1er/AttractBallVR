@@ -286,9 +286,12 @@ public class Area : MonoBehaviour
 
     private void StartMoving()
     {
+        GameObject g = new GameObject(name + " parent");
+        g.transform.position = transform.position;
+        transform.parent = g.transform;
         loopTween.Pause();
         path.Add(transform.position);
-        loopTween = transform.DOPath(path.ToArray(), timeLoopInSeconds).SetEase(Ease.Linear);
+        loopTween = g.transform.DOPath(path.ToArray(), timeLoopInSeconds).SetEase(Ease.Linear);
         if (loopType == LoopType.YOYO)
         {
             loopTween.SetLoops(-1, DG.Tweening.LoopType.Yoyo);

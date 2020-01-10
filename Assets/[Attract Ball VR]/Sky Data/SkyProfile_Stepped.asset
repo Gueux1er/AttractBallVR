@@ -30,6 +30,7 @@ MonoBehaviour:
   - RainSoundVolume
   - RainNearIntensityKey
   - RainFarIntensityKey
+  - MoonSizeKey
   keyframeGroups:
     m_ColorGroup:
       m_Keys:
@@ -62,7 +63,7 @@ MonoBehaviour:
           m_Time: 0
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          color: {r: 1, g: 1, b: 1, a: 1}
+          color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
         - m_Id: caad7194-3af0-46d6-b0ee-9ad2997f94b0
           m_Time: 0.1
           m_InterpolationCurve: 0
@@ -110,7 +111,7 @@ MonoBehaviour:
           m_Time: 0
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          color: {r: 1, g: 1, b: 1, a: 1}
+          color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
         - m_Id: f670cc22-92f2-4148-a430-02e3f3b14ff7
           m_Time: 0.1
           m_InterpolationCurve: 0
@@ -158,7 +159,7 @@ MonoBehaviour:
           m_Time: 0
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          color: {r: 1, g: 1, b: 1, a: 1}
+          color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
         - m_Id: fdc96ad4-53cc-41a6-b649-c82514ba7136
           m_Time: 0.1
           m_InterpolationCurve: 0
@@ -202,6 +203,16 @@ MonoBehaviour:
         m_Name: Sky Lower Color
         m_Id: fa805a58-9a7f-42a3-b622-15d445df986c
       - keyframes:
+        - m_Id: 3ce5b5cf-f633-4ee0-a737-2cf7a5ee93ff
+          m_Time: 0
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
+        - m_Id: 1a594aaa-807b-4a89-955a-363a71f9ed89
+          m_Time: 0
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          color: {r: 1, g: 1, b: 1, a: 1}
         - m_Id: 157055d5-ded0-412d-addb-c573646ac541
           m_Time: 0.2
           m_InterpolationCurve: 0
@@ -250,6 +261,11 @@ MonoBehaviour:
         m_Name: Cloud Color 1
         m_Id: fb268487-8409-40f3-9cd5-10f121e6550d
       - keyframes:
+        - m_Id: 8be97322-c7f7-4dd3-b8bb-cd43f7f529be
+          m_Time: 0
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          color: {r: 0, g: 0, b: 0, a: 1}
         - m_Id: 63f98576-7c49-4eb1-81de-c575bcb40fad
           m_Time: 0.15
           m_InterpolationCurve: 0
@@ -754,7 +770,7 @@ MonoBehaviour:
         minValue: 0
         maxValue: 1
       - keyframes:
-        - m_Id: 57292699-9b27-44e8-86fe-9bef453c1f55
+        - m_Id: d7a2a428-3c2f-45a3-93ee-1b9df764831a
           m_Time: 0
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
@@ -896,6 +912,11 @@ MonoBehaviour:
       - keyframes:
         - m_Id: 298012db-c2db-44dd-b94b-ed6604930e10
           m_Time: 0
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 0
+        - m_Id: 11d96838-87fa-4b2c-b120-894e602b7040
+          m_Time: 0.9999
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           value: 0.08
