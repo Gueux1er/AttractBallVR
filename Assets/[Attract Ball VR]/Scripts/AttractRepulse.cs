@@ -98,11 +98,13 @@ public class AttractRepulse : MonoBehaviour
 
         if (rightTool == ToolType.Attract)
         {
-            rightHand.gameObject.GetComponentInChildren<CenterTrailParticle>().speed = OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) * 2000;
+            if (rightHand.gameObject.GetComponentInChildren<CenterTrailParticle>() != null)
+                rightHand.gameObject.GetComponentInChildren<CenterTrailParticle>().speed = OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) * 2000;
         }
         if (leftTool == ToolType.Attract)
         {
-            leftHand.gameObject.GetComponentInChildren<CenterTrailParticle>().speed = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) * 2000;
+            if (leftHand.gameObject.GetComponentInChildren<CenterTrailParticle>() != null)
+                leftHand.gameObject.GetComponentInChildren<CenterTrailParticle>().speed = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) * 2000;
         }
 
     }
