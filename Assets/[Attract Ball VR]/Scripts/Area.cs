@@ -158,14 +158,16 @@ public class Area : MonoBehaviour
     private void Awake()
     {
         gameObject.SetActive(false);
+        
+        
     }
 
     void Start()
     {
         startLocalScale = transform.localScale;
-
-        col = gameObject.GetComponent<Collider>();
         rend = gameObject.GetComponent<Renderer>();
+        col = gameObject.GetComponent<Collider>();
+        
         layerIdMovable = LayerMask.NameToLayer("Movable");
         activeState = ActiveState.ACTIVABLE_UNDER;
 
@@ -176,8 +178,8 @@ public class Area : MonoBehaviour
                 aChildren.sequenceParentAreas.Add(this);
                 StartCoroutine(SetChildrenLink(aChildren));
                 GameObject sLink = Instantiate(sequenceLink);
-                sLink.GetComponent<LineLink>().a = this.gameObject;
-                sLink.GetComponent<LineLink>().b = aChildren.gameObject;
+                sLink.GetComponent<SequenceRenderer>().a = gameObject;
+                sLink.GetComponent<SequenceRenderer>().b = aChildren.gameObject;
             }            
         }
     }
@@ -189,13 +191,23 @@ public class Area : MonoBehaviour
             delayLaunch = true;
             if (linkedArea != null)
                 linkedArea.PingAreas();
-            for (int i = 0; i < 10; i++)
+            for (float i = 0; i < 10; i++)
             {
-                transform.DOShakePosition(delayBeforeActiveInSeconds / 10, 0.02f + (i*10/100), 100 + (i * 10));
+                transform.DOShakePosition(delayBeforeActiveInSeconds / 20, 0.02f + (i/200), 1);
+                if (i < 7)
+                {
+                    if (i%2 == 0)
+                        transform.DOScale(startLocalScale * (1f + i / 100), 0.1f / 2).SetLoops(2, DG.Tweening.LoopType.Yoyo);
+                }
+                else
+                    transform.DOScale(startLocalScale * (1f + i / 100), 0.1f / 4).SetLoops(4, DG.Tweening.LoopType.Yoyo);
+
                 yield return new WaitForSeconds(delayBeforeActiveInSeconds / 10);
             }          
         }
-        transform.DOScale(startLocalScale * 1.1f, 0.1f).OnComplete(() => { transform.DOScale(startLocalScale * 0.8f, 0.1f).OnComplete(() => { transform.DOScale(startLocalScale, 0.1f); }); });
+        Vector3 v = new Vector3(transform.rotation.x+180, transform.rotation.y + 180, transform.rotation.z + 180);
+        
+        transform.DOScale(startLocalScale * 1.1f, 0.1f).OnComplete(() => { transform.DORotate(v, 0.3f); transform.DOScale(startLocalScale * 0.9f, 0.1f).OnComplete(() => { transform.DOScale(startLocalScale, 0.05f).SetEase(Ease.InOutBounce);  }); });
         activeState = ActiveState.ACTIVE;
         delayLaunch = false;
         yield break;
@@ -306,6 +318,7 @@ public class Area : MonoBehaviour
     public void Appear()
     {
         gameObject.SetActive(true);
+        MaterialManager.Instance.PrewarmRend(rend);
         transform.DOMoveY(transform.position.y + 5, 1f).SetEase(Ease.InOutSine).From().OnComplete(StartMoving);
     }
     public void Disappear()

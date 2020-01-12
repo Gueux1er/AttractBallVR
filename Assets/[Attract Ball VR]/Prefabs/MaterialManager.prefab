@@ -43,9 +43,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6623cfcd19a23f439b72caa6439cc57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nonActivableMaterial: {fileID: 0}
-  activableUnderMaterialNoMovables: {fileID: 0}
-  activableUnderMaterial: {fileID: 0}
-  activableOverMaterial: {fileID: 0}
-  activableLinkedMaterial: {fileID: 0}
-  activeMaterial: {fileID: 0}
+  nonActivableMaterial: {fileID: 2100000, guid: 859ac951499df9747aca9f848aff4f3f,
+    type: 2}
+  activableUnderMaterialNoMovables: {fileID: 2100000, guid: 18bc3ab996fd27340918bfda18bf013d,
+    type: 2}
+  activableUnderMaterial: {fileID: 2100000, guid: 1c35a91c418539c4a88e8c4aa57e58bd,
+    type: 2}
+  activableOverMaterial: {fileID: 2100000, guid: 84a5e3f6fe239ab489e6c7a34b5c74ca,
+    type: 2}
+  activableLinkedMaterial: {fileID: 2100000, guid: 1c35a91c418539c4a88e8c4aa57e58bd,
+    type: 2}
+  activeMaterial: {fileID: 2100000, guid: 7f6194c93d9b3ae4da8e9390da933117, type: 2}
+  materialLoader: {fileID: 0}

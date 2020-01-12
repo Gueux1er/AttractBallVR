@@ -6,8 +6,10 @@ public class TrailHandRadius : MonoBehaviour
 {
     public GameObject particleTrail;
     public GameObject centerParticleTrail;
-    void Start()
+    IEnumerator Start()
     {
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
         float distanceCenterAttraction = GetComponent<AttractRepulse>().distanceCenterAttraction;
         Transform leftHand = GetComponent<AttractRepulse>().leftHand;
         Transform rightHand = GetComponent<AttractRepulse>().rightHand;

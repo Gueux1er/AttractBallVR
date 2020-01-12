@@ -27,8 +27,9 @@ public class AttractRepulse : MonoBehaviour
     [HideInInspector] public float attractionForce = -14f;
     [HideInInspector] public float repulsionForce = 40f;
 
-    private void Awake()
+    private void Start()
     {
+        Debug.Log(ParameterManager.Instance.handRadius);
         handRadius = ParameterManager.Instance.handRadius;
         distanceCenterAttraction = ParameterManager.Instance.distanceCenterAttraction;
         attractionForce = ParameterManager.Instance.attractionForce;
@@ -152,7 +153,7 @@ public class AttractRepulse : MonoBehaviour
         result = new Rigidbody[cols.Length];
         for (int i = 0; i < cols.Length; ++i)
         {
-            result[i] = cols[i].attachedRigidbody;
+            result[i] = cols[i].attachedRigidbody;            
         }
         return true;
     }

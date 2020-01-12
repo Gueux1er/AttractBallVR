@@ -24,12 +24,21 @@ public class MaterialManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }
+        }   
     }
 
-    // Update is called once per frame
-    void Update()
+    public IEnumerator PrewarmRend(Renderer rend)
     {
-        
+        rend.material = nonActivableMaterial;
+        yield return new WaitForEndOfFrame();
+        rend.material = activableUnderMaterialNoMovables;
+        yield return new WaitForEndOfFrame();
+        rend.material = activableUnderMaterial;
+        yield return new WaitForEndOfFrame();
+        rend.material = activableOverMaterial;
+        yield return new WaitForEndOfFrame();
+        rend.material = activableLinkedMaterial;
+        yield return new WaitForEndOfFrame();
+        rend.material = activeMaterial;
     }
 }

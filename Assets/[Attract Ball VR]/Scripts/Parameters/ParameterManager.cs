@@ -7,10 +7,10 @@ public class ParameterManager : MonoBehaviour
 {
     public static ParameterManager Instance;
 
-    public float handRadius = 0.8f;
-    public float distanceCenterAttraction = 0.8f;
-    public float attractionForce = -15f;
-    public float repulsionForce = 40f;
+    public float handRadius = 1.5f;
+    public float distanceCenterAttraction = 0.4f;
+    public float attractionForce = -1000f;
+    public float repulsionForce = 1500f;
 
     void Awake()
     {
@@ -28,22 +28,28 @@ public class ParameterManager : MonoBehaviour
 
     void Update()
     {
-        if (OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick) || Input.GetKeyDown(KeyCode.S)) //joystick droit
-        {            
-            int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-            Debug.Log(SceneManager.sceneCount);
-            if (SceneManager.sceneCountInBuildSettings > nextSceneIndex)
-            {
-                SceneManager.LoadScene(nextSceneIndex);
-            }
-        }
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick)) //joystick gauche
+        if (OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick))
         {
-            int nextSceneIndex = SceneManager.GetActiveScene().buildIndex - 1;
-            if (nextSceneIndex >= 0)
-            {
-                SceneManager.LoadScene(nextSceneIndex);
-            }
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+        
+
+        //if (OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick) || Input.GetKeyDown(KeyCode.S)) //joystick droit
+        //{            
+        //    int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        //    Debug.Log(SceneManager.sceneCount);
+        //    if (SceneManager.sceneCountInBuildSettings > nextSceneIndex)
+        //    {
+        //        SceneManager.LoadScene(nextSceneIndex);
+        //    }
+        //}
+        //if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick)) //joystick gauche
+        //{
+        //    int nextSceneIndex = SceneManager.GetActiveScene().buildIndex - 1;
+        //    if (nextSceneIndex >= 0)
+        //    {
+        //        SceneManager.LoadScene(nextSceneIndex);
+        //    }
+        //}
     }
 }
