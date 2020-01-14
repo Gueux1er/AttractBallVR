@@ -6,7 +6,6 @@ using UnityEngine.Events;
 
 public class LevelManager : MonoBehaviour
 {
-    public GameObject accessor;
     public List<LevelStep> levelStepList = new List<LevelStep>();
     public static LevelManager Instance;
 
@@ -67,7 +66,7 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-        if (iTmp == i && !finalActiveState)
+        if (iTmp == i && !finalActiveState || Input.GetKeyDown(KeyCode.N))
         {
             finalActiveStepCoroutine = StartCoroutine(StartFinalActiveStep(currentStepValue));            
         }
