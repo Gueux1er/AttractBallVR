@@ -333,7 +333,8 @@ public class Area : MonoBehaviour
         {
             movableCount++;
 
-            other.GetComponent<MovableSound>().PlaySoundEnterArea();
+            if (activeState != ActiveState.NON_ACTIVABLE)
+                other.GetComponent<MovableSound>().PlaySoundEnterArea();
         }
     }
 
@@ -343,7 +344,8 @@ public class Area : MonoBehaviour
         {
             movableCount--;
 
-            other.GetComponent<MovableSound>().PlaySoundExitArea();
+            if (activeState != ActiveState.NON_ACTIVABLE)
+                other.GetComponent<MovableSound>().PlaySoundExitArea();
         }
     }
 }
