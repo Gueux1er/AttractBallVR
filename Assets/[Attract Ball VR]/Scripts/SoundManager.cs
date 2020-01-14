@@ -62,9 +62,9 @@ public class SoundManager : MonoBehaviour
     private EventInstance ballExitAreaInstance;
     private EventInstance successAreaInstance;
     private EventInstance ambientCaveCricketInstance;
-    private EventInstance ambientWaterInstance;
-    private EventInstance ambientNatureInstance;
-    private EventInstance ambientWindInstance;
+    private EventInstance ambienceWaterInstance;
+    private EventInstance ambienceNatureInstance;
+    private EventInstance ambienceWindInstance;
     private EventInstance birdInstance;
     private EventInstance frogInstance;
     private EventInstance fireInstance;
@@ -92,9 +92,9 @@ public class SoundManager : MonoBehaviour
         ballExitAreaInstance = RuntimeManager.CreateInstance(ballExitArea);
         successAreaInstance = RuntimeManager.CreateInstance(successArea);
         ambientCaveCricketInstance = RuntimeManager.CreateInstance(ambientCaveCricket);
-        ambientWaterInstance = RuntimeManager.CreateInstance(ambientWater);
-        ambientNatureInstance = RuntimeManager.CreateInstance(ambientNature);
-        ambientWindInstance = RuntimeManager.CreateInstance(ambientWind);
+        ambienceWaterInstance = RuntimeManager.CreateInstance(ambientWater);
+        ambienceNatureInstance = RuntimeManager.CreateInstance(ambientNature);
+        ambienceWindInstance = RuntimeManager.CreateInstance(ambientWind);
         birdInstance = RuntimeManager.CreateInstance(bird);
         frogInstance = RuntimeManager.CreateInstance(frog);
         fireInstance = RuntimeManager.CreateInstance(fire);
@@ -121,9 +121,9 @@ public class SoundManager : MonoBehaviour
     {
         if(playerTransform != null)
         {
-            ambientNatureInstance.setParameterByName("Height", Mathf.Clamp(playerTransform.position.y, 0, 2) / 2);
-            ambientWaterInstance.setParameterByName("Height", Mathf.Clamp(playerTransform.position.y, 0, 2) / 2);
-            ambientWindInstance.setParameterByName("Height", Mathf.Clamp(playerTransform.position.y, 0, 2) / 2);
+            ambienceNatureInstance.setParameterByName("Height", Mathf.Clamp(playerTransform.position.y, 0, 2) / 2);
+            ambienceWaterInstance.setParameterByName("Height", Mathf.Clamp(playerTransform.position.y, 0, 2) / 2);
+            ambienceWindInstance.setParameterByName("Height", Mathf.Clamp(playerTransform.position.y, 0, 2) / 2);
         }
     }
 
@@ -149,49 +149,62 @@ public class SoundManager : MonoBehaviour
         lofiMusicInstance.setParameterByName("Rain", rainning ? 1 : 0);
     }
 
-    public void SetCompleteStepOne()
+    // Base
+    public void StartWindAmbience()
     {
-        ambientWindInstance.start();
+        ambienceWindInstance.start();
     }
 
-    public void SetCompleteStepTwo()
+    // River
+    public void StartWaterAmbience()
     {
-        ambientWaterInstance.start();
+        ambienceWaterInstance.start();
     }
 
-    public void SetCompleteStepThree()
+    // Grass
+    public void StartNatureAmbience()
     {
-        ambientNatureInstance.start();
+        ambienceNatureInstance.start();
+    }
 
+    // Rain
+    public void StopNatureAmbience()
+    {
+        ambienceNatureInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+    }
+
+    // Trees
+    public void StartBirdSounds()
+    {
         for (int i = 0; i < birdSoundList.Count; ++i)
         {
             birdSoundList[i].Play();
         }
     }
 
-    public void SetCompleteStepFour()
+    // Rain
+    public void StopBirdSounds()
     {
-
-        ambientNatureInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-
         for (int i = 0; i < birdSoundList.Count; ++i)
         {
-            birdSoundList[i].Stop();
+            birdSoundList[i].Play();
         }
-
+    }
+    
+    // Bridge
+    public void StartFrogSounds()
+    {
         for (int i = 0; i < frogSoundList.Count; ++i)
         {
             frogSoundList[i].Play();
         }
     }
 
-    public void SetCompleteStepFive()
+    public void StopFrogSounds()
     {
-        ambientNatureInstance.start();
-
-        for (int i = 0; i < birdSoundList.Count; ++i)
+        for (int i = 0; i < frogSoundList.Count; ++i)
         {
-            birdSoundList[i].Play();
+            frogSoundList[i].Play();
         }
     }
 
