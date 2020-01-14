@@ -7948,6 +7948,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 791393240935539267, guid: b27fe1f2753d40943a832a6b623a3121,
+        type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 435256327}
     - target: {fileID: 1055663577738577292, guid: b27fe1f2753d40943a832a6b623a3121,
         type: 3}
       propertyPath: m_Name
@@ -7956,17 +7961,17 @@ PrefabInstance:
     - target: {fileID: 4401929991393377399, guid: b27fe1f2753d40943a832a6b623a3121,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.1479616
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4401929991393377399, guid: b27fe1f2753d40943a832a6b623a3121,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0079327
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4401929991393377399, guid: b27fe1f2753d40943a832a6b623a3121,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.4424076
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4401929991393377399, guid: b27fe1f2753d40943a832a6b623a3121,
         type: 3}
@@ -9997,13 +10002,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e917c665e54ec754aa165ca9d6f0bc31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accessor: {fileID: 0}
   levelStepList:
   - areas:
     - {fileID: 265702739}
     enterEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1038704749}
+          m_MethodName: StartWindAmbience
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1038704749}
+          m_MethodName: StartNatureAmbience
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     exitEvent:
       m_PersistentCalls:
         m_Calls:
@@ -10023,7 +10049,18 @@ MonoBehaviour:
     - {fileID: 1614875669}
     enterEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1038704749}
+          m_MethodName: StopBirdSounds
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     exitEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -10039,7 +10076,29 @@ MonoBehaviour:
     - {fileID: 1329152754}
     enterEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1038704749}
+          m_MethodName: StartWaterAmbience
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1038704749}
+          m_MethodName: StartFrogSounds
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     exitEvent:
       m_PersistentCalls:
         m_Calls:
@@ -10100,12 +10159,56 @@ MonoBehaviour:
     - {fileID: 1567604890}
     enterEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1038704749}
+          m_MethodName: StopBirdSounds
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1038704749}
+          m_MethodName: StopNatureAmbience
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     exitEvent:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1697187639}
           m_MethodName: SetCompleteStepFive
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1038704749}
+          m_MethodName: StartNatureAmbience
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1038704749}
+          m_MethodName: StartBirdSounds
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -30789,6 +30892,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1036264503}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1038704749 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 791393240935539267, guid: b27fe1f2753d40943a832a6b623a3121,
+    type: 3}
+  m_PrefabInstance: {fileID: 216244686}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174d3b2b3bab2794b8f5c3c9a658e00a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1041063483 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 878671130169794855, guid: 0a0704dc9fd8df04b80796d90154845b,
@@ -49346,7 +49461,12 @@ PrefabInstance:
     - target: {fileID: 4314160504226898931, guid: 96870060375a0374ea3aa401899c0645,
         type: 3}
       propertyPath: m_SkyTime
-      value: 0.2
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314160504226898931, guid: 96870060375a0374ea3aa401899c0645,
+        type: 3}
+      propertyPath: automaticIncrementSpeed
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4314160504953676773, guid: 96870060375a0374ea3aa401899c0645,
         type: 3}
@@ -49391,17 +49511,17 @@ PrefabInstance:
     - target: {fileID: 4314160505819876570, guid: 96870060375a0374ea3aa401899c0645,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.95686275
+      value: 0.8610428
       objectReference: {fileID: 0}
     - target: {fileID: 4314160505819876570, guid: 96870060375a0374ea3aa401899c0645,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.8392157
+      value: 0.742721
       objectReference: {fileID: 0}
     - target: {fileID: 4314160505819876570, guid: 96870060375a0374ea3aa401899c0645,
         type: 3}
       propertyPath: m_Intensity
-      value: 1
+      value: 0.97499996
       objectReference: {fileID: 0}
     - target: {fileID: 4314160505819876570, guid: 96870060375a0374ea3aa401899c0645,
         type: 3}
