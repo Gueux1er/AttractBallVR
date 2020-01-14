@@ -187,7 +187,7 @@ public class SoundManager : MonoBehaviour
     {
         for (int i = 0; i < birdSoundList.Count; ++i)
         {
-            birdSoundList[i].Play();
+            birdSoundList[i].Stop();
         }
     }
     
@@ -204,7 +204,7 @@ public class SoundManager : MonoBehaviour
     {
         for (int i = 0; i < frogSoundList.Count; ++i)
         {
-            frogSoundList[i].Play();
+            frogSoundList[i].Stop();
         }
     }
 
