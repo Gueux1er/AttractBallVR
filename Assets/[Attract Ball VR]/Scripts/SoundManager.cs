@@ -121,9 +121,9 @@ public class SoundManager : MonoBehaviour
     {
         if(playerTransform != null)
         {
-            ambienceNatureInstance.setParameterByName("Height", Mathf.Clamp(playerTransform.position.y, 0, 2) / 2);
-            ambienceWaterInstance.setParameterByName("Height", Mathf.Clamp(playerTransform.position.y, 0, 2) / 2);
-            ambienceWindInstance.setParameterByName("Height", Mathf.Clamp(playerTransform.position.y, 0, 2) / 2);
+            ambienceNatureInstance.setParameterByName("Height", Mathf.Clamp(playerTransform.position.y, 0f, 2f) / 2f);
+            ambienceWaterInstance.setParameterByName("Height", Mathf.Clamp(playerTransform.position.y, 0f, 2f) / 2f);
+            ambienceWindInstance.setParameterByName("Height", Mathf.Clamp(playerTransform.position.y, 0f, 2f) / 2f);
         }
     }
 
@@ -150,18 +150,21 @@ public class SoundManager : MonoBehaviour
     }
 
     // Base
+    [ContextMenu("Play Wind Ambience")]
     public void StartWindAmbience()
     {
         ambienceWindInstance.start();
     }
 
     // River
+    [ContextMenu("Play Water Ambience")]
     public void StartWaterAmbience()
     {
         ambienceWaterInstance.start();
     }
 
     // Grass
+    [ContextMenu("Play Nature Ambience")]
     public void StartNatureAmbience()
     {
         ambienceNatureInstance.start();
@@ -174,11 +177,13 @@ public class SoundManager : MonoBehaviour
     }
 
     // Trees
+    [ContextMenu("Play Birds Sounds")]
     public void StartBirdSounds()
     {
         for (int i = 0; i < birdSoundList.Count; ++i)
         {
             birdSoundList[i].Play();
+            birdSoundList[i].EventInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(birdSoundList[i].transform.position));
         }
     }
 
@@ -190,13 +195,15 @@ public class SoundManager : MonoBehaviour
             birdSoundList[i].Stop();
         }
     }
-    
+
     // Bridge
+    [ContextMenu("Play Frogs Sounds")]
     public void StartFrogSounds()
     {
         for (int i = 0; i < frogSoundList.Count; ++i)
         {
             frogSoundList[i].Play();
+            frogSoundList[i].EventInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(frogSoundList[i].transform.position));
         }
     }
 

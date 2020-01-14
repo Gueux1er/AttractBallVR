@@ -52,7 +52,7 @@ MonoBehaviour:
   ballExitArea: event:/Event/BallExitArea
   successArea: event:/Event/SuccessArea
   ambientCaveCricket: event:/Environment/AmbientCricket
-  ambientWater: event:/Environment/AmbientNature
+  ambientWater: event:/Environment/AmbientWater
   ambientNature: event:/Environment/AmbientNature
   ambientWind: event:/Environment/AmbientWind
   bird: event:/Environment/Bird
@@ -63,3 +63,4 @@ MonoBehaviour:
   fluid: event:/Environment/Fluid
   squeekyToy: event:/Environment/SqueekyToy
   noise: event:/Noise
+  playerTransform: {fileID: 0}

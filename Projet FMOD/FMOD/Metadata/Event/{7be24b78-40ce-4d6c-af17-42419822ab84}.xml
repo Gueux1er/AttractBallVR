@@ -99,6 +99,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{006d0446-ecd2-4e15-89eb-a39139a64c64}">
+		<property name="volume">
+			<value>10</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{0ba16353-7335-4608-843d-ee99c23bf583}</destination>
 		</relationship>
@@ -367,7 +370,7 @@
 			<value>-8</value>
 		</property>
 		<property name="curveShape">
-			<value>0.0191365853</value>
+			<value>0.368497342</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{030a5aaf-c5b2-4d3f-8971-9c5c854667ed}">
@@ -386,7 +389,7 @@
 			<value>3.81469727e-06</value>
 		</property>
 		<property name="curveShape">
-			<value>-0.17560032</value>
+			<value>0.142198741</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{2d71d15d-5665-44ea-903f-882aea370d64}">
