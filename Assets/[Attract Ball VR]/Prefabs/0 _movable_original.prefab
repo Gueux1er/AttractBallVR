@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1851151170442160396}
   - component: {fileID: 4124583771940678172}
   - component: {fileID: 4378525168308679452}
+  - component: {fileID: 2620033755788746720}
   - component: {fileID: 1264180520}
   m_Layer: 9
   m_Name: 0 _movable_original
@@ -186,6 +187,18 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 3
+--- !u!114 &2620033755788746720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8129656346049694281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5193ad12e73f1dd4a850cad1c5eab31a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1264180520
 MonoBehaviour:
   m_ObjectHideFlags: 0

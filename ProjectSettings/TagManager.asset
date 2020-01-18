@@ -21,6 +21,7 @@ TagManager:
   - Globe
   - BirdSound
   - FrogSound
+  - Center
   layers:
   - Default
   - TransparentFX

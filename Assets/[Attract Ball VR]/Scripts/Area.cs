@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 public class Area : MonoBehaviour
 {
@@ -66,6 +67,7 @@ public class Area : MonoBehaviour
     [HideInInspector] public bool isLinked = false;
     [HideInInspector] public LinkedArea linkedArea;
     [HideInInspector] public bool isActivable = false;
+    [HideInInspector] public HapticManager haptic;
 
 
     //BASIC BEHAVIOUR
@@ -81,26 +83,31 @@ public class Area : MonoBehaviour
         get { return _activeState; }
         set
         {
-            _activeState = value;           
-            switch (value)
-            {
-                case ActiveState.NON_ACTIVABLE:
-                    rend.material = MaterialManager.Instance.nonActivableMaterial;
-                    break;
-                case ActiveState.ACTIVABLE_UNDER:
-                    if (movableCount == 0)
-                        rend.material = MaterialManager.Instance.activableUnderMaterialNoMovables;
-                    else
-                        rend.material = MaterialManager.Instance.activableUnderMaterial;
-                    break;
-                case ActiveState.ACTIVABLE_OVER:
-                    rend.material = MaterialManager.Instance.activableOverMaterial;
-                    break;
-                case ActiveState.ACTIVE:
-                    rend.material = MaterialManager.Instance.activeMaterial;
-                    break;
-                default: break;
-            }          
+            _activeState = value;
+            
+            if (value == ActiveState.ACTIVABLE_UNDER && movableCount == 0)
+                MaterialManager.Instance.SetMaterial(value, rend.material,true);
+            else
+                MaterialManager.Instance.SetMaterial(value, rend.material);
+            //switch (value)
+            //{
+            //    case ActiveState.NON_ACTIVABLE:
+            //        MaterialManager.Instance.SetMaterial(value, rend.material);
+            //        break;
+            //    case ActiveState.ACTIVABLE_UNDER:
+            //        if (movableCount == 0)
+            //            MaterialManager.Instance.SetMaterial(value, rend.material,true);
+            //        else
+            //            MaterialManager.Instance.SetMaterial(value, rend.material);
+            //        break;
+            //    case ActiveState.ACTIVABLE_OVER:
+            //        MaterialManager.Instance.SetMaterial(value, rend.material);
+            //        break;
+            //    case ActiveState.ACTIVE:
+            //        MaterialManager.Instance.SetMaterial(value, rend.material);
+            //        break;
+            //    default: break;
+            //}          
         }
     }
 
@@ -157,9 +164,7 @@ public class Area : MonoBehaviour
 
     private void Awake()
     {
-        gameObject.SetActive(false);
-        
-        
+        gameObject.SetActive(false);   
     }
 
     void Start()
@@ -167,9 +172,10 @@ public class Area : MonoBehaviour
         startLocalScale = transform.localScale;
         rend = gameObject.GetComponent<Renderer>();
         col = gameObject.GetComponent<Collider>();
-        
+        haptic = HapticManager.Instance;
         layerIdMovable = LayerMask.NameToLayer("Movable");
         activeState = ActiveState.ACTIVABLE_UNDER;
+
 
         foreach (Area aChildren in sequenceChildAreas)
         {           
@@ -197,19 +203,33 @@ public class Area : MonoBehaviour
                 if (i < 7)
                 {
                     if (i%2 == 0)
+                    {
+                        //haptic.BigHaptic("right");
                         transform.DOScale(startLocalScale * (1f + i / 100), 0.1f / 2).SetLoops(2, DG.Tweening.LoopType.Yoyo);
+                    }
                 }
                 else
+                {
+                    haptic.LittleHaptic("right");
                     transform.DOScale(startLocalScale * (1f + i / 100), 0.1f / 4).SetLoops(4, DG.Tweening.LoopType.Yoyo);
-
+                }
+                haptic.BigHaptic("right");
                 yield return new WaitForSeconds(delayBeforeActiveInSeconds / 10);
             }          
         }
-        Vector3 v = new Vector3(transform.rotation.x+180, transform.rotation.y + 180, transform.rotation.z + 180);
-        
-        transform.DOScale(startLocalScale * 1.1f, 0.1f).OnComplete(() => { transform.DORotate(v, 0.3f); transform.DOScale(startLocalScale * 0.9f, 0.1f).OnComplete(() => { transform.DOScale(startLocalScale, 0.05f).SetEase(Ease.InOutBounce);  }); });
-        activeState = ActiveState.ACTIVE;
+        Vector3 v = new Vector3(transform.rotation.x+180, transform.rotation.y + 180, transform.rotation.z + 180);       
+        transform.DOScale(startLocalScale * 1.1f, 0.1f).OnComplete(
+            () => { 
+                transform.DORotate(v, 0.3f); transform.DOScale(startLocalScale * 0.9f, 0.1f).OnComplete(
+                () => { 
+                    transform.DOScale(startLocalScale, 0.05f).SetEase(Ease.InOutBounce);
+                    haptic.SuccessHaptic("right");
+                });
+            });
+        activeState = ActiveState.ACTIVE;        
         delayLaunch = false;
+        yield return new WaitForSeconds(0.5f); haptic.SuccessHaptic("right"); 
+        yield return new WaitForSeconds(0.5f); haptic.SuccessHaptic("right");
         yield break;
     }
 
@@ -238,6 +258,9 @@ public class Area : MonoBehaviour
     void Update()
     {
         //sequence link
+        Profiler.BeginSample("Area Update");
+        // Code to measure...
+        
         if (sequenceParentAreas.Count > 0)
         {
             foreach (Area aParent in sequenceParentAreas)
@@ -266,7 +289,9 @@ public class Area : MonoBehaviour
             {
                 AddExplosionForce(rbs, -1, transform.localScale.x, center);
             }
-        }      
+        }
+
+        Profiler.EndSample();
     }
 
     private void AddExplosionForce(Rigidbody[] input, float value, float radius, Vector3 center)
@@ -318,7 +343,7 @@ public class Area : MonoBehaviour
     public void Appear()
     {
         gameObject.SetActive(true);
-        MaterialManager.Instance.PrewarmRend(rend);
+        //MaterialManager.Instance.PrewarmRend(rend);
         transform.DOMoveY(transform.position.y + 5, 1f).SetEase(Ease.InOutSine).From().OnComplete(StartMoving);
     }
     public void Disappear()
@@ -333,8 +358,8 @@ public class Area : MonoBehaviour
         {
             movableCount++;
 
-            if (activeState != ActiveState.NON_ACTIVABLE)
-                other.GetComponent<MovableSound>().PlaySoundEnterArea();
+            //if (activeState != ActiveState.NON_ACTIVABLE)
+                //other.GetComponent<MovableSound>().PlaySoundEnterArea();
         }
     }
 
@@ -344,8 +369,8 @@ public class Area : MonoBehaviour
         {
             movableCount--;
 
-            if (activeState != ActiveState.NON_ACTIVABLE)
-                other.GetComponent<MovableSound>().PlaySoundExitArea();
+            //if (activeState != ActiveState.NON_ACTIVABLE)
+                //other.GetComponent<MovableSound>().PlaySoundExitArea();
         }
     }
 }

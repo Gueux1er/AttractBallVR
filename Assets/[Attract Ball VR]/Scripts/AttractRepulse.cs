@@ -21,39 +21,71 @@ public class AttractRepulse : MonoBehaviour
     public ToolType rightTool = ToolType.Repulse;
 
     public AnimationCurve attractCurve;
+    public GameObject localAvatar;
 
     [HideInInspector] public float handRadius = 0.8f;
     [HideInInspector] public float distanceCenterAttraction = 0.4f;
     [HideInInspector] public float attractionForce = -14f;
     [HideInInspector] public float repulsionForce = 40f;
 
+    Material rightHandMaterial;
+    Material leftHandMaterial;
+    MaterialManager materialManager;
     private void Start()
     {
         Debug.Log(ParameterManager.Instance.handRadius);
         handRadius = ParameterManager.Instance.handRadius;
         distanceCenterAttraction = ParameterManager.Instance.distanceCenterAttraction;
         attractionForce = ParameterManager.Instance.attractionForce;
-        repulsionForce = ParameterManager.Instance.repulsionForce;    
+        repulsionForce = ParameterManager.Instance.repulsionForce;
+        materialManager = MaterialManager.Instance;
     }
 
     private void Update()
     {
-        //Debug.Log(OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger));
-        //Debug.Log("ALEDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
+        if (leftHandMaterial == null)
+        {
+            var l = localAvatar.transform?.GetChild(0)?.gameObject.GetComponentInChildren<Renderer>()?.material;
+            leftHandMaterial = (l == null) ? null : l;
+        }
+        if (leftHandMaterial == null)
+        {
+            var r = localAvatar.transform?.GetChild(1)?.gameObject.GetComponentInChildren<Renderer>()?.material;
+            rightHandMaterial = (r == null) ? null : r;
+        }
+
+
         if (OVRInput.GetDown(OVRInput.Button.One)) //A
         {
             if (rightTool == ToolType.Attract)
+            {
+                //Debug.Log(rightHandMaterial);
+                if (rightHandMaterial != null)
+                    localAvatar.transform.GetChild(1).gameObject.GetComponentInChildren<Renderer>().material = materialManager.repulseMaterial;
+
                 rightTool = ToolType.Repulse;
+            }
             else if (rightTool == ToolType.Repulse)
+            {
+                if (rightHandMaterial != null)
+                    localAvatar.transform.GetChild(1).gameObject.GetComponentInChildren<Renderer>().material = materialManager.attractMaterial;
+      
                 rightTool = ToolType.Attract;
+            }
         }
 
         if (OVRInput.GetDown(OVRInput.Button.Three)) //X
         {
             if (leftTool == ToolType.Attract)
+            {
+                leftHandMaterial = materialManager.attractMaterial;
                 leftTool = ToolType.Repulse;
+            }
             else if (leftTool == ToolType.Repulse)
+            {
+                leftHandMaterial = materialManager.repulseMaterial;
                 leftTool = ToolType.Attract;
+            }
         }
 
         
@@ -116,7 +148,7 @@ public class AttractRepulse : MonoBehaviour
         Vector3 center = tr.position + (tr.forward * distanceCenterAttraction);
         if (GetRigidbodiesInArea(center, handRadius, out rbs))
         {
-            AddExplosionForce(rbs, attractionForce * axis, handRadius, center); 
+            AddExplosionForce(rbs, attractionForce * axis, handRadius, center, tr); 
         }
     }
 
@@ -128,11 +160,11 @@ public class AttractRepulse : MonoBehaviour
         Vector3 center = tr.position + (tr.forward * distanceCenterAttraction);
         if (GetRigidbodiesInArea(center, handRadius, out rbs))
         {
-            AddExplosionForce(rbs, repulsionForce * axis, handRadius, center);
+            AddExplosionForce(rbs, repulsionForce * axis, handRadius, center, tr);
         }      
     }
 
-    private void AddExplosionForce(Rigidbody[] input, float value, float radius, Vector3 center)
+    private void AddExplosionForce(Rigidbody[] input, float value, float radius, Vector3 center, Transform hand)
     {
         if (input.Length == 0.0f)
             return;
@@ -144,7 +176,7 @@ public class AttractRepulse : MonoBehaviour
         }
     }
 
-    private bool GetRigidbodiesInArea(Vector3 position, float radius, out Rigidbody[] result)
+    private bool GetRigidbodiesInArea(Vector3 position, float radius, out Rigidbody[] result )
     {
         int layerId = LayerMask.NameToLayer("Movable");
         int layerMask = 1 << layerId;

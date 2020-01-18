@@ -9,9 +9,9 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: SkyboxMaterial
   m_Shader: {fileID: 4800000, guid: a449307a7b4cccf45b5b0e8cc47be915, type: 3}
-  m_ShaderKeywords: CLOUDS CUBEMAP_CLOUD_FORMAT_RGBA GRADIENT_BACKGROUND HORIZON_FOG
+  m_ShaderKeywords: ' CLOUDS CUBEMAP_CLOUD_FORMAT_RGBA GRADIENT_BACKGROUND HORIZON_FOG
     MOON MOON_CUSTOM_TEXTURE NOISE_CLOUDS STAR_LAYER_1 STAR_LAYER_1_CUSTOM_TEXTURE
-    STAR_LAYER_2 STAR_LAYER_2_CUSTOM_TEXTURE STAR_LAYER_3_CUSTOM_TEXTURE SUN
+    STAR_LAYER_2 STAR_LAYER_2_CUSTOM_TEXTURE STAR_LAYER_3_CUSTOM_TEXTURE SUN'
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -108,7 +108,7 @@ Material:
     - _HorizonScaleFactor: 0.7
     - _MoonEdgeFade: 0.229
     - _MoonHDRBoost: 1
-    - _MoonRadius: 0.0160016
+    - _MoonRadius: 0.024002401
     - _MoonSpriteAnimationSpeed: 15
     - _MoonSpriteItemCount: 1
     - _StarBasicExponent: 1.2
@@ -150,8 +150,8 @@ Material:
     - _SunSpriteAnimationSpeed: 1
     - _SunSpriteItemCount: 1
     m_Colors:
-    - _CloudColor1: {r: 1, g: 1, b: 1, a: 1}
-    - _CloudColor2: {r: 0.25, g: 0.6386855, b: 1, a: 1}
+    - _CloudColor1: {r: 1, g: 0.9793861, b: 0.9410377, a: 1}
+    - _CloudColor2: {r: 0.62500006, g: 0.7071786, b: 0.7948113, a: 1}
     - _CloudCubemapDoubleLayerTintColor: {r: 1, g: 1, b: 1, a: 1}
     - _CloudCubemapNormalDoubleLitColor: {r: 1, g: 1, b: 1, a: 1}
     - _CloudCubemapNormalDoubleShadowColor: {r: 0, g: 0, b: 0, a: 1}
@@ -159,9 +159,9 @@ Material:
     - _CloudCubemapNormalShadowColor: {r: 0, g: 0, b: 0, a: 1}
     - _CloudCubemapNormalToLight: {r: 0, g: 1, b: 0, a: 0}
     - _CloudCubemapTintColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GradientSkyLowerColor: {r: 0.84705883, g: 1, b: 0.88131714, a: 1}
-    - _GradientSkyMiddleColor: {r: 0.7647059, g: 0.8859342, b: 1, a: 1}
-    - _GradientSkyUpperColor: {r: 0.22828408, g: 0.673621, b: 0.8490566, a: 1}
+    - _GradientSkyLowerColor: {r: 0.92352945, g: 0.71568626, b: 0.6269793, a: 1}
+    - _GradientSkyMiddleColor: {r: 0.88235295, g: 0.80841595, b: 0.8136792, a: 1}
+    - _GradientSkyUpperColor: {r: 0.46791565, g: 0.62443244, b: 0.64647114, a: 1}
     - _HorizonFogColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
     - _MoonColor: {r: 1, g: 1, b: 1, a: 1}
     - _MoonPosition: {r: -0.9045408, g: 0.42593947, b: 0.019534575, a: 0}

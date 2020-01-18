@@ -43,15 +43,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6623cfcd19a23f439b72caa6439cc57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nonActivableMaterial: {fileID: 2100000, guid: 859ac951499df9747aca9f848aff4f3f,
-    type: 2}
-  activableUnderMaterialNoMovables: {fileID: 2100000, guid: 18bc3ab996fd27340918bfda18bf013d,
-    type: 2}
-  activableUnderMaterial: {fileID: 2100000, guid: 1c35a91c418539c4a88e8c4aa57e58bd,
-    type: 2}
-  activableOverMaterial: {fileID: 2100000, guid: 84a5e3f6fe239ab489e6c7a34b5c74ca,
-    type: 2}
-  activableLinkedMaterial: {fileID: 2100000, guid: 1c35a91c418539c4a88e8c4aa57e58bd,
-    type: 2}
-  activeMaterial: {fileID: 2100000, guid: 7f6194c93d9b3ae4da8e9390da933117, type: 2}
-  materialLoader: {fileID: 0}
+  nonActivableMaterial:
+    innerColor: {r: 0.25490198, g: 0.25490198, b: 0.25490198, a: 0.5764706}
+    rimColor: {r: 0.37647063, g: 0.37647063, b: 0.37647063, a: 0.827451}
+    rimWidth: 1.9
+    rimGlow: 2
+  activableUnderMaterialNoMovables:
+    innerColor: {r: 1, g: 1, b: 1, a: 0.11764706}
+    rimColor: {r: 1, g: 1, b: 1, a: 0}
+    rimWidth: 2.1
+    rimGlow: 8.3
+  activableUnderMaterial:
+    innerColor: {r: 0.48235297, g: 0.48235297, b: 0.48235297, a: 0.17254902}
+    rimColor: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0.6509804}
+    rimWidth: 3
+    rimGlow: 1.6
+  activableOverMaterial:
+    innerColor: {r: 1, g: 0, b: 0, a: 0.17254902}
+    rimColor: {r: 0.09411766, g: 0.078431375, b: 0.09411766, a: 0.95686275}
+    rimWidth: 2.4
+    rimGlow: 1.6
+  activeMaterial:
+    innerColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 0.14117648}
+    rimColor: {r: 1, g: 0.94117653, b: 0, a: 0.87058824}
+    rimWidth: 1.3
+    rimGlow: 8.1
