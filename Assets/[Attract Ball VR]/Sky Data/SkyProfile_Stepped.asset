@@ -68,7 +68,7 @@ MonoBehaviour:
           m_Time: 0.1
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          color: {r: 1, g: 1, b: 1, a: 1}
+          color: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 1}
         - m_Id: 9c3d27d7-b3fd-4d8a-8d0b-cb0d981e48cc
           m_Time: 0.2
           m_InterpolationCurve: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
           m_Time: 0.4
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          color: {r: 0.7075472, g: 0.5752439, b: 0.44388574, a: 1}
+          color: {r: 0.9433962, g: 0.7264098, b: 0.50284797, a: 1}
         - m_Id: 40bc15f5-9a5d-49a2-b11a-8b5075c50b8f
           m_Time: 0.6
           m_InterpolationCurve: 0
@@ -116,12 +116,12 @@ MonoBehaviour:
           m_Time: 0.1
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          color: {r: 1, g: 1, b: 1, a: 1}
+          color: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
         - m_Id: 84a74693-3c65-4ff7-8cd1-eca3ce77c174
           m_Time: 0.2
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          color: {r: 0.7647059, g: 0.8859342, b: 1, a: 1}
+          color: {r: 0.8773585, g: 0.82666206, b: 0.6745728, a: 1}
         - m_Id: 73fd520a-591a-45d2-ab4a-3b1f67714bb5
           m_Time: 0.4
           m_InterpolationCurve: 0
@@ -164,12 +164,12 @@ MonoBehaviour:
           m_Time: 0.1
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          color: {r: 1, g: 1, b: 1, a: 1}
+          color: {r: 0.7568628, g: 0.7568628, b: 0.7568628, a: 1}
         - m_Id: fc329d9d-648d-4dfb-81fa-9ff160d1f9f9
           m_Time: 0.2
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          color: {r: 0.84705883, g: 1, b: 0.88131714, a: 1}
+          color: {r: 0.990566, g: 0.6961997, b: 0.7669389, a: 1}
         - m_Id: 7f78330a-0a51-4962-81fb-669516e644b2
           m_Time: 0.4
           m_InterpolationCurve: 0
@@ -189,12 +189,12 @@ MonoBehaviour:
           m_Time: 0.8
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          color: {r: 0.15085441, g: 0.2013879, b: 0.2830189, a: 1}
+          color: {r: 0.27167144, g: 0.28683147, b: 0.31132078, a: 1}
         - m_Id: 0f7fec28-6d97-4cf0-af05-f49b730a244c
           m_Time: 0.875
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          color: {r: 0.8901961, g: 0.78431374, b: 0.50980395, a: 1}
+          color: {r: 0.44313726, g: 0.33333334, b: 0.3855415, a: 1}
         - m_Id: e1331203-e4d7-476b-8af9-1db096866fa5
           m_Time: 1
           m_InterpolationCurve: 0
@@ -203,16 +203,21 @@ MonoBehaviour:
         m_Name: Sky Lower Color
         m_Id: fa805a58-9a7f-42a3-b622-15d445df986c
       - keyframes:
-        - m_Id: 3ce5b5cf-f633-4ee0-a737-2cf7a5ee93ff
-          m_Time: 0
-          m_InterpolationCurve: 0
-          m_InterpolationDirection: 0
-          color: {r: 1, g: 1, b: 1, a: 1}
         - m_Id: 1a594aaa-807b-4a89-955a-363a71f9ed89
           m_Time: 0
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          color: {r: 1, g: 1, b: 1, a: 1}
+          color: {r: 0.09803922, g: 0.09803922, b: 0.09803922, a: 1}
+        - m_Id: 06b1087f-4ed3-4b4c-95b7-0b7f5b4cfdc9
+          m_Time: 0.1
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          color: {r: 0.32941177, g: 0.32941177, b: 0.32941177, a: 1}
+        - m_Id: c3a10b03-f0a3-47d8-9201-c1a89ade39bb
+          m_Time: 0.15140635
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          color: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}
         - m_Id: 157055d5-ded0-412d-addb-c573646ac541
           m_Time: 0.2
           m_InterpolationCurve: 0
@@ -242,17 +247,17 @@ MonoBehaviour:
           m_Time: 0.85
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          color: {r: 1, g: 1, b: 1, a: 1}
+          color: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 1}
         - m_Id: 595f9951-23dd-4ea5-ac78-86359fa78369
           m_Time: 0.875
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          color: {r: 1, g: 0.84705883, b: 0.5735294, a: 1}
+          color: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
         - m_Id: b91666ce-924d-4b16-8347-22fd35819955
           m_Time: 0.925
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          color: {r: 1, g: 0.84705883, b: 0.5735294, a: 1}
+          color: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
         - m_Id: 282b7119-d16d-4144-ba98-070339fb4cab
           m_Time: 1
           m_InterpolationCurve: 0
@@ -265,7 +270,12 @@ MonoBehaviour:
           m_Time: 0
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          color: {r: 0, g: 0, b: 0, a: 1}
+          color: {r: 0.09803922, g: 0.09803922, b: 0.09803922, a: 1}
+        - m_Id: 29fbe29e-3adf-4b9e-ad54-752180c63446
+          m_Time: 0.1
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          color: {r: 0.32941177, g: 0.32941177, b: 0.32941177, a: 1}
         - m_Id: 63f98576-7c49-4eb1-81de-c575bcb40fad
           m_Time: 0.15
           m_InterpolationCurve: 0
@@ -735,6 +745,16 @@ MonoBehaviour:
         minValue: 0
         maxValue: 6.2831855
       - keyframes:
+        - m_Id: 871ebecc-91c4-4a60-b497-60f1ba02b92c
+          m_Time: 0
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 1
+        - m_Id: 04aa64be-69f7-4c81-9cdf-a3b379342114
+          m_Time: 0.1
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 0.9
         - m_Id: 68020e62-ed4d-4aa0-9646-d3286203c7da
           m_Time: 0.65
           m_InterpolationCurve: 0
@@ -746,7 +766,7 @@ MonoBehaviour:
           m_InterpolationDirection: 0
           value: 0.5222222
         - m_Id: 678a3623-002c-49e5-88a6-553c4efc53b1
-          m_Time: 0.95
+          m_Time: 0.98
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           value: 0.9

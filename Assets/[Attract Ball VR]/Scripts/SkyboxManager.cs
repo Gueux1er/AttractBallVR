@@ -45,7 +45,7 @@ public class SkyboxManager : MonoBehaviour
     [ContextMenu("Complete step 5")]
     public void SetCompleteStepFive()
     {
-        DOTween.To(() => timeOfDayController.skyTime, x => timeOfDayController.skyTime = x, 0.99999f, 5f);
+        DOTween.To(() => timeOfDayController.skyTime, x => timeOfDayController.skyTime = x, 0.99999f, 7f);
     }
 
     [ContextMenu("Complete step 6")]
@@ -53,6 +53,7 @@ public class SkyboxManager : MonoBehaviour
     {
         timeOfDayController.skyProfile = loopedSkyProfile;
         timeOfDayController.automaticTimeIncrement = true;
+        timeOfDayController.automaticIncrementSpeed = 0.01f;
         timeOfDayController.skyTime = 0.25f;
     }
 }
