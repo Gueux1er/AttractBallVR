@@ -75,7 +75,7 @@ public class Area : MonoBehaviour
     private Renderer rend;
     private int layerIdMovable;
     private Vector3 startLocalScale;
-    
+    private bool appearFinish = false;
 
     private ActiveState _activeState;
     [HideInInspector] public ActiveState activeState
@@ -117,7 +117,9 @@ public class Area : MonoBehaviour
         get { return _movableCount; }
         set
         {
-            _movableCount = value;           
+            _movableCount = value;
+            if (!appearFinish)
+                return;
             if (activeState == ActiveState.NON_ACTIVABLE)
             {
                 return;
@@ -194,33 +196,36 @@ public class Area : MonoBehaviour
     {
         if(delayBeforeActiveInSeconds > 0f)
         {
+            Debug.Log("oui?");
             delayLaunch = true;
-            if (linkedArea != null)
-                linkedArea.PingAreas();
+            //if (linkedArea != null)
+            //    linkedArea.PingAreas();
             for (float i = 0; i < 10; i++)
             {
-                transform.DOShakePosition(delayBeforeActiveInSeconds / 20, 0.02f + (i/200), 1);
-                if (i < 7)
+                //transform.DOShakePosition(delayBeforeActiveInSeconds / 20, 0.02f + (i/200), 1);
+                if (i < 6)
                 {
                     if (i%2 == 0)
                     {
-                        //haptic.BigHaptic("right");
                         transform.DOScale(startLocalScale * (1f + i / 100), 0.1f / 2).SetLoops(2, DG.Tweening.LoopType.Yoyo);
                     }
                 }
                 else
-                {
-                    haptic.LittleHaptic("right");
+                {                   
+                    haptic.BigHaptic("right");
+                    transform.DOShakePosition(delayBeforeActiveInSeconds / 20, 0.02f + (i / 200), 1);//
                     transform.DOScale(startLocalScale * (1f + i / 100), 0.1f / 4).SetLoops(4, DG.Tweening.LoopType.Yoyo);
                 }
-                haptic.BigHaptic("right");
+                Vector3 v1 = new Vector3(transform.rotation.x + Random.Range(25, 40), transform.rotation.y + Random.Range(25, 40), transform.rotation.z + Random.Range(25, 50));
+                transform.DORotate(v1, delayBeforeActiveInSeconds / 10);
+                haptic.LittleHaptic("right");
                 yield return new WaitForSeconds(delayBeforeActiveInSeconds / 10);
             }          
         }
-        Vector3 v = new Vector3(transform.rotation.x+180, transform.rotation.y + 180, transform.rotation.z + 180);       
+        Vector3 v2 = new Vector3(transform.rotation.x+Random.Range(50, 180), transform.rotation.y + Random.Range(50, 180), transform.rotation.z + Random.Range(50, 180));       
         transform.DOScale(startLocalScale * 1.1f, 0.1f).OnComplete(
             () => { 
-                transform.DORotate(v, 0.3f); transform.DOScale(startLocalScale * 0.9f, 0.1f).OnComplete(
+                transform.DORotate(v2, 0.3f); transform.DOScale(startLocalScale * 0.9f, 0.1f).OnComplete(
                 () => { 
                     transform.DOScale(startLocalScale, 0.05f).SetEase(Ease.InOutBounce);
                     haptic.SuccessHaptic("right");
@@ -344,7 +349,7 @@ public class Area : MonoBehaviour
     {
         gameObject.SetActive(true);
         //MaterialManager.Instance.PrewarmRend(rend);
-        transform.DOMoveY(transform.position.y + 5, 1f).SetEase(Ease.InOutSine).From().OnComplete(StartMoving);
+        transform.DOMoveY(transform.position.y + 5, 1f).SetEase(Ease.InOutSine).From().OnComplete(() => { StartMoving(); appearFinish = true; });
     }
     public void Disappear()
     {
@@ -357,7 +362,6 @@ public class Area : MonoBehaviour
         if (other.gameObject.layer == layerIdMovable)
         {
             movableCount++;
-
             //if (activeState != ActiveState.NON_ACTIVABLE)
                 //other.GetComponent<MovableSound>().PlaySoundEnterArea();
         }

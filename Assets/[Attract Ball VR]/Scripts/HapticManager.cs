@@ -51,11 +51,11 @@ public class HapticManager : MonoBehaviour
     {
         if (hand == "right")
         {
-            OVRHaptics.RightChannel.Preempt(littleBuzz);
+            OVRHaptics.RightChannel.Mix(bigBuzz);
         }
         else if (hand == "left")
         {
-            OVRHaptics.LeftChannel.Preempt(littleBuzz);
+            OVRHaptics.LeftChannel.Mix(bigBuzz);
         }
     }
 
@@ -64,12 +64,12 @@ public class HapticManager : MonoBehaviour
         if (hand == "right")
         {
             OVRHaptics.RightChannel.Preempt(littleBuzz);
-            OVRHaptics.RightChannel.Mix(littleBuzz);
+            OVRHaptics.RightChannel.Mix(bigBuzz);
         }
         else if (hand == "left")
         {
             OVRHaptics.LeftChannel.Preempt(littleBuzz);
-            OVRHaptics.RightChannel.Mix(littleBuzz);
+            OVRHaptics.RightChannel.Mix(bigBuzz);
         }
     }
 }
