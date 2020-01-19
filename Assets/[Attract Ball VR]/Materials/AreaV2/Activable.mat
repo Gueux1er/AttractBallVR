@@ -31,10 +31,10 @@ Material:
     - _InvFade: 3
     - _RimGlow: 8.3
     - _RimPower: 3.14
-    - _RimWidth: 2.1
+    - _RimWidth: 2
     - _Shininess: 1
     m_Colors:
-    - _InnerColor: {r: 1, g: 1, b: 1, a: 0.11764706}
-    - _RimColor: {r: 1, g: 1, b: 1, a: 0.8627451}
+    - _InnerColor: {r: 0.7457375, g: 0.28627452, b: 1, a: 0.49803922}
+    - _RimColor: {r: 0, g: 0.88197947, b: 1, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
     - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}

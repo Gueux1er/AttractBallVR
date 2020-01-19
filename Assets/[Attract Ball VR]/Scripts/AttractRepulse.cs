@@ -45,13 +45,23 @@ public class AttractRepulse : MonoBehaviour
     {
         if (leftHandMaterial == null)
         {
-            var l = localAvatar.transform?.GetChild(0)?.gameObject.GetComponentInChildren<Renderer>()?.material;
-            leftHandMaterial = (l == null) ? null : l;
+            if (localAvatar.transform.childCount > 0)
+            {
+                var l = localAvatar.transform?.GetChild(0)?.gameObject.GetComponentInChildren<Renderer>()?.material;
+                leftHandMaterial = (l == null) ? null : l;
+                if (localAvatar.transform.GetChild(0).gameObject.activeSelf == true && leftHandMaterial !=null)
+                    localAvatar.transform.GetChild(0).gameObject.GetComponentInChildren<Renderer>().material = materialManager.attractMaterial;
+            }            
         }
-        if (leftHandMaterial == null)
+        if (rightHandMaterial == null)
         {
-            var r = localAvatar.transform?.GetChild(1)?.gameObject.GetComponentInChildren<Renderer>()?.material;
-            rightHandMaterial = (r == null) ? null : r;
+            if (localAvatar.transform.childCount > 0)
+            {
+                var r = localAvatar.transform?.GetChild(1)?.gameObject.GetComponentInChildren<Renderer>()?.material;
+                rightHandMaterial = (r == null) ? null : r;
+                if (localAvatar.transform.GetChild(1).gameObject.activeSelf == true && rightHandMaterial != null)
+                    localAvatar.transform.GetChild(1).gameObject.GetComponentInChildren<Renderer>().material = materialManager.attractMaterial;
+            }
         }
 
 
@@ -59,7 +69,6 @@ public class AttractRepulse : MonoBehaviour
         {
             if (rightTool == ToolType.Attract)
             {
-                //Debug.Log(rightHandMaterial);
                 if (rightHandMaterial != null)
                     localAvatar.transform.GetChild(1).gameObject.GetComponentInChildren<Renderer>().material = materialManager.repulseMaterial;
 
@@ -78,12 +87,14 @@ public class AttractRepulse : MonoBehaviour
         {
             if (leftTool == ToolType.Attract)
             {
-                leftHandMaterial = materialManager.attractMaterial;
+                if (leftHandMaterial != null)
+                    localAvatar.transform.GetChild(0).gameObject.GetComponentInChildren<Renderer>().material = materialManager.repulseMaterial;
                 leftTool = ToolType.Repulse;
             }
             else if (leftTool == ToolType.Repulse)
             {
-                leftHandMaterial = materialManager.repulseMaterial;
+                if (leftHandMaterial != null)
+                    localAvatar.transform.GetChild(0).gameObject.GetComponentInChildren<Renderer>().material = materialManager.attractMaterial;
                 leftTool = ToolType.Attract;
             }
         }

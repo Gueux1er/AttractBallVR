@@ -34,7 +34,7 @@ Material:
     - _RimWidth: 3
     - _Shininess: 1
     m_Colors:
-    - _InnerColor: {r: 0.13243142, g: 0.2257962, b: 0.9056604, a: 0.41960785}
-    - _RimColor: {r: 0, g: 0.692751, b: 1, a: 0.6509804}
+    - _InnerColor: {r: 0.6769943, g: 0, b: 1, a: 0.6627451}
+    - _RimColor: {r: 0, g: 0.9720282, b: 1, a: 0.8392157}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
     - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
