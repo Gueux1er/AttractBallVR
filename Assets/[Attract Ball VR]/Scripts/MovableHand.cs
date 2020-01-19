@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovableHand : MonoBehaviour
 {
-    public HandAttach handAttach;
+    public string handAttach;
     public enum HandAttach
     {
         RIGHT,

@@ -6,15 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class AttractRepulse : MonoBehaviour
 {
-
-
     public enum ToolType
     {
         Attract, Repulse
     }
 
     [Header("Input parameters")]
-
     public Transform leftHand;
     public ToolType leftTool = ToolType.Attract;
     public Transform rightHand;
@@ -82,7 +79,6 @@ public class AttractRepulse : MonoBehaviour
                 rightTool = ToolType.Attract;
             }
         }
-
         if (OVRInput.GetDown(OVRInput.Button.Three)) //X
         {
             if (leftTool == ToolType.Attract)
@@ -149,7 +145,6 @@ public class AttractRepulse : MonoBehaviour
             if (leftHand.gameObject.GetComponentInChildren<CenterTrailParticle>() != null)
                 leftHand.gameObject.GetComponentInChildren<CenterTrailParticle>().speed = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) * 2000;
         }
-
     }
 
     private void ActiveAttract (Transform tr, float axis)
@@ -182,10 +177,19 @@ public class AttractRepulse : MonoBehaviour
         foreach (Rigidbody rb in input)
         {
             float dist = Vector3.Distance(rb.transform.position, center);
-            //Debug.Log(value * attractCurve.Evaluate(dist / handRadius) * Time.deltaTime);
             rb.AddExplosionForce(value * attractCurve.Evaluate(dist/handRadius) * Time.deltaTime, center, radius);
+            AffectHandToMovable(rb, hand);
         }
     }
+
+    private void AffectHandToMovable(Rigidbody rb, Transform hand)
+    {
+        if (hand == rightHand)
+            rb.gameObject.GetComponent<MovableHand>().handAttach = "right";
+        if (hand == leftHand)
+            rb.gameObject.GetComponent<MovableHand>().handAttach = "left";
+    }
+
 
     private bool GetRigidbodiesInArea(Vector3 position, float radius, out Rigidbody[] result )
     {

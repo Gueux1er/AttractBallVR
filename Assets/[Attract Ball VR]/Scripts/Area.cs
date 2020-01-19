@@ -76,6 +76,8 @@ public class Area : MonoBehaviour
     private int layerIdMovable;
     private Vector3 startLocalScale;
     private bool appearFinish = false;
+    private List<MovableHand> movableHands = new List<MovableHand>();
+    private string handAttach = "right";
 
     private ActiveState _activeState;
     [HideInInspector] public ActiveState activeState
@@ -196,7 +198,6 @@ public class Area : MonoBehaviour
     {
         if(delayBeforeActiveInSeconds > 0f)
         {
-            Debug.Log("oui?");
             delayLaunch = true;
             //if (linkedArea != null)
             //    linkedArea.PingAreas();
@@ -212,13 +213,13 @@ public class Area : MonoBehaviour
                 }
                 else
                 {                   
-                    haptic.BigHaptic("right");
+                    haptic.BigHaptic(handAttach);
                     transform.DOShakePosition(delayBeforeActiveInSeconds / 20, 0.02f + (i / 200), 1);//
                     transform.DOScale(startLocalScale * (1f + i / 100), 0.1f / 4).SetLoops(4, DG.Tweening.LoopType.Yoyo);
                 }
                 Vector3 v1 = new Vector3(transform.rotation.x + Random.Range(25, 40), transform.rotation.y + Random.Range(25, 40), transform.rotation.z + Random.Range(25, 50));
                 transform.DORotate(v1, delayBeforeActiveInSeconds / 10);
-                haptic.LittleHaptic("right");
+                haptic.LittleHaptic(handAttach);
                 yield return new WaitForSeconds(delayBeforeActiveInSeconds / 10);
             }          
         }
@@ -228,7 +229,7 @@ public class Area : MonoBehaviour
                 transform.DORotate(v2, 0.3f); transform.DOScale(startLocalScale * 0.9f, 0.1f).OnComplete(
                 () => { 
                     transform.DOScale(startLocalScale, 0.05f).SetEase(Ease.InOutBounce);
-                    haptic.SuccessHaptic("right");
+                    haptic.SuccessHaptic(handAttach);
                 });
             });
         activeState = ActiveState.ACTIVE;        
@@ -294,6 +295,22 @@ public class Area : MonoBehaviour
             {
                 AddExplosionForce(rbs, -1, transform.localScale.x, center);
             }
+        }
+
+        int r = 0; int l = 0;
+        foreach (MovableHand mh in movableHands)
+        {
+            if (mh.handAttach == "right") r++;
+            if (mh.handAttach == "left") l++;
+            if (r > l)
+            {
+
+                handAttach = "right";
+            }
+            if (l > r)
+            {
+                handAttach = "left";
+            } 
         }
 
         Profiler.EndSample();
@@ -362,6 +379,7 @@ public class Area : MonoBehaviour
         if (other.gameObject.layer == layerIdMovable)
         {
             movableCount++;
+            movableHands.Add(other.GetComponent<MovableHand>());
             //if (activeState != ActiveState.NON_ACTIVABLE)
                 //other.GetComponent<MovableSound>().PlaySoundEnterArea();
         }
@@ -372,9 +390,9 @@ public class Area : MonoBehaviour
         if (other.gameObject.layer == layerIdMovable)
         {
             movableCount--;
-
+            movableHands.Remove(other.GetComponent<MovableHand>());
             //if (activeState != ActiveState.NON_ACTIVABLE)
-                //other.GetComponent<MovableSound>().PlaySoundExitArea();
+            //other.GetComponent<MovableSound>().PlaySoundExitArea();
         }
     }
 }
