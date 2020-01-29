@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Profiling;
+using FMODUnity;
 
 public class Area : MonoBehaviour
 {
@@ -24,7 +25,6 @@ public class Area : MonoBehaviour
     public GameObject objectToTakeInAccount = null;
 
 
-   
     [HideInInspector] public bool isMoving
     {
         get { return isMoving; }
@@ -62,6 +62,10 @@ public class Area : MonoBehaviour
     public float delayBeforeActiveInSeconds;
     private Coroutine launchDelayActive;
     private bool delayLaunch = false;
+
+    [Header("Studio Event Emitter")]
+    public StudioEventEmitter enterAreaEvent;
+    public StudioEventEmitter successAreaEvent;
 
 
     [HideInInspector] public bool isLinked = false;
@@ -213,13 +217,14 @@ public class Area : MonoBehaviour
                 }
                 else
                 {                   
-                    haptic.BigHaptic(handAttach);
+                    haptic?.BigHaptic(handAttach);
                     transform.DOShakePosition(delayBeforeActiveInSeconds / 20, 0.02f + (i / 200), 1);//
                     transform.DOScale(startLocalScale * (1f + i / 100), 0.1f / 4).SetLoops(4, DG.Tweening.LoopType.Yoyo);
+                    enterAreaEvent.Play();
                 }
                 Vector3 v1 = new Vector3(transform.rotation.x + Random.Range(25, 40), transform.rotation.y + Random.Range(25, 40), transform.rotation.z + Random.Range(25, 50));
                 transform.DORotate(v1, delayBeforeActiveInSeconds / 10);
-                haptic.LittleHaptic(handAttach);
+                haptic?.LittleHaptic(handAttach);
                 yield return new WaitForSeconds(delayBeforeActiveInSeconds / 10);
             }          
         }
@@ -229,13 +234,13 @@ public class Area : MonoBehaviour
                 transform.DORotate(v2, 0.3f); transform.DOScale(startLocalScale * 0.9f, 0.1f).OnComplete(
                 () => { 
                     transform.DOScale(startLocalScale, 0.05f).SetEase(Ease.InOutBounce);
-                    haptic.SuccessHaptic(handAttach);
+                    haptic?.SuccessHaptic(handAttach);
                 });
             });
         activeState = ActiveState.ACTIVE;        
         delayLaunch = false;
-        yield return new WaitForSeconds(0.5f); haptic.SuccessHaptic("right"); 
-        yield return new WaitForSeconds(0.5f); haptic.SuccessHaptic("right");
+        yield return new WaitForSeconds(0.5f); haptic?.SuccessHaptic("right"); 
+        yield return new WaitForSeconds(0.5f); haptic?.SuccessHaptic("right");
         yield break;
     }
 
@@ -366,11 +371,13 @@ public class Area : MonoBehaviour
     {
         gameObject.SetActive(true);
         //MaterialManager.Instance.PrewarmRend(rend);
-        transform.DOMoveY(transform.position.y + 5, 1f).SetEase(Ease.InOutSine).From().OnComplete(() => { StartMoving(); appearFinish = true; });
+        transform.DOMoveY(transform.position.y + 5, 2f).SetEase(Ease.InOutSine).From().OnComplete(() => { StartMoving(); appearFinish = true; });
     }
     public void Disappear()
     {
-        transform.DOMoveY(transform.position.y - 5, 1f).SetEase(Ease.InOutSine).OnComplete(() => { gameObject.SetActive(false); });
+        successAreaEvent.Play();
+
+        transform.DOMoveY(transform.position.y - 5, 2f).SetEase(Ease.InOutSine).OnComplete(() => { gameObject.SetActive(false); });
     }
 
 

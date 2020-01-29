@@ -11303,17 +11303,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1038704749}
-          m_MethodName: StartNatureAmbience
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
     exitEvent:
       m_PersistentCalls:
         m_Calls:
@@ -11336,6 +11325,17 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1038704749}
           m_MethodName: StartBirdSounds
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1038704749}
+          m_MethodName: StartNatureAmbience
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -53947,13 +53947,19 @@ PrefabInstance:
     - target: {fileID: 4314160504226898931, guid: 96870060375a0374ea3aa401899c0645,
         type: 3}
       propertyPath: m_SkyTime
-      value: 0.05
+      value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 4314160504226898931, guid: 96870060375a0374ea3aa401899c0645,
         type: 3}
       propertyPath: automaticIncrementSpeed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4314160504226898931, guid: 96870060375a0374ea3aa401899c0645,
+        type: 3}
+      propertyPath: m_SkyProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: 1da240d8afe97eb478aff9d55c1c0293,
+        type: 2}
     - target: {fileID: 4314160504685837218, guid: 96870060375a0374ea3aa401899c0645,
         type: 3}
       propertyPath: m_Enabled
@@ -54002,22 +54008,22 @@ PrefabInstance:
     - target: {fileID: 4314160505819876570, guid: 96870060375a0374ea3aa401899c0645,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.9892157
+      value: 0.20392157
       objectReference: {fileID: 0}
     - target: {fileID: 4314160505819876570, guid: 96870060375a0374ea3aa401899c0645,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.95980394
+      value: 0.28235295
       objectReference: {fileID: 0}
     - target: {fileID: 4314160505819876570, guid: 96870060375a0374ea3aa401899c0645,
         type: 3}
       propertyPath: m_Intensity
-      value: 0.95583093
+      value: 0.25396013
       objectReference: {fileID: 0}
     - target: {fileID: 4314160505819876570, guid: 96870060375a0374ea3aa401899c0645,
         type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.1882353
       objectReference: {fileID: 0}
     - target: {fileID: 4314160505819876570, guid: 96870060375a0374ea3aa401899c0645,
         type: 3}
@@ -55438,8 +55444,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1acec285b1dda3b43a9c50b3dafc7d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  littleAudioFile: {fileID: 8300000, guid: 7758a35133f926d4bad7a82f9184d0cf, type: 3}
-  bigAudioFile: {fileID: 8300000, guid: 167f3e55c3cc2a44f8670a6bacbac0bd, type: 3}
+  littleAudioFile: {fileID: 8300000, guid: 98e759dfda69aa7468d95f5a2c88e366, type: 3}
+  bigAudioFile: {fileID: 8300000, guid: 523f822c1c7b699489c49fea2353c2de, type: 3}
 --- !u!4 &1738501559
 Transform:
   m_ObjectHideFlags: 0
