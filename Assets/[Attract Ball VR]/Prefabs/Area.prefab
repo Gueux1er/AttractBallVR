@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/Event/SuccessArea_bis
+  Event: event:/Event/EnterSnowGlob
   PlayEvent: 0
   StopEvent: 2
   AllowFadeout: 1

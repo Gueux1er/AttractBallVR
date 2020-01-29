@@ -207,6 +207,8 @@ public class Area : MonoBehaviour
             //    linkedArea.PingAreas();
             for (float i = 0; i < 10; i++)
             {
+                enterAreaEvent.Play();
+
                 //transform.DOShakePosition(delayBeforeActiveInSeconds / 20, 0.02f + (i/200), 1);
                 if (i < 6)
                 {
@@ -220,14 +222,14 @@ public class Area : MonoBehaviour
                     haptic?.BigHaptic(handAttach);
                     transform.DOShakePosition(delayBeforeActiveInSeconds / 20, 0.02f + (i / 200), 1);//
                     transform.DOScale(startLocalScale * (1f + i / 100), 0.1f / 4).SetLoops(4, DG.Tweening.LoopType.Yoyo);
-                    enterAreaEvent.Play();
                 }
                 Vector3 v1 = new Vector3(transform.rotation.x + Random.Range(25, 40), transform.rotation.y + Random.Range(25, 40), transform.rotation.z + Random.Range(25, 50));
                 transform.DORotate(v1, delayBeforeActiveInSeconds / 10);
                 haptic?.LittleHaptic(handAttach);
                 yield return new WaitForSeconds(delayBeforeActiveInSeconds / 10);
-            }          
+            }
         }
+        enterAreaEvent.Play();
         Vector3 v2 = new Vector3(transform.rotation.x+Random.Range(50, 180), transform.rotation.y + Random.Range(50, 180), transform.rotation.z + Random.Range(50, 180));       
         transform.DOScale(startLocalScale * 1.1f, 0.1f).OnComplete(
             () => { 

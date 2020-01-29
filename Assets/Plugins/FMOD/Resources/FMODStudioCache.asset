@@ -100,12 +100,12 @@ MonoBehaviour:
   Path: event:/Environment/Bell
   guid: 7b8d45ec3ff3884a8bbc0ddf26ffdffa
   Banks:
-  - {fileID: 1513330128683685157}
+  - {fileID: 246160839868729663}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: -7723814028182745713}
+  - {fileID: 8039881519001731315}
   MinDistance: 0
   MaxDistance: 5
   Length: 2168
@@ -209,12 +209,12 @@ MonoBehaviour:
   Path: event:/PlayerAction/Attraction
   guid: c6e33807f50ad94fb206b9383e496bae
   Banks:
-  - {fileID: 1513330128683685157}
+  - {fileID: 246160839868729663}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -6161285879928159477}
+  - {fileID: -3081196214138366876}
   MinDistance: 0
   MaxDistance: 0
   Length: 20271
@@ -372,6 +372,23 @@ MonoBehaviour:
   Max: 2
   Default: 0
   Exists: 0
+--- !u!114 &-8405760109683223176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/LofiMusic/Cave Cricket
+  m_EditorClassIdentifier: 
+  Name: Cave Cricket
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 1
 --- !u!114 &-8351957262981466737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -643,7 +660,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &-7669668803834658598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -779,12 +796,12 @@ MonoBehaviour:
   Path: event:/Event/SuccessArea_bis
   guid: 51387c7f37c64349b1ea4e3c597354c3
   Banks:
-  - {fileID: 1513330128683685157}
+  - {fileID: 246160839868729663}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: 6519732938537131617}
+  - {fileID: -2044110548291598093}
   MinDistance: 0
   MaxDistance: 5
   Length: 2142
@@ -1274,7 +1291,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &-6152748137506513623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1395,6 +1412,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-5949744783391895031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/AmbientWater/Height
+  m_EditorClassIdentifier: 
+  Name: Height
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-5943599859408262156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1827,7 +1861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Projet FMOD/FMOD/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637159111724061431
+  lastModified: 637159210734534836
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -2129,12 +2163,12 @@ MonoBehaviour:
   Path: event:/Environment/AmbientNature
   guid: 784be27bce406c4daf1742419822ab84
   Banks:
-  - {fileID: 1513330128683685157}
+  - {fileID: 246160839868729663}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 6502178804667369024}
+  - {fileID: -2544458832941382466}
   MinDistance: 0
   MaxDistance: 0
   Length: 90112
@@ -2261,7 +2295,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &-3369206793859927382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2328,14 +2362,14 @@ MonoBehaviour:
   Path: event:/Event/EnterSnowGlob
   guid: ea386a6e21cbe44fa367a65ae6a3f3d5
   Banks:
-  - {fileID: 1513330128683685157}
+  - {fileID: 246160839868729663}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 4281
+  Length: 3577
 --- !u!114 &-3274782246923782096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2454,7 +2488,7 @@ MonoBehaviour:
   Path: event:/Music/MainMenu
   guid: 21a660f2583c8d498946d5daeb54aa8e
   Banks:
-  - {fileID: 1513330128683685157}
+  - {fileID: 246160839868729663}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -2496,6 +2530,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-3081196214138366876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Attraction/AttractForce
+  m_EditorClassIdentifier: 
+  Name: AttractForce
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-2956248549130236799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2511,14 +2562,14 @@ MonoBehaviour:
   Path: event:/Music/LofiMusic
   guid: 72266a78f6d5f047a6d7c307b003cade
   Banks:
-  - {fileID: 1513330128683685157}
+  - {fileID: 246160839868729663}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 3205918904990297493}
-  - {fileID: 7422416933189275214}
-  - {fileID: 967649766084587625}
+  - {fileID: -434598511622267671}
+  - {fileID: -1775059457157180964}
+  - {fileID: -8405760109683223176}
   MinDistance: 0
   MaxDistance: 0
   Length: 90112
@@ -2629,6 +2680,23 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 90117
+--- !u!114 &-2544458832941382466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/AmbientNature/Height
+  m_EditorClassIdentifier: 
+  Name: Height
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-2523465863416449703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2788,7 +2856,7 @@ MonoBehaviour:
   Path: event:/Event/BallEnterArea
   guid: 3085436dce9b424bb14ec96564fc61b6
   Banks:
-  - {fileID: 1513330128683685157}
+  - {fileID: 246160839868729663}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2880,12 +2948,12 @@ MonoBehaviour:
   Path: event:/Event/SpawnNewEnvironment
   guid: a5353e64e374e04bb4de935ca899e470
   Banks:
-  - {fileID: 1513330128683685157}
+  - {fileID: 246160839868729663}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: 7039348966268049291}
+  - {fileID: 806195125223777213}
   MinDistance: 0
   MaxDistance: 5
   Length: 3159
@@ -2904,7 +2972,7 @@ MonoBehaviour:
   Path: event:/PlayerAction/Repulsion
   guid: 8c873b1927c7a244ae9fdb7ca145d314
   Banks:
-  - {fileID: 1513330128683685157}
+  - {fileID: 246160839868729663}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -2912,6 +2980,23 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 3478
+--- !u!114 &-2044110548291598093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SuccessArea_bis/OnGravity
+  m_EditorClassIdentifier: 
+  Name: OnGravity
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-1969047635661429082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2996,12 +3081,12 @@ MonoBehaviour:
   Path: event:/Environment/Fluid
   guid: 82e25b958e1a9641a2679b97936f32b9
   Banks:
-  - {fileID: 1513330128683685157}
+  - {fileID: 246160839868729663}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: -1371344285626840171}
+  - {fileID: 1888902229016156094}
   MinDistance: 0
   MaxDistance: 3
   Length: 170
@@ -3073,6 +3158,23 @@ MonoBehaviour:
   Max: 2
   Default: 0
   Exists: 0
+--- !u!114 &-1775059457157180964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/LofiMusic/Rain
+  m_EditorClassIdentifier: 
+  Name: Rain
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 1
 --- !u!114 &-1705554285464996188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3267,7 +3369,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &-1363401041383934628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3453,7 +3555,7 @@ MonoBehaviour:
   Path: event:/Event/SuccessArea
   guid: 5e67af20af56684783156f29c38e5fac
   Banks:
-  - {fileID: 1513330128683685157}
+  - {fileID: 246160839868729663}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3563,6 +3665,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-719635659142379308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/AmbientWind/Height
+  m_EditorClassIdentifier: 
+  Name: Height
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-718397454061247811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3714,6 +3833,23 @@ MonoBehaviour:
   Name: Cave Cricket
   Min: 0
   Max: 2
+  Default: 0
+  Exists: 1
+--- !u!114 &-434598511622267671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/LofiMusic/Area
+  m_EditorClassIdentifier: 
+  Name: Area
+  Min: 0
+  Max: 4
   Default: 0
   Exists: 1
 --- !u!114 &-433962974369725977
@@ -3936,7 +4072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -4769023408508438152}
-  - {fileID: 1513330128683685157}
+  - {fileID: 246160839868729663}
   EditorEvents:
   - {fileID: 6616806396611859393}
   - {fileID: 7260679900452079121}
@@ -3963,10 +4099,10 @@ MonoBehaviour:
   - {fileID: 8799683089653898489}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 1513330128683685157}
+  - {fileID: 246160839868729663}
   StringsBanks:
   - {fileID: -4769023408508438152}
-  stringsBankWriteTime: 637159111724061431
+  stringsBankWriteTime: 637159210734534836
   cacheVersion: 3
 --- !u!114 &31811276168417120
 MonoBehaviour:
@@ -4001,7 +4137,7 @@ MonoBehaviour:
   Path: event:/Environment/AmbientCricket
   guid: b4b734ff27298b4789fe08508229f976
   Banks:
-  - {fileID: 1513330128683685157}
+  - {fileID: 246160839868729663}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -5249,6 +5385,24 @@ MonoBehaviour:
   Max: 2
   Default: 0
   Exists: 0
+--- !u!114 &246160839868729663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Projet FMOD/FMOD/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637159210734215663
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &328572398835352284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5264,12 +5418,12 @@ MonoBehaviour:
   Path: event:/Environment/AmbientWind
   guid: fe8ffb352222ce4fbe1e7045deb9020c
   Banks:
-  - {fileID: 1513330128683685157}
+  - {fileID: 246160839868729663}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -3409656773974358528}
+  - {fileID: -719635659142379308}
   MinDistance: 0
   MaxDistance: 0
   Length: 122966
@@ -5480,6 +5634,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &806195125223777213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SpawnNewEnvironment/OnGravity
+  m_EditorClassIdentifier: 
+  Name: OnGravity
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &806479894512752283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5564,7 +5735,7 @@ MonoBehaviour:
   Min: 0
   Max: 2
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &981657339617560489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5843,7 +6014,7 @@ MonoBehaviour:
   lastModified: 637159111724001590
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &1599690715070260500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5876,7 +6047,7 @@ MonoBehaviour:
   Path: event:/Environment/Frog
   guid: cbd11835da6ad641a35e770a8d7bb54a
   Banks:
-  - {fileID: 1513330128683685157}
+  - {fileID: 246160839868729663}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -6066,6 +6237,23 @@ MonoBehaviour:
   Max: 2
   Default: 0
   Exists: 0
+--- !u!114 &1888902229016156094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Fluid/OnGravity
+  m_EditorClassIdentifier: 
+  Name: OnGravity
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &1971590100297867744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6705,7 +6893,7 @@ MonoBehaviour:
   Min: 0
   Max: 4
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &3228710045973433429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6943,7 +7131,7 @@ MonoBehaviour:
   Path: event:/Event/BallExitArea
   guid: f09b5a8b7007d04aa8a04d11d7c146b0
   Banks:
-  - {fileID: 1513330128683685157}
+  - {fileID: 246160839868729663}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -7732,7 +7920,7 @@ MonoBehaviour:
   Path: event:/Noise
   guid: bffcd02e0a346a45a32dfa7d64eb0d84
   Banks:
-  - {fileID: 1513330128683685157}
+  - {fileID: 246160839868729663}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -7891,7 +8079,7 @@ MonoBehaviour:
   Path: event:/Environment/Hamster
   guid: e338e10105cc1f4b88e239b821a3c027
   Banks:
-  - {fileID: 1513330128683685157}
+  - {fileID: 246160839868729663}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -7915,7 +8103,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &6519732938537131617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7932,7 +8120,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &6589928765195084029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7982,7 +8170,7 @@ MonoBehaviour:
   Path: event:/Environment/Bird
   guid: 5a144b30c4b7314788e3d28e869fa455
   Banks:
-  - {fileID: 1513330128683685157}
+  - {fileID: 246160839868729663}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -8228,7 +8416,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &7043775077182141838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8278,7 +8466,7 @@ MonoBehaviour:
   Path: event:/Environment/SqueekyToy
   guid: d7be1f241bca4b4ca9a5cc92389c38f0
   Banks:
-  - {fileID: 1513330128683685157}
+  - {fileID: 246160839868729663}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -8318,7 +8506,7 @@ MonoBehaviour:
   Path: event:/Environment/Fire
   guid: 63ab4cff6619194ca05a6a6cdab22533
   Banks:
-  - {fileID: 1513330128683685157}
+  - {fileID: 246160839868729663}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -8376,7 +8564,7 @@ MonoBehaviour:
   Min: 0
   Max: 2
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &7429702530032976713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8591,12 +8779,12 @@ MonoBehaviour:
   Path: event:/Environment/AmbientWater
   guid: d12f65f272acab4b80a3d5d95ca0ee46
   Banks:
-  - {fileID: 1513330128683685157}
+  - {fileID: 246160839868729663}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 8011597279044298131}
+  - {fileID: -5949744783391895031}
   MinDistance: 0
   MaxDistance: 0
   Length: 90117
@@ -8664,6 +8852,23 @@ MonoBehaviour:
   m_Name: parameter:/AmbientWater/Height
   m_EditorClassIdentifier: 
   Name: Height
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &8039881519001731315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Bell/OnGravity
+  m_EditorClassIdentifier: 
+  Name: OnGravity
   Min: 0
   Max: 1
   Default: 0
@@ -8976,7 +9181,7 @@ MonoBehaviour:
   Path: event:/Event/EventFright
   guid: f76114695cc9354487bc6e84252455c0
   Banks:
-  - {fileID: 1513330128683685157}
+  - {fileID: 246160839868729663}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
