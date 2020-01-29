@@ -737,29 +737,29 @@ MonoBehaviour:
           m_Time: 0.06567534
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          value: 0.7
+          value: 0.2
         - m_Id: dd711f38-20c8-47d7-a065-1c9d23123b59
           m_Time: 0.1843137
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          value: 0.83
+          value: 0.33
         - m_Id: 0ae1c45e-ed49-4d81-af47-3ed2b2ec6ac8
           m_Time: 0.25
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          value: 0.9411079
+          value: 0.5
         - m_Id: f305c278-2a76-4997-a1ca-216c37bdeb9a
           m_Time: 0.6
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          value: 0.9411079
+          value: 0.5
         - m_Id: 8814ac36-51df-4f0c-b751-85ae3f9b23f7
           m_Time: 0.75
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          value: 0.71888566
+          value: 0.2188857
         - m_Id: 65df8d01-ecc6-41b1-a7e2-abba2ab1ba51
-          m_Time: 0.8644605
+          m_Time: 0.3644605
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
           value: 0.7

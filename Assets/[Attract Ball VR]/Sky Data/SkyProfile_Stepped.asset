@@ -344,12 +344,12 @@ MonoBehaviour:
           m_Time: 0.6
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          color: {r: 0.46431115, g: 0.50327814, b: 0.6981132, a: 1}
+          color: {r: 0.23349056, g: 0.27790874, b: 0.5, a: 1}
         - m_Id: 46195e49-6228-4210-8c6a-d0e1258d3cb0
           m_Time: 0.8
           m_InterpolationCurve: 1
           m_InterpolationDirection: 0
-          color: {r: 0.3994749, g: 0.42143553, b: 0.4433962, a: 1}
+          color: {r: 0.27754542, g: 0.29289785, b: 0.31132078, a: 1}
         - m_Id: 1ca2bd26-0422-4f97-96ca-9ff98d18811e
           m_Time: 0.875
           m_InterpolationCurve: 0
@@ -860,36 +860,41 @@ MonoBehaviour:
         minValue: 1
         maxValue: 25
       - keyframes:
+        - m_Id: 41d31546-14d0-4d14-af69-b8b20e65c5c2
+          m_Time: 0
+          m_InterpolationCurve: 0
+          m_InterpolationDirection: 0
+          value: 0.5
         - m_Id: d4622819-b185-4449-bcb0-0e4b252f8f69
           m_Time: 0.2
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          value: 1
+          value: 0.5
         - m_Id: dd711f38-20c8-47d7-a065-1c9d23123b59
           m_Time: 0.4
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          value: 0.95
+          value: 0.45
         - m_Id: f305c278-2a76-4997-a1ca-216c37bdeb9a
           m_Time: 0.6
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          value: 0.7
+          value: 0.2
         - m_Id: 8814ac36-51df-4f0c-b751-85ae3f9b23f7
           m_Time: 0.8
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          value: 0.7
+          value: 0.2
         - m_Id: 65df8d01-ecc6-41b1-a7e2-abba2ab1ba51
           m_Time: 0.875
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          value: 0.75
+          value: 0.25
         - m_Id: ba784b54-a479-4a30-829a-33ab6c5d06de
           m_Time: 1
           m_InterpolationCurve: 0
           m_InterpolationDirection: 0
-          value: 0.94110787
+          value: 0.45
         m_Name: Sun Light Intensity
         m_Id: ddc20c3a-4ace-4316-b402-494721cc8ad3
         minValue: 0
