@@ -5,15 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 1
+    path: Assets/[Attract Ball VR]/Scenes/JapaneseGarden.unity
+    guid: a2defd77bfa26d644a47843ccda55036
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/[Attract Ball VR]/Scenes/Tests VR/SetParameters.unity
     guid: 090a516b7fa500149b555eabf3a09434
   - enabled: 0
     path: "Assets/[Attract Ball VR]/Scenes/Tests VR/1 - Formes/Var 1 - Formes - Sph\xE8res.unity"
     guid: dea6f54b380057d4db31ffb3dced788c
-  - enabled: 1
-    path: Assets/[Attract Ball VR]/Scenes/JapaneseGarden.unity
-    guid: a2defd77bfa26d644a47843ccda55036
   - enabled: 0
     path: Assets/[Attract Ball VR]/Scenes/Tests VR/1 - Formes/Var 2 - Formes - Cubes.unity
     guid: 293d12d20bb98ae4fb1b9285ae0005b5
