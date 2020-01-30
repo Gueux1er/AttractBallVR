@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using FMODUnity;
 
 public class LevelManager : MonoBehaviour
 {
@@ -89,6 +90,8 @@ public class LevelManager : MonoBehaviour
         {
             Animator a = g.GetComponent<Animator>();
             if (a != null) a.SetTrigger("Appear");
+            StudioEventEmitter emitter = g.GetComponent<StudioEventEmitter>();
+            if (emitter != null) emitter.Play();
         }
 
         Area[] areasInLevel = GameObject.FindObjectsOfType<Area>();
